@@ -42,7 +42,7 @@ def loadPlugin():
     """
     plugin = os.path.join(
         os.path.dirname(__file__), 
-        "plug-in", 
+        "plug-ins", 
         "smoothWeightsCtxCommands.py"
     )
 
