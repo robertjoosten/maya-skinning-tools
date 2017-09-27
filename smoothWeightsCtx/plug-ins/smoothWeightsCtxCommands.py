@@ -1,5 +1,9 @@
 from maya import cmds, OpenMaya, OpenMayaMPx, OpenMayaAnim
 
+__author__    = "Robert Joosten"
+__version__   = "0.9.0"
+__email__     = "rwm.joosten@gmail.com"
+
 # ----------------------------------------------------------------------------
 
 CONTEXT_INITIALIZE = "smoothWeightsCtxInitialize"
@@ -418,7 +422,7 @@ def syntaxUpdate():
 # ----------------------------------------------------------------------------
 
 def initializePlugin( obj ):
-    plugin = OpenMayaMPx.MFnPlugin(obj, "Robert Joosten", "0.9", "Any")
+    plugin = OpenMayaMPx.MFnPlugin(obj, __author__, __version__, "Any")
         
     # get all commands
     commands = [
