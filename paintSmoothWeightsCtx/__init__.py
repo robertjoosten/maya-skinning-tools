@@ -9,28 +9,21 @@ U S A G E:
         paintSmoothWeightsCtx.paint()
     
 N O T E:
-    I would like to note that the idea for this script came from Tom Ferstl, 
-    he developed a script where the end results is very simular.
-
-    Profile: vimeo.com/tomferstl
-    Demo: vimeo.com/19802823
-
-    I did use the original script as an inspiration, but what happens under 
-    the hood is completely different.
-
-    artUserPaintCtx only takes in mel commands, but instead of writting a 
-    wrapper in mel that calls python code, I registered a new command which 
-    is written in python, improving the speed. This also gives you the option 
-    to add Undo and Redo functionality.
-
     The paint tool calls a script that find the surrounding vertices and its 
     skin weights. These skin weights are then blended with the skin weights 
     of the original vertex based value of the paint tool.
+        * Undo-able / Redo-able
 
-    It also takes into account the settings on your skinCluster. For real-time 
-    purposes its very common to have your maintain max influences set to a 
-    certain number. The same goes for normalization of the weights and the 
-    locked state of influences.
+    Based on the settings on the skinCluster the following attribute will be 
+    respected while smoothing the weights:
+        * Max Influences
+        * Normalize Weights
+        * Locked Influences
+
+    I would like to note that the idea for this script came from 
+    `Tom Ferstl <https://vimeo.com/tomferstl>` he developed a script where 
+    the end results is very simular. I did use the original script as an 
+    inspiration, but what happens under the hood is completely different.
 """
 
 __author__    = "Robert Joosten"

@@ -1,3 +1,26 @@
+"""					
+I N S T A L L A T I O N:
+    Copy the "rjSkinningTools" folder to your Maya scripts directory:
+        C:\Users\<USER>\Documents\maya\scripts
+
+U S A G E:
+    Add skinning shelf:
+        import rjSkinningTools
+        rjSkinningTools.install()
+
+T O O L S
+    paintSmoothWeightsCtx:
+        Paint smooth weights tool in Maya using the weights of neighbouring 
+        vertices.
+"""
+
+from maya import cmds, mel
+from . import ui
+
+__author__    = "Robert Joosten"
+__version__   = "0.9.2"
+__email__     = "rwm.joosten@gmail.com"
+
 from maya import cmds, mel
 from . import ui
 
