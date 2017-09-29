@@ -1,133 +1,14 @@
 from maya import cmds, OpenMaya, OpenMayaMPx, OpenMayaAnim
+from rjSkinningTools import utils
+
+__author__    = "Robert Joosten"
+__version__   = "0.9.0"
+__email__     = "rwm.joosten@gmail.com"
 
 # ----------------------------------------------------------------------------
 
 CONTEXT_INITIALIZE = "smoothWeightsCtxInitialize"
 CONTEXT_UPDATE = "smoothWeightsCtxUpdate"
-
-# ----------------------------------------------------------------------------
-
-def asMObject(path):
-    """
-    str -> OpenMaya.MObject
-
-    :param str path: Path to Maya object
-    :rtype: OpenMaya.MObject
-    """
-    selectionList = OpenMaya.MSelectionList()
-    selectionList.add(path)
-    
-    obj = OpenMaya.MObject()
-    selectionList.getDependNode(0, obj)
-    return obj
-    
-def asMDagPath(obj):
-    """
-    OpenMaya.MObject -> OpenMaya.MDagPath
-
-    :param OpenMaya.MObject obj:
-    :rtype: OpenMaya.MDagPath
-    """
-    return OpenMaya.MDagPath.getAPathTo(obj)
-    
-def asMFnSkinCluster(obj):
-    """
-    OpenMaya.MObject -> OpenMaya.MFnSkinCluster
-
-    :param OpenMaya.MObject obj:
-    :rtype: OpenMaya.MFnSkinCluster
-    """
-    iter = OpenMaya.MItDependencyGraph(
-        obj, 
-        OpenMaya.MFn.kSkinClusterFilter, 
-        OpenMaya.MItDependencyGraph.kUpstream
-    )
-    
-    while not iter.isDone():
-        return OpenMayaAnim.MFnSkinCluster(iter.currentItem())
-        
-# ----------------------------------------------------------------------------
-        
-def asMIntArray(index):
-    """
-    index -> OpenMaya.MIntArray
-    
-    :param int/OpenMaya.MIntArray index: indices
-    :return: Array of indices
-    :rtype: OpenMaya.MIntArray
-    """
-    if type(index) != OpenMaya.MIntArray:
-        array = OpenMaya.MIntArray()
-        array.append(index)
-        return array
-
-    return index
-
-# ----------------------------------------------------------------------------
-        
-def asComponent(index):
-    """
-    index -> OpenMaya.MFn.kMeshVertComponent
-    
-    :param int/OpenMaya.MIntArray index: indices to create component for
-    :return: Initialized component(s)
-    :rtype: OpenMaya.MFn.kMeshVertComponent
-    """
-    # convert input to an MIntArray if it not already is one
-    indices = asMIntArray(index)
-    
-    # initialize component(s)
-    t = OpenMaya.MFn.kMeshVertComponent
-    component = OpenMaya.MFnSingleIndexedComponent().create(t)
-    OpenMaya.MFnSingleIndexedComponent(component).addElements(indices)
-    return component
-    
-def getConnectedVertices(dag, component):
-    """
-    index -> OpenMaya.MFn.kMeshVertComponent
-    
-    :param OpenMaya.MDagPath dag:
-    :param OpenMaya.MFn.kMeshVertComponent component:
-    :return: Initialized component(s), number of connected vertices
-    :rtype: tuple(OpenMaya.MFn.kMeshVertComponent, int)
-    """
-    connected = OpenMaya.MIntArray()
-        
-    # get connected vertices
-    iter = OpenMaya.MItMeshVertex(dag, component)
-    iter.getConnectedVertices(connected)
-    
-    # get component of connected vertices
-    component = asComponent(connected)
-    return component, len(connected)
-    
-def getSkinWeights(dag, skinCluster, component, componentConnected):
-    """
-    Get the skin weights of the original vertex and of its connected vertices.
-    
-    :param OpenMaya.MDagPath dag:
-    :param OpenMayaAnim.MFnSkinCluster skinCluster:
-    :param OpenMaya.MFn.kMeshVertComponent component:
-    :param OpenMaya.MFn.kMeshVertComponent componentConnected:
-    :return: Original weights, Connected Weights and number of influences
-    :rtype: tuple(OpenMaya.MDoubleArray, OpenMaya.MDoubleArray, int)
-    """
-    # weights variables
-    weightsOriginal = OpenMaya.MDoubleArray()
-    weightsConnected = OpenMaya.MDoubleArray()
-    
-    # influences variables
-    influenceMSU = OpenMaya.MScriptUtil()
-    influencePTR = influenceMSU.asUintPtr()
-    
-    # get weights
-    skinCluster.getWeights(dag, component, weightsOriginal, influencePTR)
-    skinCluster.getWeights(dag, componentConnected, weightsConnected, influencePTR)
-    
-    # get num influences
-    num = OpenMaya.MScriptUtil.getUint(influencePTR)
-    
-    return weightsOriginal, weightsConnected, num
 
 # ----------------------------------------------------------------------------
 
@@ -156,11 +37,11 @@ class SmoothWeightsCtxManager(object):
             return 
 
         # get object data
-        self._obj = asMObject(obj)
-        self._dag = asMDagPath(self.obj)
+        self._obj = utils.asMObject(obj)
+        self._dag = utils.asMDagPath(self.obj)
         
         # get skin cluster
-        self._skinCluster = asMFnSkinCluster(self.obj)
+        self._skinCluster = utils.asMFnSkinCluster(self.obj)
         
         # get skin cluster data
         maxPlug = self.skinCluster.findPlug("maxInfluences")
@@ -318,17 +199,23 @@ class SmoothWeightsCtxManager(object):
             return [None]*5
 
         # get components
-        component = asComponent(index)
-        componentConnected, componentCount = getConnectedVertices(
+        component = utils.asComponent(index)
+        componentConnected, componentCount = utils.getConnectedVertices(
             self.dag, 
             component
         )
         
         # get current weights
-        weightsO, weightsC, influences = getSkinWeights(
+        weightsO, _ = utils.getSkinWeights(
             self.dag, 
             self.skinCluster, 
             component, 
+        )
+        
+        # get connected weights
+        weightsC, influences = utils.getSkinWeights(
+            self.dag, 
+            self.skinCluster, 
             componentConnected
         )
         
