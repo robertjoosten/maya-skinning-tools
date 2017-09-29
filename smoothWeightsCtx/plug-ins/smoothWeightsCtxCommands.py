@@ -1,9 +1,5 @@
 from maya import cmds, OpenMaya, OpenMayaMPx, OpenMayaAnim
 
-__author__    = "Robert Joosten"
-__version__   = "0.9.0"
-__email__     = "rwm.joosten@gmail.com"
-
 # ----------------------------------------------------------------------------
 
 CONTEXT_INITIALIZE = "smoothWeightsCtxInitialize"

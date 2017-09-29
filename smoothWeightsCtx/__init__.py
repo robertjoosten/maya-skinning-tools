@@ -18,10 +18,10 @@ N O T E:
     I did use the original script as an inspiration, but what happens under 
     the hood is completely different.
 
-    artUserPaintCtx only likes to take in mel commands, but instead of 
-    writting a wrapper in mel that calls python code, I registered a new 
-    command which is written in python, improving the speed. This also gives 
-    you the option to add Undo and Redo functionality.
+    artUserPaintCtx only takes in mel commands, but instead of writting a 
+    wrapper in mel that calls python code, I registered a new command which 
+    is written in python, improving the speed. This also gives you the option 
+    to add Undo and Redo functionality.
 
     The paint tool calls a script that find the surrounding vertices and its 
     skin weights. These skin weights are then blended with the skin weights 
