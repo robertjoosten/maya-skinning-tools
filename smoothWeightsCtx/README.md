@@ -14,12 +14,7 @@ smoothWeightsCtx.paint()
 ```
 
 ## Note
-I would like to note that the idea for this script came from Tom Ferstl, he developed a script where the end results is very simular.
-
-<a href="https://vimeo.com/tomferstl" target="_blank"><p align="center">Profile</p></a>
-<a href="vimeo.com/19802823" target="_blank"><p align="center">Demo</p></a>
-
-I did use the original script as an inspiration, but what happens under the hood is completely different.
+I would like to note that the idea for this script came from [Tom Ferstl](https://vimeo.com/tomferstl), he developed a script where the end results is very simular. I did use the original script as an inspiration, but what happens under the hood is completely different.
 
 artUserPaintCtx only takes in mel commands, but instead of writting a wrapper in mel that calls python code, I registered a new command which is written in python, improving the speed. This also gives you the option to add Undo and Redo functionality.
 
