@@ -5,8 +5,8 @@ I N S T A L L A T I O N:
         
 U S A G E:
     Select a skinned object and run the following code:
-        from rjSkinningTools import smoothWeightsCtx;
-        smoothWeightsCtx.paint()
+        from rjSkinningTools import paintSmoothWeightsCtx;
+        paintSmoothWeightsCtx.paint()
     
 N O T E:
     I would like to note that the idea for this script came from Tom Ferstl, 
@@ -42,9 +42,9 @@ import os
 
 # ----------------------------------------------------------------------------
 
-CONTEXT = "smoothWeightsCtx"
-CONTEXT_INITIALIZE = "smoothWeightsCtxInitialize"
-CONTEXT_UPDATE = "smoothWeightsCtxUpdate"
+CONTEXT = "paintSmoothWeightsCtx"
+CONTEXT_INITIALIZE = "paintSmoothWeightsCtxInitialize"
+CONTEXT_UPDATE = "paintSmoothWeightsCtxUpdate"
 
 # ----------------------------------------------------------------------------
 
@@ -82,7 +82,7 @@ def loadPlugin():
     plugin = os.path.join(
         os.path.dirname(__file__), 
         "plug-ins", 
-        "smoothWeightsCtxCommands.py"
+        "paintSmoothWeightsCtxCommands.py"
     )
 
     loaded = cmds.pluginInfo(plugin, q=True, loaded=True)

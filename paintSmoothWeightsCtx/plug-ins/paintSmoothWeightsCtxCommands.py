@@ -7,8 +7,8 @@ __email__     = "rwm.joosten@gmail.com"
 
 # ----------------------------------------------------------------------------
 
-CONTEXT_INITIALIZE = "smoothWeightsCtxInitialize"
-CONTEXT_UPDATE = "smoothWeightsCtxUpdate"
+CONTEXT_INITIALIZE = "paintSmoothWeightsCtxInitialize"
+CONTEXT_UPDATE = "paintSmoothWeightsCtxUpdate"
 
 # ----------------------------------------------------------------------------
 
