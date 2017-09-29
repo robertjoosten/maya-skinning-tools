@@ -13,5 +13,4 @@ rjSkinningTools.install()
 ```
 
 ## Tools
-[paintSmoothWeightsCtx](paintSmoothWeightsCtx/README.md)
-Paint smooth weights tool in Maya using the weights of neighbouring vertices.
+* [paintSmoothWeightsCtx](paintSmoothWeightsCtx/README.md) - Paint smooth weights tool in Maya using the weights of neighbouring vertices. 
