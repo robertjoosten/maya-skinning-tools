@@ -37,6 +37,13 @@ TOOLS = [
         "annotation":"Paint Smooth Weights Tool: Smooth weights on smooth bound skins",
         "image1":ui.findIcon("paintSmoothWeightsCtx.png"),
         "sourceType":"python"
+    },
+    {
+        "label":"paintRemoveInfluence",
+        "command":"import rjSkinningTools.paintRemoveInfluenceCtx.ui; rjSkinningTools.paintRemoveInfluenceCtx.ui.show()",
+        "annotation":"Paint Remove Influence Tool: Remove influence on smooth bound skins",
+        "image1":ui.findIcon("paintRemoveInfluenceCtx.png"),
+        "sourceType":"python"
     }
 ]
 

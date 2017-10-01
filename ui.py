@@ -1,4 +1,41 @@
 import os
+from maya import OpenMayaUI, cmds, mel
+
+# import pyside, do qt version check for maya 2017 >
+qtVersion = cmds.about(qtVersion=True)
+if qtVersion.startswith("4"):
+    from PySide.QtGui import *
+    from PySide.QtCore import *
+    import shiboken
+else:
+    from PySide2.QtGui import *
+    from PySide2.QtCore import *
+    from PySide2.QtWidgets import *
+    import shiboken2 as shiboken
+    
+# -----------------------------------------------------------------------------  
+    
+FONT = QFont()
+FONT.setFamily("Consolas")
+
+BOLT_FONT = QFont()
+BOLT_FONT.setFamily("Consolas")
+BOLT_FONT.setWeight(100)    
+
+# -----------------------------------------------------------------------------    
+    
+def mayaWindow():
+    """
+    Get Maya's main window.
+    
+    :rtype: QMainWindow
+    """
+    window = OpenMayaUI.MQtUtil.mainWindow()
+    window = shiboken.wrapInstance(long(window), QMainWindow)
+    
+    return window
+    
+# ----------------------------------------------------------------------------- 
 
 def findIcon(icon):
     """

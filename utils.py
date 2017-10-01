@@ -47,13 +47,18 @@ def asMIntArray(index):
     """
     index -> OpenMaya.MIntArray
     
-    :param int/OpenMaya.MIntArray index: indices
+    :param int/list of ints/OpenMaya.MIntArray index: indices
     :return: Array of indices
     :rtype: OpenMaya.MIntArray
     """
     if type(index) != OpenMaya.MIntArray:
         array = OpenMaya.MIntArray()
-        array.append(index)
+        if type(index) == list:
+            for i in index:
+                array.append(i)
+        else:
+            array.append(index)
+        
         return array
 
     return index
@@ -120,3 +125,110 @@ def getSkinWeights(dag, skinCluster, component):
     num = OpenMaya.MScriptUtil.getUint(influencePTR)
     
     return weights, num
+    
+def getInfluences(skinCluster):
+    """
+    Get all of the influence data connected to the skinCluster. This is a 
+    OpenMaya.MDagPathArray, OpenMaya.MIntArray() and a regular list of partial
+    names.
+    
+    :param OpenMaya.MFnSkinCluster skinCluster:
+    :return: Dag paths, integer and partial names
+    :rtype: tuple(
+        OpenMaya.MDagPathArray
+        OpenMaya.MIntArray
+        list of strings
+    )
+    """
+    # variables
+    influencesDag = OpenMaya.MDagPathArray()
+    influencesI = OpenMaya.MIntArray()
+    influencesN = []
+    
+    # get influences
+    skinCluster.influenceObjects(influencesDag)
+    
+    # get influences data
+    for i in range(influencesDag.length()):
+        influencesI.append(i)
+        influencesN.append(influencesDag[i].partialPathName())
+
+    return influencesDag, influencesI, influencesN
+    
+# ----------------------------------------------------------------------------
+
+def getSkinCluster(mesh):
+    """
+    Loop over an objects history and see if a skinCluster node is part of the
+    history.
+
+    :param str mesh:
+    :return: skinCluster that is attached to the parsed mesh
+    :rtype: str or None
+    """
+    skinClusters = [ 
+        h 
+        for h in cmds.listHistory(mesh) or [] 
+        if cmds.nodeType(h) == "skinCluster" 
+    ]
+    
+    if skinClusters: 
+        return skinClusters[0]
+        
+# ----------------------------------------------------------------------------
+
+def isMesh(mesh):
+    """
+    :param str mesh:
+    :return: if the parsed object is a mesh.
+    :rtype: bool
+    """
+    return cmds.nodeType(mesh) == "mesh"
+    
+def isSkinned(mesh):
+    """
+    :param str mesh:
+    :return: if the parsed object is a skinned mesh.
+    :rtype: bool
+    """
+    if not isMesh(mesh):
+        return False
+        
+    return getSkinCluster(mesh) != None
+    
+# ----------------------------------------------------------------------------
+
+def getMeshesFromSelection():
+    """
+    Loop over the current selection, excluding intermediate shapes. If the 
+    current selected object is not a mesh. The selection will be extended with
+    the shapes of that object.
+    
+    :return: List of meshes
+    :rtype: list of strings
+    """
+    meshes = []
+    selection = cmds.ls(sl=True, l=True, noIntermediate=True)
+    
+    for sel in selection:
+        # check if mesh
+        if isMesh(sel):
+            meshes.append(sel)
+            continue
+            
+        # extend to shapes
+        shapes = [
+            shape
+            for shape in cmds.listRelatives(sel, shapes=True, ni=True) or []
+            if isMesh(shape) 
+        ]
+        meshes.extend(shapes)
+        
+    return meshes
+    
+def getSkinnedMeshesFromSelection():
+    return [
+        mesh
+        for mesh in getMeshesFromSelection()
+        if isSkinned(mesh)  
+    ]
