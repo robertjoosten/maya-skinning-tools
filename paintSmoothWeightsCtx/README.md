@@ -1,4 +1,5 @@
 # paintSmoothWeightsCtx
+<img align="right" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/paintSmoothWeightsCtx.png">
 Paint smooth weights tool in Maya using the weights of neighbouring vertices.
 <a href="https://vimeo.com/126825847" target="_blank"><p align="center">Click for video</p></a>
 
