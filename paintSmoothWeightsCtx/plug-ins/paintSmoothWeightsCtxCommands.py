@@ -190,8 +190,8 @@ class SmoothWeightsCtxManager(object):
             OpenMayaAnim.MFnSkinCluster, 
             OpenMaya.MDagPath, 
             OpenMaya.MFn.kMeshVertComponent, 
-            OpenMaya.MDoubleArray, 
-            OpenMaya.MIntArray
+            OpenMaya.MIntArray, 
+            OpenMaya.MDoubleArray
         )
         """
         # check if manager is initialized
