@@ -1,6 +1,7 @@
 # paintRemoveInfluenceCtx
 <img align="right" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/paintRemoveInfluenceCtx.png">
 Remove influences on vertices with the paint tool.
+<p align="center"><img src="https://github.com/robertjoosten/rjSkinningTools/blob/master/paintRemoveInfluenceCtx/README.png"></p>
 <a href="https://vimeo.com/122189210" target="_blank"><p align="center">Click for video</p></a>
 
 ## Installation
