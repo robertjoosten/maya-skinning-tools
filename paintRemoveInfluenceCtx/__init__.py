@@ -7,6 +7,10 @@ U S A G E:
     Select a skinned object and run the following code:
         from rjSkinningTools import paintRemoveInfluenceCtx;
         paintRemoveInfluenceCtx.paint(mesh, influence)
+        
+    Display UI:
+        import rjSkinningTools.paintRemoveInfluenceCtx.ui;
+        rjSkinningTools.paintRemoveInfluenceCtx.ui.show()
     
 N O T E:
     The paint tool calls a script that will select all the vertices that are

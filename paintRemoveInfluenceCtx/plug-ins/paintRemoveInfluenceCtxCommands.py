@@ -280,7 +280,6 @@ class RemoveInfluenceCtxManager(object):
         
         # get difference between two lists
         difference = list(set(before) - set(after))
-        print difference
         if not difference:
             return
         
