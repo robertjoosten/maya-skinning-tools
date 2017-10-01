@@ -12,6 +12,8 @@ T O O L S
     paintSmoothWeightsCtx:
         Paint smooth weights tool in Maya using the weights of neighbouring 
         vertices.
+    paintRemoveInfluenceCtx:
+        Remove a specific influence on vertices with the paint tool.
 """
 
 from maya import cmds, mel
