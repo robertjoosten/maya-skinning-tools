@@ -13,6 +13,9 @@ rjSkinningTools.install()
 ```
 
 ## Tools
-* [paintSmoothWeightsCtx](paintSmoothWeightsCtx/README.md) - Paint smooth weights tool in Maya using the weights of neighbouring vertices.
-* [paintRemoveInfluenceCtx](paintRemoveInfluenceCtx/README.md) - Remove a specific influence on vertices with the paint tool.
-* [tweakVertexWeights](tweakVertexWeights/README.md) - Tweak influence weights on a vertex level.
+* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/paintSmoothWeightsCtx.png">[paintSmoothWeightsCtx](paintSmoothWeightsCtx/README.md) - Paint smooth weights tool in Maya using the weights of neighbouring vertices.
+
+* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/paintRemoveInfluenceCtx.png">[paintRemoveInfluenceCtx](paintRemoveInfluenceCtx/README.md) - Remove a specific influence on vertices with the paint tool.
+
+* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/tweakVertexWeights.png">[tweakVertexWeights](tweakVertexWeights/README.md) - Tweak influence weights on a vertex level.
+
