@@ -1,6 +1,6 @@
 # tweakVertexWeights
 <img align="right" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/tweakVertexWeights.png">
-Remove a specific influence on vertices with the paint tool.
+Tweak influence weights on a vertex level.
 
 <p align="center"><img src="https://github.com/robertjoosten/rjSkinningTools/blob/master/tweakVertexWeights/README.png"></p>
 <a href="https://vimeo.com/120942200" target="_blank"><p align="center">Click for video</p></a>
