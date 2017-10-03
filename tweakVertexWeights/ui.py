@@ -1,3 +1,5 @@
+import sys
+
 from maya import OpenMaya, OpenMayaUI, cmds
 from rjSkinningTools import ui, utils
 from .. import tweakVertexWeights
@@ -270,7 +272,7 @@ class VertexInfluencesWidget(ui.QFrame):
         :param bool state: Influence visibility state
         """
         for widget in self.widgets:
-            if widget.value:
+            if widget.value > sys.float_info.epsilon:
                 widget.setVisible(True)
                 continue
                 
@@ -286,7 +288,7 @@ class VertexInfluencesWidget(ui.QFrame):
                 [
                     0 
                     for widget in self.widgets 
-                    if widget.value > 0.0
+                    if widget.value > sys.float_info.epsilon
                 ]
             )
             if num > self.maxInfluences:
