@@ -214,7 +214,7 @@ class VertexInfluenceWidget(ui.QWidget):
     def sliderValueChanged(self):
         self.signal.emit(self.influence, self.getSliderValue())
         
-class VertexInfluencesWidget(ui.QFrame):
+class VertexInfluencesWidget(ui.QWidget):
     """
     Widget used to manage the collection of influences. Will loop over all of 
     the influences and instance widgets :class:`VertexInfluenceWidget`.
@@ -226,10 +226,10 @@ class VertexInfluencesWidget(ui.QFrame):
     warningSignal = ui.Signal(bool)
     
     def __init__(self, parent, skinCluster, data):
-        ui.QFrame.__init__(self, parent)
+        ui.QWidget.__init__(self, parent)
         
-        self.setFrameShape(ui.QFrame.StyledPanel)
-        self.setFrameShadow(ui.QFrame.Raised)
+        #self.setFrameShape(ui.QFrame.StyledPanel)
+        #self.setFrameShadow(ui.QFrame.Sunken)
         
         # variables
         self.widgets = []
@@ -414,9 +414,15 @@ class VertexWidget(ui.QWidget):
         layout.setContentsMargins(3, 3, 3, 3)
         layout.setSpacing(3)
         
+        # create divider
+        ui.addDivider(self, layout)
+        
         # create label
         self.label = VertexLabelWidget(self, vertex)
         layout.addWidget(self.label)
+        
+        # create divider
+        ui.addDivider(self, layout)
         
         # create frame
         self.frame = VertexInfluencesWidget(self, self.skinCluster, data)

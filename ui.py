@@ -42,6 +42,12 @@ class BlockSignals(object):
     def __exit__(self, *exc_info):
         for widget in self.widgets:
             widget.blockSignals(False)
+            
+def addDivider(widget, layout):
+    line = QFrame(widget)
+    line.setFrameShape(QFrame.HLine)
+    line.setFrameShadow(QFrame.Sunken)
+    layout.addWidget(line) 
 
 # -----------------------------------------------------------------------------    
     
