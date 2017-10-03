@@ -46,6 +46,13 @@ TOOLS = [
         "annotation":"Paint Remove Influence Tool: Remove influence on smooth bound skins",
         "image1":ui.findIcon("paintRemoveInfluenceCtx.png"),
         "sourceType":"python"
+    },
+    {
+        "label":"tweakVertexWeights",
+        "command":"import rjSkinningTools.tweakVertexWeights.ui; rjSkinningTools.tweakVertexWeights.ui.show()",
+        "annotation":"Tweak Influences on a vertex level",
+        "image1":ui.findIcon("tweakVertexWeights.png"),
+        "sourceType":"python"
     }
 ]
 
