@@ -22,9 +22,9 @@ from . import ui
 __author__    = "Robert Joosten"
 __email__     = "rwm.joosten@gmail.com"
 
-from maya import cmds, mel
-from . import ui
+# ----------------------------------------------------------------------------
 
+SHELF_NAME = "Skinning"
 TOOLS = [
     {
         "label":"paintSkinWeights",
@@ -53,8 +53,17 @@ TOOLS = [
         "annotation":"Tweak Influences on a vertex level",
         "image1":ui.findIcon("tweakVertexWeights.png"),
         "sourceType":"python"
+    },
+    {
+        "label":"softSelectionToWeights",
+        "command":"import rjSkinningTools.softSelectionToWeights.ui; rjSkinningTools.softSelectionToWeights.ui.show()",
+        "annotation":"Convert soft selection to skin weights",
+        "image1":ui.findIcon("softSelectionToWeights.png"),
+        "sourceType":"python"
     }
 ]
+
+# ----------------------------------------------------------------------------
 
 def install():
     """
@@ -69,11 +78,11 @@ def install():
     shelves = cmds.tabLayout(gShelfTopLevel, query=1, ca=1)
     
     # create shelf if it doesn't exist yet
-    if not __name__ in shelves:
-        cmds.shelfLayout(__name__, parent=gShelfTopLevel)
+    if not SHELF_NAME in shelves:
+        cmds.shelfLayout(SHELF_NAME, parent=gShelfTopLevel)
   
     # get existing members
-    existing = cmds.shelfLayout(__name__, query=True, childArray=True ) or []
+    existing = cmds.shelfLayout(SHELF_NAME, query=True, childArray=True ) or []
     existing = [cmds.shelfButton(e, query=True, label=True) for e in existing]
     
     # add modules
@@ -82,7 +91,7 @@ def install():
             continue
         
         if tool.get("image1"):
-            cmds.shelfButton(style = "iconOnly", parent = __name__, **tool)
+            cmds.shelfButton(style="iconOnly", parent=SHELF_NAME, **tool)
         else:
-            cmds.shelfButton(style = "textOnly", parent = __name__, **tool)
+            cmds.shelfButton(style="textOnly", parent=SHELF_NAME, **tool)
     

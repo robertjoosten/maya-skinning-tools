@@ -2,6 +2,22 @@ from maya import cmds, OpenMaya, OpenMayaMPx, OpenMayaAnim
 
 # ----------------------------------------------------------------------------
 
+class UndoChunkContext(object):
+    """
+    The undo context is used to combine a chain of commands into one undo.
+    Can be used in combination with the "with" statement.
+    
+    with UndoChunkContext():
+        # code
+    """
+    def __enter__(self):
+        cmds.undoInfo(openChunk=True)
+        
+    def __exit__(self, *exc_info):
+        cmds.undoInfo(closeChunk=True)
+
+# ----------------------------------------------------------------------------
+
 def asMObject(path):
     """
     str -> OpenMaya.MObject
@@ -176,6 +192,35 @@ def getSkinCluster(mesh):
         return skinClusters[0]
         
 # ----------------------------------------------------------------------------
+        
+def addInfluences(skinCluster, influences):
+    """
+    Add influences to the skin cluster. Expects full path influences. Will
+    try to reach the bind pose before attached the new influences to the skin
+    cluster.
+
+    :param str skinCluster:
+    :param list influences:
+    """
+    # get existing influences
+    existing = cmds.skinCluster(skinCluster, query=True, influence=True)
+    existing = cmds.ls(existing, l=True)
+    
+    # try restoring dagpose
+    try:    cmds.dagPose(existing, restore=True, g=True, bindPose=True)
+    except: cmds.warning("Unable to reach dagPose!")
+    
+    # add influences
+    for influence in influences:
+        if not influence in existing:
+            cmds.skinCluster(
+                skinCluster, 
+                edit=True, 
+                addInfluence=influence, 
+                weight=0.0
+            )
+      
+# ----------------------------------------------------------------------------
 
 def isMesh(mesh):
     """
@@ -227,6 +272,14 @@ def getMeshesFromSelection():
     return meshes
     
 def getSkinnedMeshesFromSelection():
+    """
+    Loop over the current selection, excluding intermediate shapes. If the 
+    current selected is a mesh and has a skin cluster attached to it. The 
+    selection will be extended with the shapes of that object.
+    
+    :return: List of skinned meshes
+    :rtype: list of strings
+    """
     return [
         mesh
         for mesh in getMeshesFromSelection()
