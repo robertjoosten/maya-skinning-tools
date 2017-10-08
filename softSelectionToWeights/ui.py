@@ -133,7 +133,7 @@ class FillerInfluenceWidget(ui.QWidget):
                 self.influence
             )
         )
-        influence.setIcon(SELECT_ICON)
+        influence.setIcon(ui.QIcon(SELECT_ICON))
         influence.setEnabled(True if self.influence else False)
 
         menu.exec_(self.mapToGlobal(event.pos()))
@@ -283,14 +283,14 @@ class InfluenceWidget(ui.QWidget):
                 self.influence
             )
         )
-        influence.setIcon(SELECT_ICON)
+        influence.setIcon(ui.QIcon(SELECT_ICON))
         influence.setEnabled(True if self.influence else False)
 
         soft = menu.addAction(
             "Select: Soft Selection",
             self.selectSoftSelection
         )
-        soft.setIcon(SELECT_ICON)
+        soft.setIcon(ui.QIcon(SELECT_ICON))
         soft.setEnabled(True if self.ssData else False)
         
         menu.exec_(self.mapToGlobal(event.pos()))
