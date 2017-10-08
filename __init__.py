@@ -94,4 +94,4 @@ def install():
             cmds.shelfButton(style="iconOnly", parent=SHELF_NAME, **tool)
         else:
             cmds.shelfButton(style="textOnly", parent=SHELF_NAME, **tool)
-    
+            

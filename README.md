@@ -18,3 +18,5 @@ rjSkinningTools.install()
 * <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/paintRemoveInfluenceCtx.png">[paintRemoveInfluenceCtx](paintRemoveInfluenceCtx/README.md) - Remove a specific influence on vertices with the paint tool.
 
 * <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/tweakVertexWeights.png">[tweakVertexWeights](tweakVertexWeights/README.md) - Tweak influence weights on a vertex level.
+
+* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/softSelectionToWeights.png">[softSelectionToWeights](softSelectionToWeights/README.md) - Convert soft selection to skin weights.
