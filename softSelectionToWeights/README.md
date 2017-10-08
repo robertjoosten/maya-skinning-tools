@@ -1,4 +1,4 @@
-# tweakVertexWeights
+# softSelectionToWeights
 <img align="right" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/softSelectionToWeights.png">
 Convert soft selection to skin weights.
 
