@@ -14,6 +14,10 @@ T O O L S
         vertices.
     paintRemoveInfluenceCtx:
         Remove a specific influence on vertices with the paint tool.
+    tweakVertexWeights:
+        Tweak influence weights on a vertex level.
+    softSelectionToWeights:
+        Convert soft selection to skin weights.
 """
 
 from maya import cmds, mel
