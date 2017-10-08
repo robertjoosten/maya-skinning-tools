@@ -10,9 +10,6 @@ from .. import softSelectionToWeights
 WINDOW_TITLE = "Soft Selection to Skin Weights"
 WINDOW_ICON = "softSelectionToWeights.png"
 
-ORANGE_STYLESHEET = "QLabel{color: orange}"
-RED_STYLESHEET = "QLabel{color: red}"
-
 ADD_ICON = ui.QIcon(":/setEdAddCmd.png")
 REMOVE_ICON = ui.QIcon(":/setEdRemoveCmd.png")
 JOINT_ICON = ui.QIcon(":/kinJoint.png")
