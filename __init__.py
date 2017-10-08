@@ -24,6 +24,7 @@ from maya import cmds, mel
 from . import ui
 
 __author__    = "Robert Joosten"
+__version__   = "0.0.1"
 __email__     = "rwm.joosten@gmail.com"
 
 # ----------------------------------------------------------------------------
