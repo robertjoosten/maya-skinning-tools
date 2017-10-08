@@ -1,0 +1,7 @@
+rjSkinningTools\.softSelectionToWeights\.ui module
+==================================================
+
+.. automodule:: rjSkinningTools.softSelectionToWeights.ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

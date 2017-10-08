@@ -1,0 +1,28 @@
+rjSkinningTools package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    rjSkinningTools.paintRemoveInfluenceCtx
+    rjSkinningTools.paintSmoothWeightsCtx
+    rjSkinningTools.softSelectionToWeights
+    rjSkinningTools.tweakVertexWeights
+
+Submodules
+----------
+
+.. toctree::
+
+   rjSkinningTools.ui
+   rjSkinningTools.utils
+
+Module contents
+---------------
+
+.. automodule:: rjSkinningTools
+    :members:
+    :undoc-members:
+    :show-inheritance:

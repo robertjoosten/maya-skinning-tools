@@ -1,0 +1,17 @@
+rjSkinningTools\.paintRemoveInfluenceCtx package
+================================================
+
+Submodules
+----------
+
+.. toctree::
+
+   rjSkinningTools.paintRemoveInfluenceCtx.ui
+
+Module contents
+---------------
+
+.. automodule:: rjSkinningTools.paintRemoveInfluenceCtx
+    :members:
+    :undoc-members:
+    :show-inheritance:

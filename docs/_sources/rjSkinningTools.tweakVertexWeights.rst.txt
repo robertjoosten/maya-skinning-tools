@@ -1,0 +1,17 @@
+rjSkinningTools\.tweakVertexWeights package
+===========================================
+
+Submodules
+----------
+
+.. toctree::
+
+   rjSkinningTools.tweakVertexWeights.ui
+
+Module contents
+---------------
+
+.. automodule:: rjSkinningTools.tweakVertexWeights
+    :members:
+    :undoc-members:
+    :show-inheritance:

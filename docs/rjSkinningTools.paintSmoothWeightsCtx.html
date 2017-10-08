@@ -1,0 +1,170 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>rjSkinningTools.paintSmoothWeightsCtx package &#8212; rjSkinningTools  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjSkinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rjskinningtools-paintsmoothweightsctx-package">
+<h1>rjSkinningTools.paintSmoothWeightsCtx package<a class="headerlink" href="#rjskinningtools-paintsmoothweightsctx-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-rjSkinningTools.paintSmoothWeightsCtx">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rjSkinningTools.paintSmoothWeightsCtx" title="Permalink to this headline">¶</a></h2>
+<p>Paint smooth weights tool in Maya using the weights of neighbouring vertices.</p>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Copy the <strong>rjSkinningTools</strong> folder to your Maya scripts directory</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USER</span><span class="o">&gt;/</span><span class="n">Documents</span><span class="o">/</span><span class="n">maya</span><span class="o">/</span><span class="n">scripts</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p>Select a skinned object and run the following code</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rjSkinningTools</span> <span class="k">import</span> <span class="n">paintSmoothWeightsCtx</span><span class="p">;</span>
+<span class="n">paintSmoothWeightsCtx</span><span class="o">.</span><span class="n">paint</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="note">
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<p>The paint tool calls a script that find the surrounding vertices and its 
+skin weights. These skin weights are then blended with the skin weights 
+of the original vertex based value of the paint tool.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Undo-able / Redo-able</li>
+</ul>
+</div></blockquote>
+<p>Based on the settings on the skinCluster the following attribute will be 
+respected while smoothing the weights:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Max Influences</li>
+<li>Normalize Weights</li>
+<li>Locked Influences</li>
+</ul>
+</div></blockquote>
+<p>I would like to note that the idea for this script came from 
+<cite>Tom Ferstl &lt;https://vimeo.com/tomferstl&gt;</cite> he developed a script where 
+the end results is very simular. I did use the original script as an 
+inspiration, but what happens under the hood is completely different.</p>
+</div>
+<div class="section" id="code">
+<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="rjSkinningTools.paintSmoothWeightsCtx.loadPlugin">
+<code class="descclassname">rjSkinningTools.paintSmoothWeightsCtx.</code><code class="descname">loadPlugin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.paintSmoothWeightsCtx.loadPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>When this script is imported the following code will make sure the 
+accompanying plugin is loaded that registers the commands used by the 
+context.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjSkinningTools.paintSmoothWeightsCtx.paint">
+<code class="descclassname">rjSkinningTools.paintSmoothWeightsCtx.</code><code class="descname">paint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.paintSmoothWeightsCtx.paint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the smooth weight context, make sure to have a mesh selected 
+with a skin cluster attached to it. Once this command is run the context
+will be set as the active tool.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">rjSkinningTools.paintSmoothWeightsCtx package</a><ul>
+<li><a class="reference internal" href="#module-rjSkinningTools.paintSmoothWeightsCtx">Module contents</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#note">Note</a></li>
+<li><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/rjSkinningTools.paintSmoothWeightsCtx.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjSkinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

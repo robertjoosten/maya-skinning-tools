@@ -10,11 +10,11 @@ from .. import softSelectionToWeights
 WINDOW_TITLE = "Soft Selection to Skin Weights"
 WINDOW_ICON = "softSelectionToWeights.png"
 
-ADD_ICON = ui.QIcon(":/setEdAddCmd.png")
-REMOVE_ICON = ui.QIcon(":/setEdRemoveCmd.png")
-JOINT_ICON = ui.QIcon(":/kinJoint.png")
-SOFTSELECT_ICON = ui.QIcon(":/customSoftSelectFalloffCurve.png")
-SELECT_ICON = ui.QIcon(":/redSelect.png")
+ADD_ICON = ":/setEdAddCmd.png"
+REMOVE_ICON = ":/setEdRemoveCmd.png"
+JOINT_ICON = ":/kinJoint.png"
+SOFTSELECT_ICON = ":/customSoftSelectFalloffCurve.png"
+SELECT_ICON = ":/redSelect.png"
 
 # ----------------------------------------------------------------------------
 
@@ -28,6 +28,7 @@ class IconButton(ui.QPushButton):
     def __init__(self, parent, icon):
         ui.QPushButton.__init__(self, parent)
 
+        icon = ui.QIcon(icon)
         self.setIcon(icon)
         self.setIconSize(ui.QSize(24,24))
         self.setFixedSize(ui.QSize(24,24))

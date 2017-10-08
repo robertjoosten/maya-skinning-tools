@@ -1,0 +1,7 @@
+rjSkinningTools\.paintRemoveInfluenceCtx\.ui module
+===================================================
+
+.. automodule:: rjSkinningTools.paintRemoveInfluenceCtx.ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -13,8 +13,8 @@ ORANGE_STYLESHEET = "QLabel{color: orange}"
 RED_STYLESHEET = "QLabel{color: red}"
 
 LOCK_ICON = {
-    True:ui.QIcon(":/Lock_ON.png"),
-    False:ui.QIcon(":/Lock_OFF.png")
+    True:":/Lock_ON.png",
+    False:":/Lock_OFF.png"
 }
 
 DISPLAY_MAXIMUM = 10
@@ -119,7 +119,7 @@ class VertexInfluenceWidget(ui.QWidget):
         self.lock = ui.QPushButton(self)
         self.lock.setFlat(True)
         self.lock.setCheckable(True)
-        self.lock.setIcon(LOCK_ICON.get(isLocked))
+        self.lock.setIcon(ui.QIcon(LOCK_ICON.get(isLocked)))
         self.lock.setFixedSize(ui.QSize(18, 18))
         self.lock.released.connect(self.toggleLocked)
         layout.addWidget(self.lock)

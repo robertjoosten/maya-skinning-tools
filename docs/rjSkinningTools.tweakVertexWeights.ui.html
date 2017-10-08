@@ -1,0 +1,441 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>rjSkinningTools.tweakVertexWeights.ui module &#8212; rjSkinningTools  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjSkinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-rjSkinningTools.tweakVertexWeights.ui">
+<span id="rjskinningtools-tweakvertexweights-ui-module"></span><h1>rjSkinningTools.tweakVertexWeights.ui module<a class="headerlink" href="#module-rjSkinningTools.tweakVertexWeights.ui" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget">
+<em class="property">class </em><code class="descclassname">rjSkinningTools.tweakVertexWeights.ui.</code><code class="descname">TweakVertexWeightsWidget</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<p>Widget used to manage all of the vertices that are currently selected. A
+callback is registered to update the ui every time the selection is 
+changed. For each vertex the following class is used <a class="reference internal" href="#rjSkinningTools.tweakVertexWeights.ui.VertexWidget" title="rjSkinningTools.tweakVertexWeights.ui.VertexWidget"><code class="xref py py-class docutils literal"><span class="pre">VertexWidget</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<em>QWidget</em>) – </td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all of the widgets from the layout apart from the last item 
+which is a spacer item.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.closeEvent">
+<code class="descname">closeEvent</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.closeEvent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.registerCallback">
+<code class="descname">registerCallback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.registerCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register callback that will update the ui everytime the selection has
+changed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.removeCallback">
+<code class="descname">removeCallback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.removeCallback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.selectionChanged">
+<code class="descname">selectionChanged</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.selectionChanged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the current selection and populate the ui with the skinned 
+vertices that are currently selection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.TweakVertexWeightsWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget">
+<em class="property">class </em><code class="descclassname">rjSkinningTools.tweakVertexWeights.ui.</code><code class="descname">VertexInfluenceWidget</code><span class="sig-paren">(</span><em>parent</em>, <em>influence</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<p>Widget used to manage the influence weight. A label, slider and spinbox
+are created that can be manipulated by the user. Also can an influence be
+locked so its values cannot be changed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<em>QWidget</em>) – </li>
+<li><strong>influence</strong> (<em>str</em>) – </li>
+<li><strong>value</strong> (<em>float</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.getSliderValue">
+<code class="descname">getSliderValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.getSliderValue" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Weight value read from the slider.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.getSpinboxValue">
+<code class="descname">getSpinboxValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.getSpinboxValue" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Weight value read from the spinbox.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.isLocked">
+<code class="descname">isLocked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.isLocked" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Locked state of the influence</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.setValue">
+<code class="descname">setValue</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.setValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the influence. Will block the signals as the 
+valueChanged callback shouldn’t be triggered.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>float</em>) – Influence weight value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.signal">
+<code class="descname">signal</code><em class="property"> = &lt;PySide.QtCore.Signal object&gt;</em><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.sliderValueChanged">
+<code class="descname">sliderValueChanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.sliderValueChanged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.spinboxValueChanged">
+<code class="descname">spinboxValueChanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.spinboxValueChanged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.toggleLocked">
+<code class="descname">toggleLocked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget.toggleLocked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle the locked state of the influence. Will enable or disable the
+input fields of the influence and update the lock icon.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget">
+<em class="property">class </em><code class="descclassname">rjSkinningTools.tweakVertexWeights.ui.</code><code class="descname">VertexInfluencesWidget</code><span class="sig-paren">(</span><em>parent</em>, <em>skinCluster</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<p>Widget used to manage the collection of influences. Will loop over all of 
+the influences and instance widgets <a class="reference internal" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget" title="rjSkinningTools.tweakVertexWeights.ui.VertexInfluenceWidget"><code class="xref py py-class docutils literal"><span class="pre">VertexInfluenceWidget</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<em>QWidget</em>) – </li>
+<li><strong>data</strong> (<em>list</em>) – Sorted list of values and influences</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.calculateWeights">
+<code class="descname">calculateWeights</code><span class="sig-paren">(</span><em>changedInfluence</em>, <em>changedValue</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.calculateWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the new weights based on the values of the skin cluster and
+updated ui fields. Of normalization mode is activated the new weights
+will be normalized, this will also be reflected in the ui. Locked 
+weights are respected and won’t be changed. The new weights will be 
+formatted in a list that can be used by Maya’s skinPercent command.
+This list will then be emmited to be picked up by another function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>changedInfluence</strong> (<em>str</em>) – Influence name</li>
+<li><strong>changedValue</strong> (<em>float</em>) – Influence value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.displayInfluences">
+<code class="descname">displayInfluences</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.displayInfluences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Based on the state the influences will be displayed always or only 
+when the value is more than 0. This is done to make the influences 
+overview less crowded and easier to manage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<em>bool</em>) – Influence visibility state</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.displayMaxInfluences">
+<code class="descname">displayMaxInfluences</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.displayMaxInfluences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if the maximum influences is exceeded and will emit a 
+warning signal so the user can be alerted this is happening.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.resetWeights">
+<code class="descname">resetWeights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.resetWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the influence weights to the values before the input was 
+changed. This sometimes needs to happen if the user does invalid 
+actions. Like trying to change the weights, while all other influences
+are locked.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.signal">
+<code class="descname">signal</code><em class="property"> = &lt;PySide.QtCore.Signal object&gt;</em><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.warningSignal">
+<code class="descname">warningSignal</code><em class="property"> = &lt;PySide.QtCore.Signal object&gt;</em><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget.warningSignal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget">
+<em class="property">class </em><code class="descclassname">rjSkinningTools.tweakVertexWeights.ui.</code><code class="descname">VertexLabelWidget</code><span class="sig-paren">(</span><em>parent</em>, <em>vertex</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<p>Widget used to manage the vertex that is parsed. Will create a label, 
+warning label and checkbox to display.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<em>QWidget</em>) – </li>
+<li><strong>vertex</strong> (<em>str</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget.checkboxStateChanged">
+<code class="descname">checkboxStateChanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget.checkboxStateChanged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget.displayWarning">
+<code class="descname">displayWarning</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget.displayWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the visibility of the warning based on the input. Shows that 
+the user has exceeded the maximum allowed influences.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<em>bool</em>) – Visible state of the warning</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget.signal">
+<code class="descname">signal</code><em class="property"> = &lt;PySide.QtCore.Signal object&gt;</em><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget.signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexWidget">
+<em class="property">class </em><code class="descclassname">rjSkinningTools.tweakVertexWeights.ui.</code><code class="descname">VertexWidget</code><span class="sig-paren">(</span><em>parent</em>, <em>vertex</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<p>Widget used to manage the influences of an entire vertex. Will create a 
+header <a class="reference internal" href="#rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget" title="rjSkinningTools.tweakVertexWeights.ui.VertexLabelWidget"><code class="xref py py-class docutils literal"><span class="pre">VertexLabelWidget</span></code></a>. and a manager for all of the influences
+<a class="reference internal" href="#rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget" title="rjSkinningTools.tweakVertexWeights.ui.VertexInfluencesWidget"><code class="xref py py-class docutils literal"><span class="pre">VertexInfluencesWidget</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<em>QWidget</em>) – </li>
+<li><strong>vertex</strong> (<em>str</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexWidget.setWeights">
+<code class="descname">setWeights</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexWidget.setWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the weights on the Maya vertex.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>list</em>) – List of list with influences and weights data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.VertexWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.VertexWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rjSkinningTools.tweakVertexWeights.ui.show">
+<code class="descclassname">rjSkinningTools.tweakVertexWeights.ui.</code><code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.tweakVertexWeights.ui.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/rjSkinningTools.tweakVertexWeights.ui.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjSkinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

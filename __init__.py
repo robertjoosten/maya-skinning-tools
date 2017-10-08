@@ -1,23 +1,35 @@
-"""					
-I N S T A L L A T I O N:
-    Copy the "rjSkinningTools" folder to your Maya scripts directory:
-        C:\Users\<USER>\Documents\maya\scripts
+"""		
+Skinning tools for maya.
 
-U S A G E:
-    Add skinning shelf:
-        import rjSkinningTools
-        rjSkinningTools.install()
+Installation
+============
+Copy the **rjSkinningTools** folder to your Maya scripts directory
+::
+    C:/Users/<USER>/Documents/maya/scripts
 
-T O O L S
-    paintSmoothWeightsCtx:
-        Paint smooth weights tool in Maya using the weights of neighbouring 
-        vertices.
-    paintRemoveInfluenceCtx:
-        Remove a specific influence on vertices with the paint tool.
-    tweakVertexWeights:
-        Tweak influence weights on a vertex level.
-    softSelectionToWeights:
-        Convert soft selection to skin weights.
+Usage
+=====
+Add skinning shelf
+::
+    import rjSkinningTools
+    rjSkinningTools.install()
+
+Tools
+=====
+**paintSmoothWeightsCtx** 
+    * Paint smooth weights tool in Maya using the weights of neighbouring vertices.
+
+**paintRemoveInfluenceCtx** 
+    * Remove a specific influence on vertices with the paint tool.
+
+**tweakVertexWeights** 
+    * Tweak influence weights on a vertex level.
+
+**softSelectionToWeights** 
+    * Convert soft selection to skin weights.
+
+Code
+====
 """
 
 from maya import cmds, mel

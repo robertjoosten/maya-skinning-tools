@@ -1,0 +1,17 @@
+rjSkinningTools\.softSelectionToWeights package
+===============================================
+
+Submodules
+----------
+
+.. toctree::
+
+   rjSkinningTools.softSelectionToWeights.ui
+
+Module contents
+---------------
+
+.. automodule:: rjSkinningTools.softSelectionToWeights
+    :members:
+    :undoc-members:
+    :show-inheritance:

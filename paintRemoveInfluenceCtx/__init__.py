@@ -1,27 +1,43 @@
-"""					
-I N S T A L L A T I O N:
-    Copy the "rjSkinningTools" folder to your Maya scripts directory:
-        C:\Users\<USER>\Documents\maya\scripts
-        
-U S A G E:
-    Select a skinned object and run the following code:
-        from rjSkinningTools import paintRemoveInfluenceCtx;
-        paintRemoveInfluenceCtx.paint(mesh, influence)
-        
-    Display UI:
-        import rjSkinningTools.paintRemoveInfluenceCtx.ui;
-        rjSkinningTools.paintRemoveInfluenceCtx.ui.show()
+"""	
+Remove a specific influence on vertices with the paint tool.
+
+.. figure:: https://github.com/robertjoosten/rjSkinningTools/raw/master/paintRemoveInfluenceCtx/README.png
+   :align: center
+   
+`Link to Video <https://vimeo.com/122189210>`_
+
+Installation
+============
+Copy the **rjSkinningTools** folder to your Maya scripts directory
+::
+    C:/Users/<USER>/Documents/maya/scripts
+
+Usage
+=====
+Select a skinned object and run the following code
+::
+    from rjSkinningTools import paintRemoveInfluenceCtx;
+    paintRemoveInfluenceCtx.paint(mesh, influence)
+
+Display UI
+::
+    import rjSkinningTools.paintRemoveInfluenceCtx.ui;
+    rjSkinningTools.paintRemoveInfluenceCtx.ui.show()
     
-N O T E:
-    The paint tool calls a script that will select all the vertices that are
-    influenced by the parsed influence. You can then paint away the influence
-    on those vertices with the paint tool.
-        * Undo-able / Redo-able
+Note
+====
+The paint tool calls a script that will select all the vertices that are 
+influenced by the parsed influence. You can then paint away the influence 
+on those vertices with the paint tool.
+    * Undo-able / Redo-able
         
-    Based on the settings on the skinCluster the following attribute will be 
-    respected while removing the influence weights:
-        * Normalize Weights
-        * Locked Influences
+Based on the settings on the skinCluster the following attribute will be 
+respected while removing the influence weights:
+    * Normalize Weights
+    * Locked Influences    
+
+Code
+====
 """
 
 __author__    = "Robert Joosten"

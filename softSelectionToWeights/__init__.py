@@ -1,21 +1,36 @@
-"""					
-I N S T A L L A T I O N:
-    Copy the "rjSkinningTools" folder to your Maya scripts directory:
-        C:\Users\<USER>\Documents\maya\scripts
+"""			
+Convert soft selection to skin weights.
 
-U S A G E:
-    Display UI:  
-        import rjSkinningTools.softSelectionToWeights.ui
-        rjSkinningTools.softSelectionToWeights.ui.show()
+.. figure:: https://github.com/robertjoosten/rjSkinningTools/raw/master/softSelectionToWeights/README.png
+   :align: center
+   
+`Link to Video <https://vimeo.com/121190357>`_
 
-N O T E:
-    Convert soft selection into skin weights. More influences can be added by
-    clicking the plus button. When more influences are added these weights are
-    automatically blended. The influence and soft selection can be reselected
-    by right clicking the influence widget and using the context menu. 
+Installation
+============
+Copy the **rjSkinningTools** folder to your Maya scripts directory
+::
+    C:/Users/<USER>/Documents/maya/scripts
     
-    Skin cluster settings like max influences and normalization will be taken
-    into account when applying the skin weights.
+Usage
+=====
+Display UI
+::
+    import rjSkinningTools.softSelectionToWeights.ui
+    rjSkinningTools.softSelectionToWeights.ui.show()    
+
+Note
+====
+Convert soft selection into skin weights. More influences can be added by 
+clicking the plus button. When more influences are added these weights are 
+automatically blended. The influence and soft selection can be reselected by 
+right clicking the influence widget and using the context menu. 
+    
+Skin cluster settings like max influences and normalization will be taken into 
+account when applying the skin weights.
+
+Code
+====
 """
 
 from maya import OpenMaya, cmds
@@ -112,8 +127,7 @@ def setSkinWeights(mesh, meshData, influences, filler=None):
                 influence:weight,
                 influence:weight,
             },
-        }
-            
+        }    
     }
     
     :param str mesh:

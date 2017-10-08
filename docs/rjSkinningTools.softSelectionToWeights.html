@@ -1,0 +1,228 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>rjSkinningTools.softSelectionToWeights package &#8212; rjSkinningTools  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjSkinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rjskinningtools-softselectiontoweights-package">
+<h1>rjSkinningTools.softSelectionToWeights package<a class="headerlink" href="#rjskinningtools-softselectiontoweights-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rjSkinningTools.softSelectionToWeights.ui.html">rjSkinningTools.softSelectionToWeights.ui module</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-rjSkinningTools.softSelectionToWeights">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rjSkinningTools.softSelectionToWeights" title="Permalink to this headline">¶</a></h2>
+<p>Convert soft selection to skin weights.</p>
+<div class="figure align-center">
+<img alt="https://github.com/robertjoosten/rjSkinningTools/raw/master/softSelectionToWeights/README.png" src="https://github.com/robertjoosten/rjSkinningTools/raw/master/softSelectionToWeights/README.png" />
+</div>
+<p><a class="reference external" href="https://vimeo.com/121190357">Link to Video</a></p>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Copy the <strong>rjSkinningTools</strong> folder to your Maya scripts directory</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USER</span><span class="o">&gt;/</span><span class="n">Documents</span><span class="o">/</span><span class="n">maya</span><span class="o">/</span><span class="n">scripts</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p>Display UI</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rjSkinningTools.softSelectionToWeights.ui</span>
+<span class="n">rjSkinningTools</span><span class="o">.</span><span class="n">softSelectionToWeights</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    
+</pre></div>
+</div>
+</div>
+<div class="section" id="note">
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<p>Convert soft selection into skin weights. More influences can be added by 
+clicking the plus button. When more influences are added these weights are 
+automatically blended. The influence and soft selection can be reselected by 
+right clicking the influence widget and using the context menu.</p>
+<p>Skin cluster settings like max influences and normalization will be taken into 
+account when applying the skin weights.</p>
+</div>
+<div class="section" id="code">
+<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="rjSkinningTools.softSelectionToWeights.getSoftSelection">
+<code class="descclassname">rjSkinningTools.softSelectionToWeights.</code><code class="descname">getSoftSelection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.softSelectionToWeights.getSoftSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the soft selection in the scene. If no soft selection is made empty
+lists will be returned. The active selection will be returned for easy
+reselection. The data structure of the soft selection weight is as 
+followed.</p>
+<dl class="docutils">
+<dt>data = {</dt>
+<dd><dl class="first docutils">
+<dt>mesh:{</dt>
+<dd>{index:weight},
+{index:weight},</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Active selection list for re-selection and weight data.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple(OpenMaya.MSelectionList, dict)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjSkinningTools.softSelectionToWeights.setSkinWeights">
+<code class="descclassname">rjSkinningTools.softSelectionToWeights.</code><code class="descname">setSkinWeights</code><span class="sig-paren">(</span><em>mesh</em>, <em>meshData</em>, <em>influences</em>, <em>filler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.softSelectionToWeights.setSkinWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate and set the new skin weights. If no skin cluster is attached to
+the mesh, one will be created and all weights will be set to 1 with the 
+filler influence. If a skin cluster does exist, the current weights will
+be used to blend the new weights. Maintaining of maximum influences and 
+normalization of the weights will be taken into account if these 
+attributes are set on the skin cluster.</p>
+<dl class="docutils">
+<dt>meshData = {</dt>
+<dd><dl class="first docutils">
+<dt>mesh:{</dt>
+<dd><dl class="first docutils">
+<dt>{index:{</dt>
+<dd>influence:weight,
+influence:weight,</dd>
+</dl>
+<p>},
+{index:{</p>
+<blockquote>
+<div>influence:weight,
+influence:weight,</div></blockquote>
+<p class="last">},</p>
+</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mesh</strong> (<em>str</em>) – </li>
+<li><strong>meshData</strong> (<em>dict</em>) – skinning data for the mesh</li>
+<li><strong>influences</strong> (<em>list</em>) – list of (new) influences</li>
+<li><strong>filler</strong> (<em>str</em>) – Filler joint if no skin cluster is detected</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">rjSkinningTools.softSelectionToWeights package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-rjSkinningTools.softSelectionToWeights">Module contents</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#note">Note</a></li>
+<li><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/rjSkinningTools.softSelectionToWeights.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjSkinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

@@ -1,20 +1,35 @@
-"""					
-I N S T A L L A T I O N:
-    Copy the "rjSkinningTools" folder to your Maya scripts directory:
-        C:\Users\<USER>\Documents\maya\scripts
+"""		
+Tweak influence weights on a vertex level.
 
-U S A G E:
-    Display UI:  
-        import rjSkinningTools.tweakVertexWeights.ui
-        rjSkinningTools.tweakVertexWeights.ui.show()
+.. figure:: https://github.com/robertjoosten/rjSkinningTools/raw/master/tweakVertexWeights/README.png
+   :align: center
+   
+`Link to Video <https://vimeo.com/120942200>`_
 
-N O T E:
-    Tweak vertex weights with sliders or spinbox input fields. This tool will
-    give the user a good overview of what influences are translating the 
-    vertex. At the same time being able to tweak those influence to a 0.001 
-    of precision, while setting the locked state of certain influences. It 
-    also shows if the maximum amount of influences is exceeded. The ui gets 
-    updated every time the selection is changed in Maya.
+Installation
+============
+Copy the **rjSkinningTools** folder to your Maya scripts directory
+::
+    C:/Users/<USER>/Documents/maya/scripts
+    
+Usage
+=====
+Display UI
+::
+    import rjSkinningTools.tweakVertexWeights.ui
+    rjSkinningTools.tweakVertexWeights.ui.show()
+			
+Note
+====
+Tweak vertex weights with sliders or spinbox input fields. This tool will
+give the user a good overview of what influences are translating the 
+vertex. At the same time being able to tweak those influence to a 0.001 
+of precision, while setting the locked state of certain influences. It 
+also shows if the maximum amount of influences is exceeded. The ui gets 
+updated every time the selection is changed in Maya.
+
+Code
+====
 """
 
 from maya import cmds, mel
