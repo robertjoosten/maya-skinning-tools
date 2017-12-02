@@ -3,7 +3,7 @@ import sys
 from maya import OpenMaya, cmds
 from functools import partial
 from rjSkinningTools import ui, utils
-from .. import softSelectionToWeights
+from . import getSoftSelection, setSkinWeights
 
 # ----------------------------------------------------------------------------
 
@@ -249,7 +249,7 @@ class InfluenceWidget(ui.QWidget):
         
         :raises RuntimeError: if no soft selection is made
         """
-        self.ssActive, self.ssData = softSelectionToWeights.getSoftSelection()
+        self.ssActive, self.ssData = getSoftSelection()
         self.setSoftSelection.emit()
         
         # reset values if no soft selection
@@ -459,7 +459,7 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
                 print "No Filler Influence found for mesh: {0}".format(mesh)
                 continue
                 
-            softSelectionToWeights.setSkinWeights(
+            setSkinWeights(
                 mesh,
                 meshData,
                 infs,

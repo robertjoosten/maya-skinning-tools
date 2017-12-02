@@ -2,7 +2,7 @@ import sys
 
 from maya import OpenMaya, OpenMayaUI, cmds
 from rjSkinningTools import ui, utils
-from .. import tweakVertexWeights
+from . import getSkinnedVertices
 
 # ----------------------------------------------------------------------------
 
@@ -545,7 +545,7 @@ class TweakVertexWeightsWidget(ui.QWidget):
         self.clear()
         
         # get selection
-        vertices = tweakVertexWeights.getSkinnedVertices()
+        vertices = getSkinnedVertices()
         for vertex in vertices[:DISPLAY_MAXIMUM]:
             widget = VertexWidget(self, vertex)
             
