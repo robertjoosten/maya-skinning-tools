@@ -1,7 +1,7 @@
 # delinearWeights
 <img align="right" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/delinearWeights.png">
 De-linearize skin weights.
-<p align="center"><img src="https://github.com/robertjoosten/rjSkinningTools/blob/master/delinearWeights/README.png"></p>
+<p align="center"><img src="https://github.com/robertjoosten/rjSkinningTools/blob/master/delinearWeights/README.gif"></p>
 
 ## Installation
 Copy the **rjSkinningTools** folder to your Maya scripts directory:

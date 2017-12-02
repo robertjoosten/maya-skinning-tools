@@ -1,7 +1,7 @@
 """		
 De-linearize skin weights.
 
-.. figure:: https://github.com/robertjoosten/rjSkinningTools/raw/master/delinearWeights/README.png
+.. figure:: https://github.com/robertjoosten/rjSkinningTools/raw/master/delinearWeights/README.gif
    :align: center
    
 Installation
