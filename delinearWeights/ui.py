@@ -4,7 +4,7 @@ from . import deLinearSkinWeightsOnSelection
 
 # ----------------------------------------------------------------------------
 
-WINDOW_TITLE = "De-Linearize Skin Weight"
+WINDOW_TITLE = "De-Linearize Skin Weights"
 WINDOW_ICON = "delinearWeights.png"
 
 # ----------------------------------------------------------------------------
