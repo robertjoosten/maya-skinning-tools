@@ -28,7 +28,7 @@ Tools
 **softSelectionToWeights** 
     * Convert soft selection to skin weights.
 	
-*delinearWeights** 
+**delinearWeights** 
     * De-linearize skin weights.
 
 Code
