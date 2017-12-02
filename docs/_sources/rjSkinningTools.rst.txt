@@ -6,6 +6,7 @@ Subpackages
 
 .. toctree::
 
+    rjSkinningTools.delinearWeights
     rjSkinningTools.paintRemoveInfluenceCtx
     rjSkinningTools.paintSmoothWeightsCtx
     rjSkinningTools.softSelectionToWeights

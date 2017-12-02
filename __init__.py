@@ -27,6 +27,9 @@ Tools
 
 **softSelectionToWeights** 
     * Convert soft selection to skin weights.
+	
+*delinearWeights** 
+    * De-linearize skin weights.
 
 Code
 ====
@@ -76,6 +79,13 @@ TOOLS = [
         "command":"import rjSkinningTools.softSelectionToWeights.ui; rjSkinningTools.softSelectionToWeights.ui.show()",
         "annotation":"Convert soft selection to skin weights",
         "image1":ui.findIcon("softSelectionToWeights.png"),
+        "sourceType":"python"
+    },
+	{
+        "label":"delinearWeights",
+        "command":"import rjSkinningTools.delinearWeights.ui; rjSkinningTools.delinearWeights.ui.show()",
+        "annotation":"De-linearize skin weights",
+        "image1":ui.findIcon("delinearWeights.png"),
         "sourceType":"python"
     }
 ]

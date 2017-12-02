@@ -1,0 +1,18 @@
+rjSkinningTools\.delinearWeights package
+========================================
+
+Submodules
+----------
+
+.. toctree::
+
+   rjSkinningTools.delinearWeights.tweening
+   rjSkinningTools.delinearWeights.ui
+
+Module contents
+---------------
+
+.. automodule:: rjSkinningTools.delinearWeights
+    :members:
+    :undoc-members:
+    :show-inheritance:

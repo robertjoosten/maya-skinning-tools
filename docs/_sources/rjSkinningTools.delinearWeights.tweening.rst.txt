@@ -1,0 +1,7 @@
+rjSkinningTools\.delinearWeights\.tweening module
+=================================================
+
+.. automodule:: rjSkinningTools.delinearWeights.tweening
+    :members:
+    :undoc-members:
+    :show-inheritance:

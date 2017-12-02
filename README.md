@@ -20,3 +20,5 @@ rjSkinningTools.install()
 * <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/tweakVertexWeights.png">[tweakVertexWeights](tweakVertexWeights/README.md) - Tweak influence weights on a vertex level.
 
 * <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/softSelectionToWeights.png">[softSelectionToWeights](softSelectionToWeights/README.md) - Convert soft selection to skin weights.
+
+* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/delinearWeights.png">[delinearWeights](delinearWeights/README.md) - De-linearize skin weights.

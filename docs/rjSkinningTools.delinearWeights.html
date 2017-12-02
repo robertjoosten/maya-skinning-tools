@@ -1,0 +1,279 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>rjSkinningTools.delinearWeights package &#8212; rjSkinningTools  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjSkinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rjskinningtools-delinearweights-package">
+<h1>rjSkinningTools.delinearWeights package<a class="headerlink" href="#rjskinningtools-delinearweights-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rjSkinningTools.delinearWeights.tweening.html">rjSkinningTools.delinearWeights.tweening module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rjSkinningTools.delinearWeights.ui.html">rjSkinningTools.delinearWeights.ui module</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-rjSkinningTools.delinearWeights">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rjSkinningTools.delinearWeights" title="Permalink to this headline">¶</a></h2>
+<p>De-linearize skin weights.</p>
+<div class="figure align-center">
+<img alt="https://github.com/robertjoosten/rjSkinningTools/raw/master/delinearWeights/README.png" src="https://github.com/robertjoosten/rjSkinningTools/raw/master/delinearWeights/README.png" />
+</div>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Copy the <strong>rjSkinningTools</strong> folder to your Maya scripts directory</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USER</span><span class="o">&gt;/</span><span class="n">Documents</span><span class="o">/</span><span class="n">maya</span><span class="o">/</span><span class="n">scripts</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p>Display UI</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rjSkinningTools.delinearWeights.ui</span>
+<span class="n">rjSkinningTools</span><span class="o">.</span><span class="n">delinearWeights</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="note">
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<p>Delinear weights applies an easing algorithm to the skin weights. This tool 
+is best used if skin weights have been copied from a low polygon source, when 
+this is done sometimes it is very obvious that the weights are linearly 
+divided between the vertices of the low polygon source. This tool will tween 
+those weights.</p>
+</div>
+<div class="section" id="code">
+<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="rjSkinningTools.delinearWeights.deLinearSkinWeights">
+<code class="descclassname">rjSkinningTools.delinearWeights.</code><code class="descname">deLinearSkinWeights</code><span class="sig-paren">(</span><em>vertices</em>, <em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.delinearWeights.deLinearSkinWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over all of the provided vertices. Loop over all of the vertices and 
+see if these vertices are deformed by a skin cluster. If this is the case, 
+the weights will be de-linearized by the function provided. This function
+is found in the tweening module using <a class="reference internal" href="#rjSkinningTools.delinearWeights.getTweeningMethod" title="rjSkinningTools.delinearWeights.getTweeningMethod"><code class="xref py py-func docutils literal"><span class="pre">getTweeningMethod()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vertices</strong> (<em>list</em>) – List of vertices</li>
+<li><strong>method</strong> (<em>str</em>) – De-linearization method</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjSkinningTools.delinearWeights.deLinearSkinWeightsOnSelection">
+<code class="descclassname">rjSkinningTools.delinearWeights.</code><code class="descname">deLinearSkinWeightsOnSelection</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.delinearWeights.deLinearSkinWeightsOnSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>All of the selected vertices will be queried with the
+<a class="reference internal" href="#rjSkinningTools.delinearWeights.getSelectedVertices" title="rjSkinningTools.delinearWeights.getSelectedVertices"><code class="xref py py-func docutils literal"><span class="pre">getSelectedVertices()</span></code></a> function, these vertices will then be parsed 
+to the <a class="reference internal" href="#rjSkinningTools.delinearWeights.deLinearSkinWeights" title="rjSkinningTools.delinearWeights.deLinearSkinWeights"><code class="xref py py-func docutils literal"><span class="pre">deLinearSkinWeights()</span></code></a> function that will process the weights.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>method</strong> (<em>str</em>) – De-linearization method</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjSkinningTools.delinearWeights.getIndexFromString">
+<code class="descclassname">rjSkinningTools.delinearWeights.</code><code class="descname">getIndexFromString</code><span class="sig-paren">(</span><em>vtx</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.delinearWeights.getIndexFromString" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the index from a component string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param str vtx:</th><td class="field-body">Path to component</td>
+</tr>
+<tr class="field-even field"><th class="field-name">return:</th><td class="field-body">Index of component string</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjSkinningTools.delinearWeights.getSelectedVertices">
+<code class="descclassname">rjSkinningTools.delinearWeights.</code><code class="descname">getSelectedVertices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.delinearWeights.getSelectedVertices" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get all of the selected vertices. If no component mode selection is made</dt>
+<dd>all vertices of a selected mesh will be appended to the selection.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of selected vertices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of strings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjSkinningTools.delinearWeights.getTweeningMethod">
+<code class="descclassname">rjSkinningTools.delinearWeights.</code><code class="descname">getTweeningMethod</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.delinearWeights.getTweeningMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the tweening method from a string, if the function doesn’t exists
+None will be returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Tweening function</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">func/None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjSkinningTools.delinearWeights.splitByInfluences">
+<code class="descclassname">rjSkinningTools.delinearWeights.</code><code class="descname">splitByInfluences</code><span class="sig-paren">(</span><em>weights</em>, <em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#rjSkinningTools.delinearWeights.splitByInfluences" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Split a list of weights into the size of the number of influences.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param list weights:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">List of weights</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param int num:</th><td class="field-body">Size of split</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">Index of component string</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">rjSkinningTools.delinearWeights package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-rjSkinningTools.delinearWeights">Module contents</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#note">Note</a></li>
+<li><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/rjSkinningTools.delinearWeights.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjSkinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>
