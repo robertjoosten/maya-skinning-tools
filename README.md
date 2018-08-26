@@ -1,4 +1,4 @@
-# skinning-tools
+# maya-skinning-tools
 Skinning tools for Maya.
 
 ## Installation
