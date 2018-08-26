@@ -1,0 +1,29 @@
+skinningTools package
+=====================
+
+.. automodule:: skinningTools
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    skinningTools.delinearWeights
+    skinningTools.paintRemoveInfluenceCtx
+    skinningTools.paintSmoothWeightsCtx
+    skinningTools.softSelectionToWeights
+    skinningTools.tweakVertexWeights
+
+Submodules
+----------
+
+.. toctree::
+
+   skinningTools.decorators
+   skinningTools.install
+   skinningTools.ui
+   skinningTools.utils
+

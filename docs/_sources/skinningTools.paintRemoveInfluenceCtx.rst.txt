@@ -1,0 +1,16 @@
+skinningTools\.paintRemoveInfluenceCtx package
+==============================================
+
+.. automodule:: skinningTools.paintRemoveInfluenceCtx
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinningTools.paintRemoveInfluenceCtx.commands
+   skinningTools.paintRemoveInfluenceCtx.ui
+

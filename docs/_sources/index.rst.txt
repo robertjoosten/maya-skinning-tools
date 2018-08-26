@@ -1,10 +1,10 @@
-.. rjSkinningTools documentation master file, created by
-   sphinx-quickstart on Sat Dec 02 10:54:10 2017.
+.. skinningTools documentation master file, created by
+   sphinx-quickstart on Sun Aug 26 17:23:48 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to rjSkinningTools's documentation!
-===========================================
+Welcome to skinningTools's documentation!
+=========================================
 
 .. toctree::
    :maxdepth: 2

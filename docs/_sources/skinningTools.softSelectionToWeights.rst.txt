@@ -1,0 +1,16 @@
+skinningTools\.softSelectionToWeights package
+=============================================
+
+.. automodule:: skinningTools.softSelectionToWeights
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinningTools.softSelectionToWeights.ui
+   skinningTools.softSelectionToWeights.utils
+

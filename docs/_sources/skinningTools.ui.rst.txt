@@ -1,0 +1,7 @@
+skinningTools\.ui module
+========================
+
+.. automodule:: skinningTools.ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

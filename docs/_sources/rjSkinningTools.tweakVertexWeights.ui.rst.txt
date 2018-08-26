@@ -1,7 +1,0 @@
-rjSkinningTools\.tweakVertexWeights\.ui module
-==============================================
-
-.. automodule:: rjSkinningTools.tweakVertexWeights.ui
-    :members:
-    :undoc-members:
-    :show-inheritance:

@@ -1,0 +1,7 @@
+skinningTools\.paintRemoveInfluenceCtx\.commands module
+=======================================================
+
+.. automodule:: skinningTools.paintRemoveInfluenceCtx.commands
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,15 @@
+skinningTools\.paintSmoothWeightsCtx package
+============================================
+
+.. automodule:: skinningTools.paintSmoothWeightsCtx
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinningTools.paintSmoothWeightsCtx.commands
+

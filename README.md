@@ -1,24 +1,17 @@
 # rjSkinningTools
-Skinning tools for maya.
+Skinning tools for Maya.
 
 ## Installation
-Copy the **rjSkinningTools** folder to your Maya scripts directory:
-> C:\Users\<USER>\Documents\maya\scripts
-
-## Usage
-Add skinning shelf:
-```python
-import rjSkinningTools
-rjSkinningTools.install()
-```
+* Extract the content of the .rar file anywhere on disk.
+* Drag the skinningTools.mel file in Maya to permanently install the script.
 
 ## Tools
-* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/paintSmoothWeightsCtx.png">[paintSmoothWeightsCtx](paintSmoothWeightsCtx/README.md) - Paint smooth weights tool in Maya using the weights of neighbouring vertices.
+* <img align="left" src="icons/paintSmoothWeightsCtx.png?raw=true">[paintSmoothWeightsCtx](scripts/paintSmoothWeightsCtx/README.md) - Paint smooth weights tool in Maya using the weights of neighbouring vertices.
 
-* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/paintRemoveInfluenceCtx.png">[paintRemoveInfluenceCtx](paintRemoveInfluenceCtx/README.md) - Remove a specific influence on vertices with the paint tool.
+* <img align="left" src="icons/paintRemoveInfluenceCtx.png?raw=true">[paintRemoveInfluenceCtx](scripts/paintRemoveInfluenceCtx/README.md) - Remove a specific influence on vertices with the paint tool.
 
-* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/tweakVertexWeights.png">[tweakVertexWeights](tweakVertexWeights/README.md) - Tweak influence weights on a vertex level.
+* <img align="left" src="icons/tweakVertexWeights.png?raw=true">[tweakVertexWeights](scripts/tweakVertexWeights/README.md) - Tweak influence weights on a vertex level.
 
-* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/softSelectionToWeights.png">[softSelectionToWeights](softSelectionToWeights/README.md) - Convert soft selection to skin weights.
+* <img align="left" src="icons/softSelectionToWeights.png?raw=true">[softSelectionToWeights](scripts/softSelectionToWeights/README.md) - Convert soft selection to skin weights.
 
-* <img align="left" src="https://github.com/robertjoosten/rjSkinningTools/blob/master/icons/delinearWeights.png">[delinearWeights](delinearWeights/README.md) - De-linearize skin weights.
+* <img align="left" src="icons/delinearWeights.png?raw=true">[delinearWeights](scripts/delinearWeights/README.md) - De-linearize skin weights.

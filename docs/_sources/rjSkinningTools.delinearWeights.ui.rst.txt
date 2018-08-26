@@ -1,7 +1,0 @@
-rjSkinningTools\.delinearWeights\.ui module
-===========================================
-
-.. automodule:: rjSkinningTools.delinearWeights.ui
-    :members:
-    :undoc-members:
-    :show-inheritance:

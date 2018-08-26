@@ -1,0 +1,7 @@
+skinningTools\.softSelectionToWeights\.ui module
+================================================
+
+.. automodule:: skinningTools.softSelectionToWeights.ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

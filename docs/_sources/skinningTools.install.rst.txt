@@ -1,0 +1,7 @@
+skinningTools\.install module
+=============================
+
+.. automodule:: skinningTools.install
+    :members:
+    :undoc-members:
+    :show-inheritance:

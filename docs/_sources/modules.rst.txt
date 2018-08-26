@@ -1,7 +1,7 @@
-rjSkinningTools
-===============
+skinningTools
+=============
 
 .. toctree::
    :maxdepth: 4
 
-   rjSkinningTools
+   skinningTools

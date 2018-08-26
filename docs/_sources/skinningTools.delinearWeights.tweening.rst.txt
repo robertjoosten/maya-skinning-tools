@@ -1,0 +1,7 @@
+skinningTools\.delinearWeights\.tweening module
+===============================================
+
+.. automodule:: skinningTools.delinearWeights.tweening
+    :members:
+    :undoc-members:
+    :show-inheritance:

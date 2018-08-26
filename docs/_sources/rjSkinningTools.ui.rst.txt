@@ -1,7 +1,0 @@
-rjSkinningTools\.ui module
-==========================
-
-.. automodule:: rjSkinningTools.ui
-    :members:
-    :undoc-members:
-    :show-inheritance:
