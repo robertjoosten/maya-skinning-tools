@@ -1,16 +1,20 @@
 from maya import cmds, OpenMaya, OpenMayaMPx, OpenMayaAnim
-from rjSkinningTools import utils
-
-__author__    = "Robert Joosten"
-__version__   = "0.9.0"
-__email__     = "rwm.joosten@gmail.com"
+from skinningTools import utils
+from skinningTools.paintSmoothWeightsCtx import (
+    __author__,
+    __version__,
+    __email__,
+)
 
 # ----------------------------------------------------------------------------
+
 
 CONTEXT_INITIALIZE = "paintSmoothWeightsCtxInitialize"
 CONTEXT_UPDATE = "paintSmoothWeightsCtxUpdate"
 
+
 # ----------------------------------------------------------------------------
+
 
 class SmoothWeightsCtxManager(object):
     def __init__(self):
@@ -240,12 +244,16 @@ class SmoothWeightsCtxManager(object):
         # return data for undo
         return [self.skinCluster, self.dag, component, influencesN, weightsO]
 
-# ----------------------------------------------------------------------------
-
-manager = SmoothWeightsCtxManager()      
 
 # ----------------------------------------------------------------------------
-    
+
+
+manager = SmoothWeightsCtxManager()
+
+
+# ----------------------------------------------------------------------------
+
+
 class SmoothWeightsCtxInitialize(OpenMayaMPx.MPxCommand):
     def __init__(self):
         OpenMayaMPx.MPxCommand.__init__(self)
@@ -254,16 +262,20 @@ class SmoothWeightsCtxInitialize(OpenMayaMPx.MPxCommand):
         obj = args.asString(0)
         manager.initialize(obj)
 
+
 def creatorInitialize():     
     return OpenMayaMPx.asMPxPtr(SmoothWeightsCtxInitialize())
-    
+
+
 def syntaxInitialize():  
     syntax = OpenMaya.MSyntax()  
     syntax.addArg(OpenMaya.MSyntax.kLong)  
     return syntax
-    
+
+
 # ----------------------------------------------------------------------------
-            
+
+
 class SmoothWeightsCtxUpdate(OpenMayaMPx.MPxCommand):
     def __init__(self):
         OpenMayaMPx.MPxCommand.__init__(self)
@@ -292,9 +304,11 @@ class SmoothWeightsCtxUpdate(OpenMayaMPx.MPxCommand):
     def isUndoable(self):
         return True
 
+
 def creatorUpdate():       
     return OpenMayaMPx.asMPxPtr(SmoothWeightsCtxUpdate())
-    
+
+
 def syntaxUpdate():  
     syntax = OpenMaya.MSyntax()  
     syntax.addArg(OpenMaya.MSyntax.kLong)  
@@ -302,7 +316,9 @@ def syntaxUpdate():
     syntax.addArg(OpenMaya.MSyntax.kDouble)  
     return syntax  
 
+
 # ----------------------------------------------------------------------------
+
 
 def initializePlugin( obj ):
     plugin = OpenMayaMPx.MFnPlugin(obj, __author__, __version__, "Any")
@@ -336,4 +352,3 @@ def uninitializePlugin(obj):
             plugin.deregisterCommand(command)
         except:         
             raise RuntimeError("Failed to unregister : {0}".format(command))
-    

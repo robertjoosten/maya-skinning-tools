@@ -1,17 +1,22 @@
 from maya import cmds, OpenMaya, OpenMayaMPx, OpenMayaAnim
-from rjSkinningTools import utils
+from skinningTools import utils
+from skinningTools.paintRemoveInfluenceCtx import (
+    __author__,
+    __version__,
+    __email__,
+)
 
-__author__    = "Robert Joosten"
-__version__   = "0.8.1"
-__email__     = "rwm.joosten@gmail.com"
 
 # ----------------------------------------------------------------------------
+
 
 CONTEXT_INITIALIZE = "paintRemoveInfluenceCtxInitialize"
 CONTEXT_BEFORE = "paintSmoothWeightsCtxBefore"
 CONTEXT_AFTER = "paintSmoothWeightsCtxAfter"
 
+
 # ----------------------------------------------------------------------------
+
 
 class RemoveInfluenceCtxManager(object):
     def __init__(self):
@@ -316,12 +321,16 @@ class RemoveInfluenceCtxManager(object):
             weightsO
         ]
 
-# ----------------------------------------------------------------------------
-
-manager = RemoveInfluenceCtxManager()      
 
 # ----------------------------------------------------------------------------
-    
+
+
+manager = RemoveInfluenceCtxManager()
+
+
+# ----------------------------------------------------------------------------
+
+
 class RemoveInfluenceCtxInitialize(OpenMayaMPx.MPxCommand):
     def __init__(self):
         OpenMayaMPx.MPxCommand.__init__(self)
@@ -333,17 +342,21 @@ class RemoveInfluenceCtxInitialize(OpenMayaMPx.MPxCommand):
         manager.initialize(mesh, influence)
         manager.select()
 
+
 def creatorInitialize():     
     return OpenMayaMPx.asMPxPtr(RemoveInfluenceCtxInitialize())
-    
+
+
 def syntaxInitialize():  
     syntax = OpenMaya.MSyntax()  
     syntax.addArg(OpenMaya.MSyntax.kLong)  
     syntax.addArg(OpenMaya.MSyntax.kLong)  
     return syntax
-    
+
+
 # ----------------------------------------------------------------------------
-            
+
+
 class RemoveInfluenceCtxBefore(OpenMayaMPx.MPxCommand):
     def __init__(self):
         OpenMayaMPx.MPxCommand.__init__(self)
@@ -359,15 +372,19 @@ class RemoveInfluenceCtxBefore(OpenMayaMPx.MPxCommand):
 
     def isUndoable(self):
         return True
-        
+
+
 def creatorBefore():     
     return OpenMayaMPx.asMPxPtr(RemoveInfluenceCtxBefore())
-    
+
+
 def syntaxBefore():  
     return OpenMaya.MSyntax()  
-    
+
+
 # ----------------------------------------------------------------------------
-    
+
+
 class RemoveInfluenceCtxAfter(OpenMayaMPx.MPxCommand):
     def __init__(self):
         OpenMayaMPx.MPxCommand.__init__(self)
@@ -389,14 +406,18 @@ class RemoveInfluenceCtxAfter(OpenMayaMPx.MPxCommand):
 
     def isUndoable(self):
         return True
-            
-def creatorAfter():     
+
+
+def creatorAfter():
     return OpenMayaMPx.asMPxPtr(RemoveInfluenceCtxAfter())
-    
+
+
 def syntaxAfter():  
     return OpenMaya.MSyntax()  
-    
+
+
 # ----------------------------------------------------------------------------
+
 
 def initializePlugin( obj ):
     plugin = OpenMayaMPx.MFnPlugin(obj, __author__, __version__, "Any")
@@ -432,4 +453,3 @@ def uninitializePlugin(obj):
             plugin.deregisterCommand(command)
         except:         
             raise RuntimeError("Failed to unregister : {0}".format(command))
-    
