@@ -1,4 +1,4 @@
-# rjSkinningTools
+# skinning-tools
 Skinning tools for Maya.
 
 ## Installation
