@@ -96,23 +96,16 @@ def shelf():
 
     # get top shelf names
     shelves = cmds.tabLayout(gShelfTopLevel, query=1, ca=1)
-
+    
     # delete shelf if it exists
     if SHELF_NAME in shelves:
         cmds.deleteUI(SHELF_NAME)
 
     # create shelf
     cmds.shelfLayout(SHELF_NAME, parent=gShelfTopLevel)
-
-    # get existing members
-    existing = cmds.shelfLayout(SHELF_NAME, query=True, childArray=True) or []
-    existing = [cmds.shelfButton(e, query=True, label=True) for e in existing]
-
+    
     # add modules
     for tool in SHELF_TOOLS:
-        if tool.get("label") in existing:
-            continue
-
         if tool.get("image1"):
             cmds.shelfButton(style="iconOnly", parent=SHELF_NAME, **tool)
         else:
