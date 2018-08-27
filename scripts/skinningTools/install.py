@@ -41,35 +41,35 @@ SHELF_TOOLS = [
         "label": "paintSkinWeights",
         "command": "ArtPaintSkinWeightsTool;",
         "annotation": "Paint Skin Weights Tool: Paint weights on smooth bound skins",
-        "image1": ":/ST_paintSkinWeightsCtx.png",
+        "image1": "ST_paintSkinWeightsCtx.png",
         "sourceType": "mel"
     },
     {
         "label": "paintSmoothWeights",
         "command": PAINT_SMOOTH_WEIGHTS_COMMAND,
         "annotation": "Paint Smooth Weights Tool: Smooth weights on smooth bound skins",
-        "image1": ":/ST_paintSmoothWeightsCtx.png",
+        "image1": "ST_paintSmoothWeightsCtx.png",
         "sourceType": "python"
     },
     {
         "label": "paintRemoveInfluence",
         "command": PAINT_REMOVE_INFLUENCE_COMMAND,
         "annotation": "Paint Remove Influence Tool: Remove influence on smooth bound skins",
-        "image1": ":/ST_paintRemoveInfluenceCtx.png",
+        "image1": "ST_paintRemoveInfluenceCtx.png",
         "sourceType": "python"
     },
     {
         "label": "tweakVertexWeights",
         "command": TWEAK_VERTEX_WEIGHT_COMMAND,
         "annotation": "Tweak Influences on a vertex level",
-        "image1": ":/ST_tweakVertexWeights.png",
+        "image1": "ST_tweakVertexWeights.png",
         "sourceType": "python"
     },
     {
         "label": "softSelectionToWeights",
         "command": CONVERT_SOFT_SELECTION_COMMAND,
         "annotation": "Convert soft selection to skin weights",
-        "image1": ":/ST_softSelectionToWeights.png",
+        "image1": "ST_softSelectionToWeights.png",
         "sourceType": "python"
     },
     {
