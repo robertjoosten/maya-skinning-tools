@@ -3,3 +3,4 @@
 + MAYAVERSION:2016 skinningTools 0.0.2 <PATH>
 + MAYAVERSION:2017 skinningTools 0.0.2 <PATH>
 + MAYAVERSION:2018 skinningTools 0.0.2 <PATH>
++ MAYAVERSION:2019 skinningTools 0.0.2 <PATH>
