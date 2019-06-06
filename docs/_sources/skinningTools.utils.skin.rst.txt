@@ -1,0 +1,7 @@
+skinningTools\.utils\.skin module
+=================================
+
+.. automodule:: skinningTools.utils.skin
+    :members:
+    :undoc-members:
+    :show-inheritance:

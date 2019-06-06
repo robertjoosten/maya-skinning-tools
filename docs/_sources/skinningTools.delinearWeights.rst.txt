@@ -12,7 +12,5 @@ Submodules
 .. toctree::
 
    skinningTools.delinearWeights.commands
-   skinningTools.delinearWeights.tweening
    skinningTools.delinearWeights.ui
-   skinningTools.delinearWeights.utils
 

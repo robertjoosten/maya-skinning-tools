@@ -1,7 +1,29 @@
-skinningTools\.utils module
-===========================
+skinningTools\.utils package
+============================
 
 .. automodule:: skinningTools.utils
     :members:
     :undoc-members:
     :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    skinningTools.utils.api
+    skinningTools.utils.tweening
+
+Submodules
+----------
+
+.. toctree::
+
+   skinningTools.utils.conversion
+   skinningTools.utils.influence
+   skinningTools.utils.path
+   skinningTools.utils.selection
+   skinningTools.utils.skin
+   skinningTools.utils.undo
+   skinningTools.utils.weight
+

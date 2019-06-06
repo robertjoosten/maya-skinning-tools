@@ -12,5 +12,4 @@ Submodules
 .. toctree::
 
    skinningTools.tweakVertexWeights.ui
-   skinningTools.tweakVertexWeights.utils
 

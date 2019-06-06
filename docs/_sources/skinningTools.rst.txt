@@ -11,11 +11,13 @@ Subpackages
 
 .. toctree::
 
+    skinningTools.autoWeights
     skinningTools.delinearWeights
     skinningTools.paintRemoveInfluenceCtx
     skinningTools.paintSmoothWeightsCtx
     skinningTools.softSelectionToWeights
     skinningTools.tweakVertexWeights
+    skinningTools.utils
 
 Submodules
 ----------
@@ -25,5 +27,4 @@ Submodules
    skinningTools.decorators
    skinningTools.install
    skinningTools.ui
-   skinningTools.utils
 

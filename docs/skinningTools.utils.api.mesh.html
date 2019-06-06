@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>skinningTools.paintRemoveInfluenceCtx package &#8212; skinningTools  &#39;&#39; documentation</title>
+    <title>skinningTools.utils.api.mesh module &#8212; skinningTools  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -43,48 +43,32 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-skinningTools.paintRemoveInfluenceCtx">
-<span id="skinningtools-paintremoveinfluencectx-package"></span><h1>skinningTools.paintRemoveInfluenceCtx package<a class="headerlink" href="#module-skinningTools.paintRemoveInfluenceCtx" title="Permalink to this headline">¶</a></h1>
-<p>Remove a specific influence on vertices with the paint tool.</p>
-<div class="figure align-center">
-<img alt="_images/paintRemoveInfluenceExample.png" src="_images/paintRemoveInfluenceExample.png" />
-</div>
-<p><a class="reference external" href="https://vimeo.com/122189210">Link to Video</a></p>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Extract the content of the .rar file anywhere on disk.</li>
-<li>Drag the skinningTools.mel file in Maya to permanently install the script.</li>
+  <div class="section" id="module-skinningTools.utils.api.mesh">
+<span id="skinningtools-utils-api-mesh-module"></span><h1>skinningTools.utils.api.mesh module<a class="headerlink" href="#module-skinningTools.utils.api.mesh" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="skinningTools.utils.api.mesh.getConnectedVertices">
+<code class="descclassname">skinningTools.utils.api.mesh.</code><code class="descname">getConnectedVertices</code><span class="sig-paren">(</span><em>dag</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.api.mesh.getConnectedVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>index -&gt; OpenMaya.MFn.kMeshVertComponent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dag</strong> (<em>OpenMaya.MDagPath</em>) – </li>
+<li><strong>component</strong> (<em>OpenMaya.MFn.kMeshVertComponent</em>) – </li>
 </ul>
-</div>
-<div class="section" id="note">
-<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
-<p>The paint tool calls a script that will select all the vertices that are 
-influenced by the parsed influence. You can then paint away the influence 
-on those vertices with the paint tool.</p>
-<blockquote>
-<div><ul class="simple">
-<li>Undo-able / Redo-able</li>
-</ul>
-</div></blockquote>
-<p>Based on the settings on the skinCluster the following attribute will be 
-respected while removing the influence weights:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Normalize Weights</li>
-<li>Locked Influences</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="skinningTools.paintRemoveInfluenceCtx.commands.html">skinningTools.paintRemoveInfluenceCtx.commands module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="skinningTools.paintRemoveInfluenceCtx.ui.html">skinningTools.paintRemoveInfluenceCtx.ui module</a></li>
-</ul>
-</div>
-</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Initialized component(s), number of connected vertices</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple(OpenMaya.MFn.kMeshVertComponent, int)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 
@@ -93,20 +77,10 @@ respected while removing the influence weights:</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">skinningTools.paintRemoveInfluenceCtx package</a><ul>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#note">Note</a></li>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/skinningTools.paintRemoveInfluenceCtx.rst.txt"
+      <li><a href="_sources/skinningTools.utils.api.mesh.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>

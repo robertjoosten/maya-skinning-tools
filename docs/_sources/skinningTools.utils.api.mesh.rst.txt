@@ -1,0 +1,7 @@
+skinningTools\.utils\.api\.mesh module
+======================================
+
+.. automodule:: skinningTools.utils.api.mesh
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+skinningTools\.utils\.undo module
+=================================
+
+.. automodule:: skinningTools.utils.undo
+    :members:
+    :undoc-members:
+    :show-inheritance:

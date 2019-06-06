@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>skinningTools.utils module &#8212; skinningTools  &#39;&#39; documentation</title>
+    <title>skinningTools.utils package &#8212; skinningTools  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -44,309 +44,47 @@
           <div class="body" role="main">
             
   <div class="section" id="module-skinningTools.utils">
-<span id="skinningtools-utils-module"></span><h1>skinningTools.utils module<a class="headerlink" href="#module-skinningTools.utils" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="skinningTools.utils.UndoChunkContext">
-<em class="property">class </em><code class="descclassname">skinningTools.utils.</code><code class="descname">UndoChunkContext</code><a class="headerlink" href="#skinningTools.utils.UndoChunkContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>The undo context is used to combine a chain of commands into one undo.
-Can be used in combination with the “with” statement.</p>
-<dl class="docutils">
-<dt>with UndoChunkContext():</dt>
-<dd># code</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.addInfluences">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">addInfluences</code><span class="sig-paren">(</span><em>skinCluster</em>, <em>influences</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.addInfluences" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add influences to the skin cluster. Expects full path influences. Will
-try to reach the bind pose before attached the new influences to the skin
-cluster.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>skinCluster</strong> (<em>str</em>) – </li>
-<li><strong>influences</strong> (<em>list</em>) – </li>
+<span id="skinningtools-utils-package"></span><h1>skinningTools.utils package<a class="headerlink" href="#module-skinningTools.utils" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.api.html">skinningTools.utils.api package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="skinningTools.utils.api.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="skinningTools.utils.api.conversion.html">skinningTools.utils.api.conversion module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skinningTools.utils.api.influence.html">skinningTools.utils.api.influence module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skinningTools.utils.api.mesh.html">skinningTools.utils.api.mesh module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skinningTools.utils.api.path.html">skinningTools.utils.api.path module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skinningTools.utils.api.selection.html">skinningTools.utils.api.selection module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skinningTools.utils.api.skin.html">skinningTools.utils.api.skin module</a></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.asComponent">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">asComponent</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.asComponent" title="Permalink to this definition">¶</a></dt>
-<dd><p>index -&gt; OpenMaya.MFn.kMeshVertComponent</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int/OpenMaya.MIntArray</em>) – indices to create component for</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Initialized component(s)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">OpenMaya.MFn.kMeshVertComponent</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.asMDagPath">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">asMDagPath</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.asMDagPath" title="Permalink to this definition">¶</a></dt>
-<dd><p>OpenMaya.MObject -&gt; OpenMaya.MDagPath</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> (<em>OpenMaya.MObject</em>) – </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">OpenMaya.MDagPath</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.asMFnSkinCluster">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">asMFnSkinCluster</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.asMFnSkinCluster" title="Permalink to this definition">¶</a></dt>
-<dd><p>OpenMaya.MObject -&gt; OpenMaya.MFnSkinCluster</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> (<em>OpenMaya.MObject</em>) – </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">OpenMaya.MFnSkinCluster</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.asMIntArray">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">asMIntArray</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.asMIntArray" title="Permalink to this definition">¶</a></dt>
-<dd><p>index -&gt; OpenMaya.MIntArray</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>of ints/OpenMaya.MIntArray index</strong> (<em>int/list</em>) – indices</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Array of indices</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">OpenMaya.MIntArray</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.asMObject">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">asMObject</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.asMObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>str -&gt; OpenMaya.MObject</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) – Path to Maya object</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">OpenMaya.MObject</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.getConnectedVertices">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">getConnectedVertices</code><span class="sig-paren">(</span><em>dag</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.getConnectedVertices" title="Permalink to this definition">¶</a></dt>
-<dd><p>index -&gt; OpenMaya.MFn.kMeshVertComponent</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dag</strong> (<em>OpenMaya.MDagPath</em>) – </li>
-<li><strong>component</strong> (<em>OpenMaya.MFn.kMeshVertComponent</em>) – </li>
+</li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Initialized component(s), number of connected vertices</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple(OpenMaya.MFn.kMeshVertComponent, int)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.getInfluences">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">getInfluences</code><span class="sig-paren">(</span><em>skinCluster</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.getInfluences" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all of the influence data connected to the skinCluster. This is a 
-OpenMaya.MDagPathArray, OpenMaya.MIntArray() and a regular list of partial
-names.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>skinCluster</strong> (<em>OpenMaya.MFnSkinCluster</em>) – </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Dag paths, integer and partial names</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple(
-OpenMaya.MDagPathArray
-OpenMaya.MIntArray
-list of strings</td>
-</tr>
-</tbody>
-</table>
-<p>)</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.getMeshesFromSelection">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">getMeshesFromSelection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.getMeshesFromSelection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loop over the current selection, excluding intermediate shapes. If the 
-current selected object is not a mesh. The selection will be extended with
-the shapes of that object.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of meshes</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of strings</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.getSkinCluster">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">getSkinCluster</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.getSkinCluster" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loop over an objects history and see if a skinCluster node is part of the
-history.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mesh</strong> (<em>str</em>) – </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">skinCluster that is attached to the parsed mesh</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str or None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.getSkinWeights">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">getSkinWeights</code><span class="sig-paren">(</span><em>dag</em>, <em>skinCluster</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.getSkinWeights" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the skin weights of the original vertex and of its connected vertices.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dag</strong> (<em>OpenMaya.MDagPath</em>) – </li>
-<li><strong>skinCluster</strong> (<em>OpenMayaAnim.MFnSkinCluster</em>) – </li>
-<li><strong>component</strong> (<em>OpenMaya.MFn.kMeshVertComponent</em>) – </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.tweening.html">skinningTools.utils.tweening package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="skinningTools.utils.tweening.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="skinningTools.utils.tweening.methods.html">skinningTools.utils.tweening.methods module</a></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">skin weights and number of influences</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple(OpenMaya.MDoubleArray, int)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.getSkinnedMeshesFromSelection">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">getSkinnedMeshesFromSelection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.getSkinnedMeshesFromSelection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loop over the current selection, excluding intermediate shapes. If the 
-current selected is a mesh and has a skin cluster attached to it. The 
-selection will be extended with the shapes of that object.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of skinned meshes</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of strings</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.isMesh">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">isMesh</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.isMesh" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mesh</strong> (<em>str</em>) – </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">if the parsed object is a mesh.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.isSkinned">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">isSkinned</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.isSkinned" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mesh</strong> (<em>str</em>) – </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">if the parsed object is a skinned mesh.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="skinningTools.utils.normalizeWeights">
-<code class="descclassname">skinningTools.utils.</code><code class="descname">normalizeWeights</code><span class="sig-paren">(</span><em>weights</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.normalizeWeights" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Normalize a list of weights so the sum of the list is equal to one.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">List of normalized weights</td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of floats</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.conversion.html">skinningTools.utils.conversion module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.influence.html">skinningTools.utils.influence module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.path.html">skinningTools.utils.path module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.selection.html">skinningTools.utils.selection module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.skin.html">skinningTools.utils.skin module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.undo.html">skinningTools.utils.undo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.weight.html">skinningTools.utils.weight module</a></li>
+</ul>
+</div>
+</div>
 </div>
 
 
@@ -355,6 +93,15 @@ selection will be extended with the shapes of that object.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">skinningTools.utils package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -389,7 +136,7 @@ selection will be extended with the shapes of that object.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, &#39;Robert Joosten&#39;.
+        &#169; Copyright 2019, &#39;Robert Joosten&#39;.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
     </div>
   </body>

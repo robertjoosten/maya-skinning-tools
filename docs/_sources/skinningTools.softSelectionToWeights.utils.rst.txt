@@ -1,7 +1,0 @@
-skinningTools\.softSelectionToWeights\.utils module
-===================================================
-
-.. automodule:: skinningTools.softSelectionToWeights.utils
-    :members:
-    :undoc-members:
-    :show-inheritance:

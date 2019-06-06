@@ -1,7 +1,7 @@
-skinningTools\.delinearWeights\.utils module
+skinningTools\.utils\.api\.conversion module
 ============================================
 
-.. automodule:: skinningTools.delinearWeights.utils
+.. automodule:: skinningTools.utils.api.conversion
     :members:
     :undoc-members:
     :show-inheritance:

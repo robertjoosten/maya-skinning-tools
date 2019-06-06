@@ -1,0 +1,15 @@
+skinningTools\.utils\.tweening package
+======================================
+
+.. automodule:: skinningTools.utils.tweening
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinningTools.utils.tweening.methods
+

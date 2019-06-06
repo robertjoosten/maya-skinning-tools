@@ -1,0 +1,7 @@
+skinningTools\.utils\.influence module
+======================================
+
+.. automodule:: skinningTools.utils.influence
+    :members:
+    :undoc-members:
+    :show-inheritance:

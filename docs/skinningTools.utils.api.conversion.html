@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>skinningTools.tweakVertexWeights.utils module &#8212; skinningTools  &#39;&#39; documentation</title>
+    <title>skinningTools.utils.api.conversion module &#8212; skinningTools  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -43,23 +43,39 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-skinningTools.tweakVertexWeights.utils">
-<span id="skinningtools-tweakvertexweights-utils-module"></span><h1>skinningTools.tweakVertexWeights.utils module<a class="headerlink" href="#module-skinningTools.tweakVertexWeights.utils" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-skinningTools.utils.api.conversion">
+<span id="skinningtools-utils-api-conversion-module"></span><h1>skinningTools.utils.api.conversion module<a class="headerlink" href="#module-skinningTools.utils.api.conversion" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="skinningTools.tweakVertexWeights.utils.getSkinnedVertices">
-<code class="descclassname">skinningTools.tweakVertexWeights.utils.</code><code class="descname">getSkinnedVertices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.tweakVertexWeights.utils.getSkinnedVertices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all of the skinned vertices that are currently selected. Loop over the
-current selection and see if the vtx suffix is found indicating a 
-component selection. Then the mesh if extracted from this component and 
-checked if a skinCluster is attached. If the selection meets these 
-criteria it will be added to the list.</p>
+<dt id="skinningTools.utils.api.conversion.asMIntArray">
+<code class="descclassname">skinningTools.utils.api.conversion.</code><code class="descname">asMIntArray</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.api.conversion.asMIntArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>index -&gt; OpenMaya.MIntArray</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of selected skinned vertices</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>of ints/OpenMaya.MIntArray index</strong> (<em>int/list</em>) – indices</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of strings</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Array of indices</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">OpenMaya.MIntArray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skinningTools.utils.api.conversion.asComponent">
+<code class="descclassname">skinningTools.utils.api.conversion.</code><code class="descname">asComponent</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.api.conversion.asComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>index -&gt; OpenMaya.MFn.kMeshVertComponent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int/OpenMaya.MIntArray</em>) – indices to create component for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Initialized component(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">OpenMaya.MFn.kMeshVertComponent</td>
 </tr>
 </tbody>
 </table>
@@ -76,7 +92,7 @@ criteria it will be added to the list.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/skinningTools.tweakVertexWeights.utils.rst.txt"
+      <li><a href="_sources/skinningTools.utils.api.conversion.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -107,7 +123,7 @@ criteria it will be added to the list.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, &#39;Robert Joosten&#39;.
+        &#169; Copyright 2019, &#39;Robert Joosten&#39;.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
     </div>
   </body>

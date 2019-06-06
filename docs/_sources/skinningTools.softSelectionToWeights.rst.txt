@@ -12,5 +12,5 @@ Submodules
 .. toctree::
 
    skinningTools.softSelectionToWeights.ui
-   skinningTools.softSelectionToWeights.utils
+   skinningTools.softSelectionToWeights.weight
 
