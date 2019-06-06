@@ -1,5 +1,5 @@
 from maya import cmds
-from .. import utils
+from ..utils import skin
 
 
 def getSkinnedVertices():
@@ -21,7 +21,7 @@ def getSkinnedVertices():
             continue
             
         mesh, _ = sel.split(".", 1)
-        if utils.getSkinCluster(mesh):
+        if skin.getSkinCluster(mesh):
             skinnedVertices.append(sel)
             
     return skinnedVertices

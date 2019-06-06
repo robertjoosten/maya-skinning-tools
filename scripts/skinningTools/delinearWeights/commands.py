@@ -1,7 +1,14 @@
 from maya import cmds, OpenMayaAnim
-
-from . import utils as toolUtils
-from .. import utils as projectUtils
+from ..utils import (
+    api,
+    path,
+    skin,
+    undo,
+    weight,
+    tweening,
+    selection,
+    conversion
+)
 
 
 def deLinearSkinWeightsOnSelection(method):
@@ -12,8 +19,18 @@ def deLinearSkinWeightsOnSelection(method):
     
     :param str method: De-linearization method
     """
-    vertices = toolUtils.getSelectedVertices()
-    deLinearSkinWeights(vertices, method)
+    # get skinned meshes
+    meshes = selection.getSkinnedMeshesFromSelection()
+
+    # split objects from components
+    objects, components = selection.splitComponents(meshes, ".vtx")
+
+    # extend components with vertex components of objects
+    for obj in objects:
+        components.extend(conversion.meshToVertices(obj))
+
+    # delinearize weights
+    deLinearSkinWeights(components, method)
 
 
 def deLinearSkinWeights(vertices, method):
@@ -26,50 +43,50 @@ def deLinearSkinWeights(vertices, method):
     :param list vertices: List of vertices
     :param str method: De-linearization method
     """
-    func = toolUtils.getTweeningMethod(method)
+    func = tweening.getTweeningMethod(method)
     if not func:
         raise ValueError("Tweening method is not supported.")
 
     objects = list(set([vtx.split(".")[0] for vtx in vertices]))
     
-    with projectUtils.UndoChunkContext():
+    with undo.UndoChunkContext():
         for obj in objects:
             # get skin cluster
-            sk = projectUtils.getSkinCluster(obj)
+            sk = skin.getSkinCluster(obj)
             if not sk:
                 continue
             
             # get indices
             indices = [
-                toolUtils.getIndexFromString(vtx)
+                conversion.componentIndexFromString(vtx)
                 for vtx in vertices 
                 if vtx.startswith(obj)
             ]
             
             # get api objects
-            meshObj = projectUtils.asMObject(obj)
-            meshDag = projectUtils.asMDagPath(meshObj)
+            meshObj = api.asMObject(obj)
+            meshDag = api.asMDagPath(meshObj)
             meshDag.extendToShape()
             
-            skObj = projectUtils.asMObject(sk)
+            skObj = api.asMObject(sk)
             skMfn = OpenMayaAnim.MFnSkinCluster(skObj)
             
             # get weights
-            components = projectUtils.asComponent(indices)
-            weightsAll, num = projectUtils.getSkinWeights(
+            components = api.asComponent(indices)
+            weightsAll, num = api.getSkinWeights(
                 meshDag, 
                 skMfn, 
                 components
             )
             
             # split weights
-            weightChunks = toolUtils.splitByInfluences(weightsAll, num)
+            weightChunks = path.asChunks(weightsAll, num)
 
             for i, weights in enumerate(weightChunks):
                 # calculate per vertex weights
-                weights = projectUtils.normalizeWeights(weights)
+                weights = weight.normalizeWeights(weights)
                 weights = [func(w) for w in weights]
-                weights = projectUtils.normalizeWeights(weights)
+                weights = weight.normalizeWeights(weights)
                 
                 # set weights
                 for j, w in enumerate(weights):

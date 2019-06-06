@@ -2,7 +2,7 @@ from maya import OpenMaya, cmds
 from functools import partial
 
 from . import utils as toolUtils
-from .. import utils as projectUtils
+from ..utils import skin
 from .. import ui
 
 
@@ -412,7 +412,7 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
         influences = self.getInfluences()
         for influence in influences:
             for mesh in influence.ssData.keys():
-                if not projectUtils.isSkinned(mesh):
+                if not skin.isSkinned(mesh):
                     self.filler.setEnabled(True)
                     return
                     
@@ -464,7 +464,7 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
         # set weights
         for mesh, meshData in data.iteritems():
             filler = self.filler.influence
-            if not projectUtils.isSkinned(mesh) and not filler:
+            if not skin.isSkinned(mesh) and not filler:
                 print "No Filler Influence found for mesh: {0}".format(mesh)
                 continue
                 

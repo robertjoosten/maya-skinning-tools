@@ -1,5 +1,5 @@
 from maya import cmds, OpenMaya
-from .. import utils
+from ..utils import undo, skin, influence
 
 
 def getSoftSelection():
@@ -98,8 +98,8 @@ def setSkinWeights(mesh, meshData, influences, filler=None):
     :param list influences: list of (new) influences
     :param str filler: Filler joint if no skin cluster is detected
     """
-    with utils.UndoChunkContext():
-        skinCluster = utils.getSkinCluster(mesh)
+    with undo.UndoChunkContext():
+        skinCluster = skin.getSkinCluster(mesh)
         
         # bind skin
         if not skinCluster:
@@ -122,7 +122,7 @@ def setSkinWeights(mesh, meshData, influences, filler=None):
         # add influences
         else:
             filler = None
-            utils.addInfluences(skinCluster, influences) 
+            influence.addInfluences(skinCluster, influences)
             
         # get skinCluster data
         normalizeWeights = cmds.getAttr(

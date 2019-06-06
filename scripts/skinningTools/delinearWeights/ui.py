@@ -1,5 +1,6 @@
-from . import tweening, commands
+from . import commands
 from .. import ui
+from ..utils import tweening
 
 
 # ----------------------------------------------------------------------------
@@ -27,7 +28,7 @@ class TweeningOptions(ui.QWidget):
         layout.addWidget(label)
 
         # create option box
-        options = [f for f in dir(tweening) if f.startswith("ease")]
+        options = tweening.getTweeningMethods()
         self.combo = ui.QComboBox(self)
         self.combo.setFont(ui.FONT)
         self.combo.addItems(options)

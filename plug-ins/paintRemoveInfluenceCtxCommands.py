@@ -1,5 +1,5 @@
 from maya import cmds, OpenMaya, OpenMayaMPx, OpenMayaAnim
-from skinningTools import utils
+from skinningTools.utils import api
 from skinningTools.paintRemoveInfluenceCtx import (
     __author__,
     __version__,
@@ -45,19 +45,19 @@ class RemoveInfluenceCtxManager(object):
             return 
 
         # get mesh data
-        self._obj = utils.asMObject(obj)
-        self._dag = utils.asMDagPath(self.obj)
+        self._obj = api.asMObject(obj)
+        self._dag = api.asMDagPath(self.obj)
         
         # get skin cluster
-        self._skinCluster = utils.asMFnSkinCluster(self.obj)
+        self._skinCluster = api.asMFnSkinCluster(self.obj)
         
         # get normalized mode
         normalPlug = self.skinCluster.findPlug("normalizeWeights")
         self._normalizeMode = normalPlug.asInt()
         
         # set influence
-        influenceObj = utils.asMObject(influence)
-        self._influence = utils.asMDagPath(influenceObj)
+        influenceObj = api.asMObject(influence)
+        self._influence = api.asMDagPath(influenceObj)
         
         # set influences
         self.skinCluster.influenceObjects(self._influences)
@@ -289,10 +289,10 @@ class RemoveInfluenceCtxManager(object):
             return
         
         # get component
-        component = utils.asComponent(difference)
+        component = api.asComponent(difference)
         
         # get original weights
-        weightsO, influences = utils.getSkinWeights(
+        weightsO, influences = api.getSkinWeights(
             self.dag, 
             self.skinCluster, 
             component

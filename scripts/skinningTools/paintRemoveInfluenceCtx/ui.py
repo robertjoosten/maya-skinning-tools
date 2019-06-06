@@ -2,7 +2,8 @@ from maya import cmds, OpenMaya
 from functools import partial
 
 from . import commands
-from .. import ui, utils
+from .. import ui
+from ..utils import api, selection
 
 
 # ------------------------------------------------------------------------
@@ -69,9 +70,9 @@ class PaintRemoveInfluencesWidget(ui.QWidget):
     def load( self ):
         # clear ui
         self.tree.clear()
-        
+
         # get selected meshes
-        meshes = utils.getSkinnedMeshesFromSelection()
+        meshes = selection.getSkinnedMeshesFromSelection()
         
         if not meshes:
             self.setWindowTitle(WINDOW_TITLE)
@@ -82,13 +83,13 @@ class PaintRemoveInfluencesWidget(ui.QWidget):
         self.setWindowTitle(mesh.split("|")[-1])
         
         # get skinCluster
-        obj = utils.asMObject(mesh)
-        skinCluster = utils.asMFnSkinCluster(obj)
+        obj = api.asMObject(mesh)
+        skinCluster = api.asMFnSkinCluster(obj)
         
         # get influences
         influencesPrev = []
         influencesSort = []
-        infDag, _, _ = utils.getInfluences(skinCluster)
+        infDag, _, _ = api.getInfluences(skinCluster)
         
         # sort influences
         for i in range(infDag.length()):
@@ -144,7 +145,7 @@ class PaintRemoveInfluencesWidget(ui.QWidget):
         if t == OpenMaya.MFn.kJoint:        
             return ui.QIcon(":/out_joint.png")
         elif t == OpenMaya.MFn.kTransform:    
-            return u.QIcon(":/out_transform.png")
+            return ui.QIcon(":/out_transform.png")
 
 
 # ----------------------------------------------------------------------------

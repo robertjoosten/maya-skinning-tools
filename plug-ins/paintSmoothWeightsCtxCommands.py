@@ -1,5 +1,5 @@
 from maya import cmds, OpenMaya, OpenMayaMPx, OpenMayaAnim
-from skinningTools import utils
+from skinningTools.utils import api
 from skinningTools.paintSmoothWeightsCtx import (
     __author__,
     __version__,
@@ -41,11 +41,11 @@ class SmoothWeightsCtxManager(object):
             return 
 
         # get object data
-        self._obj = utils.asMObject(obj)
-        self._dag = utils.asMDagPath(self.obj)
+        self._obj = api.asMObject(obj)
+        self._dag = api.asMDagPath(self.obj)
         
         # get skin cluster
-        self._skinCluster = utils.asMFnSkinCluster(self.obj)
+        self._skinCluster = api.asMFnSkinCluster(self.obj)
         
         # get skin cluster data
         maxPlug = self.skinCluster.findPlug("maxInfluences")
@@ -203,21 +203,21 @@ class SmoothWeightsCtxManager(object):
             return [None]*5
 
         # get components
-        component = utils.asComponent(index)
-        componentConnected, componentCount = utils.getConnectedVertices(
+        component = api.asComponent(index)
+        componentConnected, componentCount = api.getConnectedVertices(
             self.dag, 
             component
         )
         
         # get current weights
-        weightsO, _ = utils.getSkinWeights(
+        weightsO, _ = api.getSkinWeights(
             self.dag, 
             self.skinCluster, 
             component, 
         )
         
         # get connected weights
-        weightsC, influences = utils.getSkinWeights(
+        weightsC, influences = api.getSkinWeights(
             self.dag, 
             self.skinCluster, 
             componentConnected

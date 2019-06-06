@@ -2,8 +2,8 @@ import sys
 from maya import cmds, OpenMaya
 
 from . import utils as toolUtils
-from .. import utils as projectUtils
 from .. import ui
+from ..utils import skin
 
 
 # ----------------------------------------------------------------------------
@@ -394,7 +394,7 @@ class VertexWidget(ui.QWidget):
         # variables
         self.vertex = vertex
         self.mesh, _ = vertex.split(".", 1)
-        self.skinCluster = projectUtils.getSkinCluster(self.mesh)
+        self.skinCluster = skin.getSkinCluster(self.mesh)
         
         # get skinned data
         influences = cmds.skinPercent(
