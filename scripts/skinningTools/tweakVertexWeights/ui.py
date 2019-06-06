@@ -1,9 +1,8 @@
 import sys
 from maya import cmds, OpenMaya
 
-from . import utils as toolUtils
 from .. import ui
-from ..utils import skin
+from ..utils import skin, selection
 
 
 # ----------------------------------------------------------------------------
@@ -548,7 +547,10 @@ class TweakVertexWeightsWidget(ui.QWidget):
         self.clear()
         
         # get selection
-        vertices = toolUtils.getSkinnedVertices()
+        meshes = selection.getSkinnedMeshesFromSelection()
+        _, vertices = selection.splitComponents(meshes, ".vtx")
+
+        # create vertex widgets
         for vertex in vertices[:DISPLAY_MAXIMUM]:
             widget = VertexWidget(self, vertex)
             

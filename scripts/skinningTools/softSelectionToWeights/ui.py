@@ -1,8 +1,8 @@
 from maya import OpenMaya, cmds
 from functools import partial
 
-from . import utils as toolUtils
-from ..utils import skin
+from . import weight
+from ..utils import api, skin
 from .. import ui
 
 
@@ -257,7 +257,7 @@ class InfluenceWidget(ui.QWidget):
         
         :raises RuntimeError: if no soft selection is made
         """
-        self.ssActive, self.ssData = toolUtils.getSoftSelection()
+        self.ssActive, self.ssData = api.getSoftSelection()
         self.setSoftSelection.emit()
         
         # reset values if no soft selection
@@ -446,14 +446,14 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
                     data[mesh] = {}
                     
                 # loop weights
-                for index, weight in weights.iteritems():
+                for index, w in weights.iteritems():
                     if index not in data[mesh].keys():
                         data[mesh][index] = {}
                         
                     if inf not in data[mesh][index].keys():
                         data[mesh][index][inf] = 0
                         
-                    data[mesh][index][inf] += weight
+                    data[mesh][index][inf] += w
                     
         # set progress bar
         self.progressBar.setVisible(True)
@@ -467,8 +467,8 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
             if not skin.isSkinned(mesh) and not filler:
                 print "No Filler Influence found for mesh: {0}".format(mesh)
                 continue
-                
-            toolUtils.setSkinWeights(
+
+            weight.setSkinWeights(
                 mesh,
                 meshData,
                 infs,

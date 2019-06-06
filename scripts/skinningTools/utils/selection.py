@@ -10,7 +10,7 @@ def extendWithShapes(selection):
     """
     extended = []
     extended.extend(selection)
-    extended.extend(cmds.listRelatives(selection, s=True, ni=True, f=True))
+    extended.extend(cmds.listRelatives(selection, s=True, ni=True, f=True) or [])
 
     return extended
 
@@ -22,7 +22,11 @@ def filterByType(selection, types):
     :return: Filtered selection
     :rtype: list
     """
-    return cmds.ls(selection, l=True, type=types)
+    return [
+        sel
+        for sel in selection
+        if cmds.nodeType(sel) in types
+    ]
 
 
 def splitComponents(selection, component="."):
