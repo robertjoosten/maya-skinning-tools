@@ -13,6 +13,7 @@ Subpackages
 
     skinningTools.utils.api
     skinningTools.utils.tweening
+    skinningTools.utils.ui
 
 Submodules
 ----------
@@ -20,6 +21,7 @@ Submodules
 .. toctree::
 
    skinningTools.utils.conversion
+   skinningTools.utils.decorator
    skinningTools.utils.influence
    skinningTools.utils.path
    skinningTools.utils.selection

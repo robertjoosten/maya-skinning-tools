@@ -46,23 +46,134 @@
   <div class="section" id="module-skinningTools.paintRemoveInfluenceCtx.ui">
 <span id="skinningtools-paintremoveinfluencectx-ui-module"></span><h1>skinningTools.paintRemoveInfluenceCtx.ui module<a class="headerlink" href="#module-skinningTools.paintRemoveInfluenceCtx.ui" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
+<dt id="skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget">
+<em class="property">class </em><code class="descclassname">skinningTools.paintRemoveInfluenceCtx.ui.</code><code class="descname">InfluenceWidget</code><span class="sig-paren">(</span><em>parent</em>, <em>mesh</em>, <em>influence</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QTreeWidgetItem</span></code></p>
+<dl class="method">
+<dt id="skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.getInfluenceIcon">
+<code class="descname">getInfluenceIcon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.getInfluenceIcon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the influence icon based on the node type of the influence. If
+the node type is not present in the INFLUENCE_ICONS variable the
+icon will be defaulted to a transform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Icon</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">QIcon</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.getPreferredParent">
+<code class="descname">getPreferredParent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.getPreferredParent" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Preferred parent</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">InfluenceWidget/QTreeWidget</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.influence">
+<code class="descname">influence</code><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.influence" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Influence</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.mesh">
+<code class="descname">mesh</code><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.mesh" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Mesh</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.name">
+<code class="descname">name</code><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.name" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.paint">
+<code class="descname">paint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.InfluenceWidget.paint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget">
 <em class="property">class </em><code class="descclassname">skinningTools.paintRemoveInfluenceCtx.ui.</code><code class="descname">PaintRemoveInfluencesWidget</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
 <dl class="method">
-<dt id="skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.getInfluenceIcon">
-<code class="descname">getInfluenceIcon</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.getInfluenceIcon" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.filter">
+<code class="descname">filter</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop all items and hide widgets not matching the text value. If no
+text is provided all widgets will be displayed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> (<em>str</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.load">
 <code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.load" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load the selected mesh into the paint remove influence widget. All
+selected skinned meshes will be queried but only the first one will be
+displayed by the widget.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> – When no skinned mesh is selected</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.paint">
-<code class="descname">paint</code><span class="sig-paren">(</span><em>mesh</em>, <em>influence</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.paint" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">paint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.paint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the selected item and trigger the paint function on that item.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="skinningTools.paintRemoveInfluenceCtx.ui.PaintRemoveInfluencesWidget.staticMetaObject">

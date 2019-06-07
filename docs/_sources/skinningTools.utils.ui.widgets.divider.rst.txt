@@ -1,0 +1,7 @@
+skinningTools\.utils\.ui\.widgets\.divider module
+=================================================
+
+.. automodule:: skinningTools.utils.ui.widgets.divider
+    :members:
+    :undoc-members:
+    :show-inheritance:

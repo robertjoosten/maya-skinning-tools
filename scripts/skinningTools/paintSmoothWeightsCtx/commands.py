@@ -1,5 +1,5 @@
 from maya import cmds
-from .. import decorators
+from ..utils import decorator
 
 
 # ----------------------------------------------------------------------------
@@ -12,7 +12,8 @@ CONTEXT_UPDATE = "paintSmoothWeightsCtxUpdate"
 
 # ----------------------------------------------------------------------------
 
-@decorators.loadPlugin("paintSmoothWeightsCtxCommands.py")
+
+@decorator.loadPlugin("paintSmoothWeightsCtxCommands.py")
 def paint():
     """
     Initialize the smooth weight context, make sure to have a mesh selected 

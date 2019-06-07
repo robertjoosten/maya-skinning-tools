@@ -1,5 +1,5 @@
 from maya import cmds
-from .. import decorators
+from ..utils import decorator
 
 
 # ----------------------------------------------------------------------------
@@ -14,7 +14,7 @@ CONTEXT_AFTER = "paintSmoothWeightsCtxAfter"
 # ----------------------------------------------------------------------------
 
 
-@decorators.loadPlugin("paintRemoveInfluenceCtxCommands.py")
+@decorator.loadPlugin("paintRemoveInfluenceCtxCommands.py")
 def paint(mesh, influence):
     """
     Initialize the remove influence context. Once this command is run the 

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>skinningTools.decorators module &#8212; skinningTools  &#39;&#39; documentation</title>
+    <title>skinningTools.utils.ui.icon module &#8212; skinningTools  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -43,18 +43,22 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-skinningTools.decorators">
-<span id="skinningtools-decorators-module"></span><h1>skinningTools.decorators module<a class="headerlink" href="#module-skinningTools.decorators" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-skinningTools.utils.ui.icon">
+<span id="skinningtools-utils-ui-icon-module"></span><h1>skinningTools.utils.ui.icon module<a class="headerlink" href="#module-skinningTools.utils.ui.icon" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="skinningTools.decorators.loadPlugin">
-<code class="descclassname">skinningTools.decorators.</code><code class="descname">loadPlugin</code><span class="sig-paren">(</span><em>plugin</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.decorators.loadPlugin" title="Permalink to this definition">¶</a></dt>
-<dd><p>This decorator can be used on functions that require a certain plugin to
-be loaded.</p>
+<dt id="skinningTools.utils.ui.icon.getIconPath">
+<code class="descclassname">skinningTools.utils.ui.icon.</code><code class="descname">getIconPath</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.ui.icon.getIconPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an icon path based on file name. All paths in the XBMLANGPATH variable
+processed to see if the provided icon can be found.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plugin</strong> (<em>str</em>) – </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Icon path</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str/None</td>
 </tr>
 </tbody>
 </table>
@@ -71,7 +75,7 @@ be loaded.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/skinningTools.decorators.rst.txt"
+      <li><a href="_sources/skinningTools.utils.ui.icon.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>

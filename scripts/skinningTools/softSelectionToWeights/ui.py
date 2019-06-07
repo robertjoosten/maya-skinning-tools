@@ -2,8 +2,8 @@ from maya import OpenMaya, cmds
 from functools import partial
 
 from . import weight
-from ..utils import api, skin
-from .. import ui
+from ..utils import ui, api, skin
+from ..utils.ui import Qt
 
 
 # ----------------------------------------------------------------------------
@@ -22,7 +22,7 @@ SELECT_ICON = ":/redSelect.png"
 # ----------------------------------------------------------------------------
 
 
-class IconButton(ui.QPushButton):
+class IconButton(Qt.QPushButton):
     """
     Widget used to quickly create icon buttons.
 
@@ -30,28 +30,28 @@ class IconButton(ui.QPushButton):
     :param QIcon icon:   
     """
     def __init__(self, parent, icon):
-        ui.QPushButton.__init__(self, parent)
+        Qt.QPushButton.__init__(self, parent)
 
-        icon = ui.QIcon(icon)
+        icon = Qt.QIcon(icon)
         self.setIcon(icon)
-        self.setIconSize(ui.QSize(24,24))
-        self.setFixedSize(ui.QSize(24,24))
+        self.setIconSize(Qt.QSize(24,24))
+        self.setFixedSize(Qt.QSize(24,24))
 
 
-class AddInfluenceWidget(ui.QWidget):
+class AddInfluenceWidget(Qt.QWidget):
     """
     Widget used to add influences. Will emit the 'addInfluence' signal when
     the add button is released.
 
     :param QWidget parent:   
     """
-    addInfluence = ui.Signal()
+    addInfluence = Qt.Signal()
 
     def __init__(self, parent):
-        ui.QWidget.__init__(self, parent)
+        Qt.QWidget.__init__(self, parent)
         
         # create layout
-        layout = ui.QHBoxLayout(self)
+        layout = Qt.QHBoxLayout(self)
         layout.setContentsMargins(3, 3, 3, 3)
         layout.setSpacing(5)
         
@@ -62,27 +62,27 @@ class AddInfluenceWidget(ui.QWidget):
         layout.addWidget(add)
         
         # create title
-        label = ui.QLabel(self)
+        label = Qt.QLabel(self)
         label.setText("Add Influence")
         label.setFont(ui.BOLT_FONT)
         layout.addWidget(label)
 
 # ----------------------------------------------------------------------------
 
-class FillerInfluenceWidget(ui.QWidget):
+class FillerInfluenceWidget(Qt.QWidget):
     """
     Widget used to set the filler influence. 
 
     :param QWidget parent:   
     """
     def __init__(self, parent):
-        ui.QWidget.__init__(self, parent)
+        Qt.QWidget.__init__(self, parent)
         
         # variable
         self._influence = None
 
         # create layout
-        layout = ui.QHBoxLayout(self)
+        layout = Qt.QHBoxLayout(self)
         layout.setContentsMargins(3, 3, 3, 3)
         layout.setSpacing(5)
         
@@ -92,7 +92,7 @@ class FillerInfluenceWidget(ui.QWidget):
         layout.addWidget(joint)
         
         # create label
-        self.label = ui.QLabel(self)
+        self.label = Qt.QLabel(self)
         self.label.setText("< filler influence >")
         self.label.setFont(ui.FONT)
         layout.addWidget(self.label)
@@ -131,7 +131,7 @@ class FillerInfluenceWidget(ui.QWidget):
     # ------------------------------------------------------------------------
     
     def contextMenuEvent(self, event): 
-        menu = ui.QMenu(self)
+        menu = Qt.QMenu(self)
         influence = menu.addAction(
             "Select: Filler Influence", 
             partial(
@@ -139,23 +139,23 @@ class FillerInfluenceWidget(ui.QWidget):
                 self.influence
             )
         )
-        influence.setIcon(ui.QIcon(SELECT_ICON))
+        influence.setIcon(Qt.QIcon(SELECT_ICON))
         influence.setEnabled(True if self.influence else False)
 
         menu.exec_(self.mapToGlobal(event.pos()))
 
 
-class InfluenceWidget(ui.QWidget):
+class InfluenceWidget(Qt.QWidget):
     """
     Widget used to set the influence and soft selection. Once a new soft 
     selection is made the 'setSoftSelection' signal will be emitted.
 
     :param QWidget parent:   
     """
-    setSoftSelection = ui.Signal()
+    setSoftSelection = Qt.Signal()
 
     def __init__(self, parent):
-        ui.QWidget.__init__(self, parent)
+        Qt.QWidget.__init__(self, parent)
         
         # variable
         self._influence = None
@@ -165,7 +165,7 @@ class InfluenceWidget(ui.QWidget):
         self._ssSettings = {}
         
         # create layout
-        layout = ui.QHBoxLayout(self)
+        layout = Qt.QHBoxLayout(self)
         layout.setContentsMargins(3, 3, 3, 3)
         layout.setSpacing(5)
         
@@ -180,7 +180,7 @@ class InfluenceWidget(ui.QWidget):
         layout.addWidget(soft)
         
         # create label
-        self.label = ui.QLabel(self)
+        self.label = Qt.QLabel(self)
         self.label.setText("< influence >")
         self.label.setFont(ui.FONT)
         layout.addWidget(self.label)
@@ -283,7 +283,7 @@ class InfluenceWidget(ui.QWidget):
     # ------------------------------------------------------------------------
     
     def contextMenuEvent(self, event):    
-        menu = ui.QMenu(self)
+        menu = Qt.QMenu(self)
         influence = menu.addAction(
             "Select: Influence", 
             partial(
@@ -291,20 +291,20 @@ class InfluenceWidget(ui.QWidget):
                 self.influence
             )
         )
-        influence.setIcon(ui.QIcon(SELECT_ICON))
+        influence.setIcon(Qt.QIcon(SELECT_ICON))
         influence.setEnabled(True if self.influence else False)
 
         soft = menu.addAction(
             "Select: Soft Selection",
             self.selectSoftSelection
         )
-        soft.setIcon(ui.QIcon(SELECT_ICON))
+        soft.setIcon(Qt.QIcon(SELECT_ICON))
         soft.setEnabled(True if self.ssData else False)
         
         menu.exec_(self.mapToGlobal(event.pos()))
 
 
-class SoftSelectionToWeightsWidget(ui.QWidget):
+class SoftSelectionToWeightsWidget(Qt.QWidget):
     """
     Widget used to manage all of the added influences and their soft 
     selection.
@@ -312,11 +312,11 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
     :param QWidget parent:   
     """
     def __init__(self, parent):
-        ui.QWidget.__init__(self, parent)
+        Qt.QWidget.__init__(self, parent)
         
         # ui
         self.setParent(parent)        
-        self.setWindowFlags(ui.Qt.Window)   
+        self.setWindowFlags(Qt.Qt.Window)
 
         self.setWindowTitle(WINDOW_TITLE)           
         self.resize(300, 250)
@@ -324,10 +324,10 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
         # set icon
         path = ui.getIconPath(WINDOW_ICON)
         if path:
-            self.setWindowIcon(ui.QIcon(path))      
+            self.setWindowIcon(Qt.QIcon(path))
     
         # create layout
-        layout = ui.QVBoxLayout(self)
+        layout = Qt.QVBoxLayout(self)
         layout.setContentsMargins(3, 3, 3, 3)
         layout.setSpacing(3)
         
@@ -337,11 +337,11 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
         layout.addWidget(title)
 
         # create scroll
-        scrollArea = ui.QScrollArea(self)
+        scrollArea = Qt.QScrollArea(self)
         scrollArea.setWidgetResizable(True)
 
-        self.widget = ui.QWidget(self)
-        self.layout = ui.QVBoxLayout(self.widget)
+        self.widget = Qt.QWidget(self)
+        self.layout = Qt.QVBoxLayout(self.widget)
         
         scrollArea.setWidget(self.widget)
         layout.addWidget(scrollArea)
@@ -351,25 +351,25 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
         self.layout.addWidget(self.filler)
         
         # create spacer
-        spacer = ui.QSpacerItem(
+        spacer = Qt.QSpacerItem(
             1, 
-            1, 
-            ui.QSizePolicy.Minimum, 
-            ui.QSizePolicy.Expanding
+            1,
+            Qt.QSizePolicy.Minimum,
+            Qt.QSizePolicy.Expanding
         )
         self.layout.addItem(spacer)
         self.layout.setContentsMargins(3, 3, 3, 3)
         self.layout.setSpacing(3)
 
         # create button
-        button = ui.QPushButton(self)
+        button = Qt.QPushButton(self)
         button.setText("Skin")
         button.setFont(ui.FONT)
         button.released.connect(self.skin)
         layout.addWidget(button) 
         
         # create button
-        self.progressBar = ui.QProgressBar(self)   
+        self.progressBar = Qt.QProgressBar(self)
         self.progressBar.setVisible(False)
         layout.addWidget(self.progressBar)
         
@@ -484,5 +484,5 @@ class SoftSelectionToWeightsWidget(ui.QWidget):
 
 
 def show():
-    softSelectionToWeights = SoftSelectionToWeightsWidget(ui.mayaWindow())
+    softSelectionToWeights = SoftSelectionToWeightsWidget(ui.getMayaMainWindow())
     softSelectionToWeights.show()

@@ -1,3 +1,12 @@
+def getRootPath(path):
+    """
+    :param str path:
+    :return: Root path
+    :rtype: str
+    """
+    return path.split("|")[-1]
+
+
 def asChunks(l, num):
     """
     Split a list into chunks of the provided num

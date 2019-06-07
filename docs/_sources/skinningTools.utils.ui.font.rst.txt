@@ -1,0 +1,7 @@
+skinningTools\.utils\.ui\.font module
+=====================================
+
+.. automodule:: skinningTools.utils.ui.font
+    :members:
+    :undoc-members:
+    :show-inheritance:

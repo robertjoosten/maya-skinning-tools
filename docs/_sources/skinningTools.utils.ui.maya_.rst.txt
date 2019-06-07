@@ -1,0 +1,7 @@
+skinningTools\.utils\.ui\.maya\_ module
+=======================================
+
+.. automodule:: skinningTools.utils.ui.maya_
+    :members:
+    :undoc-members:
+    :show-inheritance:

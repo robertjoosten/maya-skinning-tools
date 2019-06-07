@@ -1,8 +1,8 @@
 import sys
 from maya import cmds, OpenMaya
 
-from .. import ui
-from ..utils import skin, selection
+from ..utils import ui, skin, selection
+from ..utils.ui import Qt, widgets
 
 
 # ----------------------------------------------------------------------------
@@ -21,7 +21,7 @@ DISPLAY_MAXIMUM = 10
 # ----------------------------------------------------------------------------
 
 
-class VertexLabelWidget(ui.QWidget):
+class VertexLabelWidget(Qt.QWidget):
     """
     Widget used to manage the vertex that is parsed. Will create a label, 
     warning label and checkbox to display.
@@ -29,26 +29,26 @@ class VertexLabelWidget(ui.QWidget):
     :param QWidget parent:   
     :param str vertex:   
     """
-    signal = ui.Signal(bool)
+    signal = Qt.Signal(bool)
     
     def __init__(self, parent, vertex):
-        ui.QWidget.__init__(self, parent)
+        Qt.QWidget.__init__(self, parent)
         
         # create layout
-        layout = ui.QHBoxLayout(self)
+        layout = Qt.QHBoxLayout(self)
         layout.setContentsMargins(3, 3, 3, 3)
         layout.setSpacing(10)
         
         # create label
-        name = ui.QLabel(self)
+        name = Qt.QLabel(self)
         name.setText(vertex.split("|")[-1])
         name.setFont(ui.BOLT_FONT)
         name.setStyleSheet(ORANGE_STYLESHEET)
         
         # set label size policy
-        sizePolicy = ui.QSizePolicy(
-            ui.QSizePolicy.Preferred, 
-            ui.QSizePolicy.Preferred
+        sizePolicy = Qt.QSizePolicy(
+            Qt.QSizePolicy.Preferred,
+            Qt.QSizePolicy.Preferred
         )
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
@@ -59,7 +59,7 @@ class VertexLabelWidget(ui.QWidget):
         layout.addWidget(name)
         
         # create warning
-        self.warning = ui.QLabel(self)
+        self.warning = Qt.QLabel(self)
         self.warning.setText("Exceeded Maximum Influences")
         self.warning.setFont(ui.FONT)
         self.warning.setStyleSheet(RED_STYLESHEET)
@@ -67,7 +67,7 @@ class VertexLabelWidget(ui.QWidget):
         layout.addWidget(self.warning)
         
         # create checkbox
-        self.checkbox = ui.QCheckBox(self)
+        self.checkbox = Qt.QCheckBox(self)
         self.checkbox.setText("Display All Influences")
         self.checkbox.setFont(ui.FONT)
         self.checkbox.stateChanged.connect(self.checkboxStateChanged)
@@ -90,7 +90,7 @@ class VertexLabelWidget(ui.QWidget):
         self.signal.emit(self.checkbox.isChecked())
 
 
-class VertexInfluenceWidget(ui.QWidget):
+class VertexInfluenceWidget(Qt.QWidget):
     """
     Widget used to manage the influence weight. A label, slider and spinbox
     are created that can be manipulated by the user. Also can an influence be
@@ -100,10 +100,10 @@ class VertexInfluenceWidget(ui.QWidget):
     :param str influence:   
     :param float value:
     """
-    signal = ui.Signal(str, float)
+    signal = Qt.Signal(str, float)
     
     def __init__(self, parent, influence, value):
-        ui.QWidget.__init__(self, parent)
+        Qt.QWidget.__init__(self, parent)
         
         # variables
         self.influence = influence
@@ -112,37 +112,37 @@ class VertexInfluenceWidget(ui.QWidget):
         isLocked = cmds.getAttr("{0}.liw".format(influence))
         
         # create layout
-        layout = ui.QHBoxLayout(self)
+        layout = Qt.QHBoxLayout(self)
         layout.setContentsMargins(3, 3, 3, 3)
         layout.setSpacing(5)
         
         # create lock
-        self.lock = ui.QPushButton(self)
+        self.lock = Qt.QPushButton(self)
         self.lock.setFlat(True)
         self.lock.setCheckable(True)
-        self.lock.setIcon(ui.QIcon(LOCK_ICON.get(isLocked)))
-        self.lock.setFixedSize(ui.QSize(18, 18))
+        self.lock.setIcon(Qt.QIcon(LOCK_ICON.get(isLocked)))
+        self.lock.setFixedSize(Qt.QSize(18, 18))
         self.lock.released.connect(self.toggleLocked)
         layout.addWidget(self.lock)
         
         # create label
-        name = ui.QLabel(self)
+        name = Qt.QLabel(self)
         name.setText(influence)
         name.setFont(ui.FONT)
         name.setMinimumWidth(150)
         layout.addWidget(name)
         
         # create slider
-        self.slider = ui.QSlider(self)
-        self.slider.setInputMethodHints(ui.Qt.ImhNone)
+        self.slider = Qt.QSlider(self)
+        self.slider.setInputMethodHints(Qt.Qt.ImhNone)
         self.slider.setMaximum(1000)
         self.slider.setSingleStep(1)
-        self.slider.setOrientation(ui.Qt.Horizontal)
+        self.slider.setOrientation(Qt.Qt.Horizontal)
         self.slider.valueChanged.connect(self.sliderValueChanged)
         layout.addWidget(self.slider)
         
         # create label
-        self.spinbox = ui.QDoubleSpinBox(self)
+        self.spinbox = Qt.QDoubleSpinBox(self)
         self.spinbox.setFont(ui.FONT)
         self.spinbox.setDecimals(3)
         self.spinbox.setRange(0, 1)
@@ -216,7 +216,7 @@ class VertexInfluenceWidget(ui.QWidget):
         self.signal.emit(self.influence, self.getSliderValue())
 
 
-class VertexInfluencesWidget(ui.QWidget):
+class VertexInfluencesWidget(Qt.QWidget):
     """
     Widget used to manage the collection of influences. Will loop over all of 
     the influences and instance widgets :class:`VertexInfluenceWidget`.
@@ -224,11 +224,11 @@ class VertexInfluencesWidget(ui.QWidget):
     :param QWidget parent:   
     :param list data: Sorted list of values and influences
     """
-    signal = ui.Signal(list)
-    warningSignal = ui.Signal(bool)
+    signal = Qt.Signal(list)
+    warningSignal = Qt.Signal(bool)
     
     def __init__(self, parent, skinCluster, data):
-        ui.QWidget.__init__(self, parent)
+        Qt.QWidget.__init__(self, parent)
 
         # variables
         self.widgets = []
@@ -245,7 +245,7 @@ class VertexInfluencesWidget(ui.QWidget):
         )
         
         # create layout
-        layout = ui.QVBoxLayout(self)
+        layout = Qt.QVBoxLayout(self)
         layout.setContentsMargins(3, 3, 3, 3)
         layout.setSpacing(3)
         
@@ -320,9 +320,7 @@ class VertexInfluencesWidget(ui.QWidget):
         :param str changedInfluence: Influence name
         :param float changedValue: Influence value
         """
-        
         # get new weights
-        weightsList = []
         weightsDict = {
             widget.influence:widget.value
             for widget in self.widgets
@@ -331,8 +329,6 @@ class VertexInfluencesWidget(ui.QWidget):
         
         # normalize weights
         if self.normalizeWeights == 1:
-            factor = 1
-
             # get normalizable weights
             normalizeable = [ 
                 widget.influence 
@@ -347,9 +343,11 @@ class VertexInfluencesWidget(ui.QWidget):
                 # get 
                 total = sum(weightsDict.values())
                 normal = sum(
-                    [weight
-                    for influence, weight in weightsDict.iteritems()
-                    if influence in normalizeable ]
+                    [
+                        weight
+                        for influence, weight in weightsDict.iteritems()
+                        if influence in normalizeable
+                    ]
                 )
                 
                 factor = (1-total+normal) / normal
@@ -378,7 +376,7 @@ class VertexInfluencesWidget(ui.QWidget):
         self.displayMaxInfluences()
 
 
-class VertexWidget(ui.QWidget):
+class VertexWidget(Qt.QWidget):
     """
     Widget used to manage the influences of an entire vertex. Will create a 
     header :class:`VertexLabelWidget`. and a manager for all of the influences
@@ -388,7 +386,7 @@ class VertexWidget(ui.QWidget):
     :param str vertex:
     """
     def __init__(self, parent, vertex):
-        ui.QWidget.__init__(self, parent)
+        Qt.QWidget.__init__(self, parent)
         
         # variables
         self.vertex = vertex
@@ -410,19 +408,21 @@ class VertexWidget(ui.QWidget):
         data.reverse()
 
         # create layout
-        layout = ui.QVBoxLayout(self)
+        layout = Qt.QVBoxLayout(self)
         layout.setContentsMargins(3, 3, 3, 3)
         layout.setSpacing(3)
         
         # create divider
-        ui.addDivider(self, layout)
+        divider = widgets.Divider(self)
+        layout.addWidget(divider)
         
         # create label
         self.label = VertexLabelWidget(self, vertex)
         layout.addWidget(self.label)
         
         # create divider
-        ui.addDivider(self, layout)
+        divider = widgets.Divider(self)
+        layout.addWidget(divider)
         
         # create frame
         self.frame = VertexInfluencesWidget(self, self.skinCluster, data)
@@ -450,7 +450,7 @@ class VertexWidget(ui.QWidget):
 # ----------------------------------------------------------------------------
 
 
-class TweakVertexWeightsWidget(ui.QWidget):
+class TweakVertexWeightsWidget(Qt.QWidget):
     """
     Widget used to manage all of the vertices that are currently selected. A
     callback is registered to update the ui every time the selection is 
@@ -459,11 +459,11 @@ class TweakVertexWeightsWidget(ui.QWidget):
     :param QWidget parent:   
     """
     def __init__(self, parent):
-        ui.QWidget.__init__(self, parent)
+        Qt.QWidget.__init__(self, parent)
         
         # ui
         self.setParent(parent)        
-        self.setWindowFlags(ui.Qt.Window)   
+        self.setWindowFlags(Qt.Qt.Window)
 
         self.setWindowTitle(WINDOW_TITLE)           
         self.resize(550, 350)
@@ -471,28 +471,28 @@ class TweakVertexWeightsWidget(ui.QWidget):
         # set icon
         path = ui.getIconPath(WINDOW_ICON)
         if path:
-            self.setWindowIcon(ui.QIcon(path))      
+            self.setWindowIcon(Qt.QIcon(path))
     
         # create layout
-        layout = ui.QVBoxLayout(self)
+        layout = Qt.QVBoxLayout(self)
         layout.setContentsMargins(3, 3, 3, 3)
 
         # create scroll
-        scrollArea = ui.QScrollArea(self)
+        scrollArea = Qt.QScrollArea(self)
         scrollArea.setWidgetResizable(True)
 
-        self.widget = ui.QWidget(self)
-        self.layout = ui.QVBoxLayout(self.widget)
+        self.widget = Qt.QWidget(self)
+        self.layout = Qt.QVBoxLayout(self.widget)
         
         scrollArea.setWidget(self.widget)
         layout.addWidget(scrollArea)
         
         # create spacer
-        spacer = ui.QSpacerItem(
+        spacer = Qt.QSpacerItem(
             1, 
-            1, 
-            ui.QSizePolicy.Minimum, 
-            ui.QSizePolicy.Expanding
+            1,
+            Qt.QSizePolicy.Minimum,
+            Qt.QSizePolicy.Expanding
         )
         self.layout.addItem(spacer)
         self.layout.setContentsMargins(3, 3, 3, 3)
@@ -525,7 +525,7 @@ class TweakVertexWeightsWidget(ui.QWidget):
         
     def closeEvent(self, event):
         self.removeCallback()
-        ui.QWidget.closeEvent(self, event)
+        Qt.QWidget.closeEvent(self, event)
         
     # ------------------------------------------------------------------------
     
@@ -562,5 +562,5 @@ class TweakVertexWeightsWidget(ui.QWidget):
 
 
 def show():
-    tweakVertexWeights = TweakVertexWeightsWidget(ui.mayaWindow())
+    tweakVertexWeights = TweakVertexWeightsWidget(ui.getMayaMainWindow())
     tweakVertexWeights.show()
