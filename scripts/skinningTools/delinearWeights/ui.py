@@ -1,6 +1,6 @@
 from . import commands
-from ..utils import tweening, ui
-from ..utils.ui import Qt
+from ..utils import ui
+from ..utils.ui import Qt, widgets
 
 
 # ----------------------------------------------------------------------------
@@ -11,33 +11,6 @@ WINDOW_ICON = "ST_delinearWeights.png"
 
 
 # ----------------------------------------------------------------------------
-
-
-class TweeningOptions(Qt.QWidget):
-    def __init__(self, parent):
-        Qt.QWidget.__init__(self, parent)
-
-        # create layout
-        layout = Qt.QHBoxLayout(self)
-        layout.setContentsMargins(3, 3, 3, 3)
-
-        # create label
-        label = Qt.QLabel(self)
-        label.setFont(ui.FONT)
-        label.setText("Easing Method:")
-        layout.addWidget(label)
-
-        # create option box
-        options = tweening.getTweeningMethods()
-        self.combo = Qt.QComboBox(self)
-        self.combo.setFont(ui.FONT)
-        self.combo.addItems(options)
-        layout.addWidget(self.combo)
-
-    # ------------------------------------------------------------------------
-
-    def currentText(self):
-        return self.combo.currentText()
 
 
 class DelinearWeightsWidget(Qt.QWidget):
@@ -67,8 +40,12 @@ class DelinearWeightsWidget(Qt.QWidget):
         layout.setSpacing(3)
 
         # create tweening
-        self.tweening = TweeningOptions(self)
+        self.tweening = widgets.TweeningOptions(self)
         layout.addWidget(self.tweening)
+
+        # create divider
+        divider = widgets.Divider(self)
+        layout.addWidget(divider)
         
         # create button
         apply = Qt.QPushButton(self)
@@ -80,7 +57,7 @@ class DelinearWeightsWidget(Qt.QWidget):
     # ------------------------------------------------------------------------
     
     def apply(self):
-        method = self.tweening.currentText()
+        method = self.tweening.currentMethod()
         commands.deLinearSkinWeightsOnSelection(method)
 
 
