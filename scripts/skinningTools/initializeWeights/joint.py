@@ -115,10 +115,10 @@ def jointsToLines(joints):
             # added. If the point is not on the line a line to the parent
             # joint will be added.
             if cLength < 0.001:
-                name = "{}:{}".format(pName, tName)
+                name = "{}@{}".format(pName, tName)
                 lines[name] = [pPoint, tPoint]
             else:
-                name = "{}:{}".format(jName, tName)
+                name = "{}@{}".format(jName, tName)
                 lines[name] = [point, tPoint]
 
     return lines

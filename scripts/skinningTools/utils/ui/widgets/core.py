@@ -34,7 +34,7 @@ class LabelButton(Qt.QWidget):
 class LabelSpinBox(Qt.QWidget):
     released = Qt.Signal()
 
-    def __init__(self, parent, label="", double=True, value=0, minValue=0, maxValue=1):
+    def __init__(self, parent, label="", double=True, value=0, step=1, minValue=0, maxValue=1):
         Qt.QWidget.__init__(self, parent)
 
         # create layout
@@ -55,6 +55,7 @@ class LabelSpinBox(Qt.QWidget):
         self.spinBox = widget(self)
         self.spinBox.setFont(font.FONT)
         self.spinBox.setValue(value)
+        self.spinBox.setSingleStep(step)
         self.spinBox.setMinimum(minValue)
         self.spinBox.setMaximum(maxValue)
         layout.addWidget(self.spinBox)

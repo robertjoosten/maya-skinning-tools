@@ -30,7 +30,7 @@ class TweeningOptions(Qt.QWidget):
 
     # ------------------------------------------------------------------------
 
-    def tweeningMethod(self):
+    def currentMethod(self):
         """
         :return: Tweening method
         :rtype: str

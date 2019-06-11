@@ -1,9 +1,16 @@
+import re
 from maya import cmds, OpenMaya
 from . import skin, joint
 from ..utils import api
 
 
-def setInitialWeights(mesh, joints, components=None, iterations=3, project=0):
+def setInitialWeights(
+        mesh,
+        joints,
+        components=None,
+        iterations=3,
+        projection=0,
+):
     """
     The set initial weights function will set the skin weights on a mesh and
     the isolate only the provided components of any. Each vertex will only
@@ -17,7 +24,7 @@ def setInitialWeights(mesh, joints, components=None, iterations=3, project=0):
     :param list joints:
     :param list/None components:
     :param int iterations: Number of smoothing iterations
-    :param float/int project: Value between 0-1
+    :param float/int projection: Value between 0-1
     """
     # get skin cluster
     sk = skin.getSkinCluster(mesh, joints)
@@ -56,20 +63,20 @@ def setInitialWeights(mesh, joints, components=None, iterations=3, project=0):
         names, closestPoints = joint.closestLineToPoint(lines, point)
 
         # displace the point
-        if project:
+        if projection:
             # get data for first
             closestPoint = closestPoints[0]
             closestDistance = (point - closestPoint).length()
 
             # get new point moving the point along the normal using the
             # project value as a multiplier to the closest distance.
-            point = point + (normal * closestDistance * project * -1)
+            point = point + (normal * closestDistance * projection * -1)
 
             # get closest line
             names, closestPoints = joint.closestLineToPoint(lines, point)
 
         # get influence
-        influence = names[0].split(":")[0]
+        influence = names[0].split("@")[0]
 
         # set skinning
         cmds.skinPercent(sk, vertex, transformValue=[[influence, 1]])
