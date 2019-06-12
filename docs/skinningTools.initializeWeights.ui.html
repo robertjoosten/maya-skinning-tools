@@ -1,0 +1,269 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>skinningTools.initializeWeights.ui module &#8212; skinningTools  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">skinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-skinningTools.initializeWeights.ui">
+<span id="skinningtools-initializeweights-ui-module"></span><h1>skinningTools.initializeWeights.ui module<a class="headerlink" href="#module-skinningTools.initializeWeights.ui" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="skinningTools.initializeWeights.ui.InitializeWeightsWidget">
+<em class="property">class </em><code class="descclassname">skinningTools.initializeWeights.ui.</code><code class="descname">InitializeWeightsWidget</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.InitializeWeightsWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<p>Widget used to initialize the weights of the selected meshes and/or
+vertices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<em>QWidget</em>) – </td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="skinningTools.initializeWeights.ui.InitializeWeightsWidget.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.InitializeWeightsWidget.apply" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ValueError</strong> – When no mesh(es) are specified</li>
+<li><strong>ValueError</strong> – When no joint(s) are specified</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="skinningTools.initializeWeights.ui.InitializeWeightsWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#skinningTools.initializeWeights.ui.InitializeWeightsWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="skinningTools.initializeWeights.ui.JointSelectionWidget">
+<em class="property">class </em><code class="descclassname">skinningTools.initializeWeights.ui.</code><code class="descname">JointSelectionWidget</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.JointSelectionWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="skinningTools.utils.ui.widgets.core.html#skinningTools.utils.ui.widgets.core.LabelButton" title="skinningTools.utils.ui.widgets.core.LabelButton"><code class="xref py py-class docutils literal"><span class="pre">skinningTools.utils.ui.widgets.core.LabelButton</span></code></a></p>
+<dl class="method">
+<dt id="skinningTools.initializeWeights.ui.JointSelectionWidget.getArguments">
+<code class="descname">getArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.JointSelectionWidget.getArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get arguments that are parsed in the setInitialWeights function, this
+function will return a dictionary that can be parsed into the function
+as keyword arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Arguments</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skinningTools.initializeWeights.ui.JointSelectionWidget.setSelection">
+<code class="descname">setSelection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.JointSelectionWidget.setSelection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="skinningTools.initializeWeights.ui.JointSelectionWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#skinningTools.initializeWeights.ui.JointSelectionWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="skinningTools.initializeWeights.ui.MeshSelectionWidget">
+<em class="property">class </em><code class="descclassname">skinningTools.initializeWeights.ui.</code><code class="descname">MeshSelectionWidget</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.MeshSelectionWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="skinningTools.utils.ui.widgets.core.html#skinningTools.utils.ui.widgets.core.LabelButton" title="skinningTools.utils.ui.widgets.core.LabelButton"><code class="xref py py-class docutils literal"><span class="pre">skinningTools.utils.ui.widgets.core.LabelButton</span></code></a></p>
+<dl class="method">
+<dt id="skinningTools.initializeWeights.ui.MeshSelectionWidget.getArguments">
+<code class="descname">getArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.MeshSelectionWidget.getArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get arguments that are parsed in the setInitialWeights function, this
+function will return a dictionary that can be parsed into the function
+as keyword arguments. The arguments are returned in list format as
+multiple meshes can be processed at the same time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Arguments</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skinningTools.initializeWeights.ui.MeshSelectionWidget.setSelection">
+<code class="descname">setSelection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.MeshSelectionWidget.setSelection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="skinningTools.initializeWeights.ui.MeshSelectionWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#skinningTools.initializeWeights.ui.MeshSelectionWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="skinningTools.initializeWeights.ui.SmoothWidget">
+<em class="property">class </em><code class="descclassname">skinningTools.initializeWeights.ui.</code><code class="descname">SmoothWidget</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.SmoothWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<dl class="method">
+<dt id="skinningTools.initializeWeights.ui.SmoothWidget.getArguments">
+<code class="descname">getArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.SmoothWidget.getArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get arguments that are parsed in the setInitialWeights function, this
+function will return a dictionary that can be parsed into the function
+as keyword arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Arguments</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="skinningTools.initializeWeights.ui.SmoothWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#skinningTools.initializeWeights.ui.SmoothWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="skinningTools.initializeWeights.ui.WeightWidget">
+<em class="property">class </em><code class="descclassname">skinningTools.initializeWeights.ui.</code><code class="descname">WeightWidget</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.WeightWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<dl class="method">
+<dt id="skinningTools.initializeWeights.ui.WeightWidget.getArguments">
+<code class="descname">getArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.WeightWidget.getArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get arguments that are parsed in the setInitialWeights function, this
+function will return a dictionary that can be parsed into the function
+as keyword arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Arguments</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skinningTools.initializeWeights.ui.WeightWidget.refresh">
+<code class="descname">refresh</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.WeightWidget.refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="skinningTools.initializeWeights.ui.WeightWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#skinningTools.initializeWeights.ui.WeightWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="skinningTools.initializeWeights.ui.show">
+<code class="descclassname">skinningTools.initializeWeights.ui.</code><code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.ui.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/skinningTools.initializeWeights.ui.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">skinningTools  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

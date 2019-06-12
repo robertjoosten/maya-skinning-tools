@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>skinningTools.utils.ui.widgets package &#8212; skinningTools  &#39;&#39; documentation</title>
+    <title>skinningTools.initializeWeights package &#8212; skinningTools  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -43,16 +43,46 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-skinningTools.utils.ui.widgets">
-<span id="skinningtools-utils-ui-widgets-package"></span><h1>skinningTools.utils.ui.widgets package<a class="headerlink" href="#module-skinningTools.utils.ui.widgets" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-skinningTools.initializeWeights">
+<span id="skinningtools-initializeweights-package"></span><h1>skinningTools.initializeWeights package<a class="headerlink" href="#module-skinningTools.initializeWeights" title="Permalink to this headline">¶</a></h1>
+<p>Assign initial skin weights to a mesh using the provided joints.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Extract the content of the .rar file anywhere on disk.</li>
+<li>Drag the skinningTools.mel file in Maya to permanently install the script.</li>
+</ul>
+</div>
+<div class="section" id="note">
+<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<p>It can always be quite hard to find good bind settings to start of your
+skinning work. This tool will aid you to set the bind weights for you. There
+are a few options available to you to get the preferred result. It is possible
+to run this tool on specific components of a mesh. This will make it possible
+to use different settings on different parts of the mesh.</p>
+<p>The mesh can be smooth in memory to get rid of areas that would be hard
+otherwise to find the best associated joint. If smoothing itself is not enough
+the point can be displaced along its normal based on a the shortest distance
+to the joint multiplied by the projection variable. This will ensure that the
+point gets moved closer to the best associated joint. At the same time this
+needs to be used carefully as it can cause unexpected result on areas like
+mouth cavities etc.</p>
+<p>On top of this it is possible to already blend the skin weights between the
+line of the parent influence and its child. If the blend option is not used
+vertices will have a maximum influence of 1. If blending is used the max
+influences per vertex increases to 2. The way this number is calculated is to
+get the parameter of the closest point on the line from the specified vertex.
+By default the blending is linear, but tweening methods can be used to create
+a nice fall-off on the weighting.</p>
+</div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.ui.widgets.core.html">skinningTools.utils.ui.widgets.core module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.ui.widgets.divider.html">skinningTools.utils.ui.widgets.divider module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.ui.widgets.search.html">skinningTools.utils.ui.widgets.search module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="skinningTools.utils.ui.widgets.tweening.html">skinningTools.utils.ui.widgets.tweening module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.initializeWeights.joint.html">skinningTools.initializeWeights.joint module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.initializeWeights.skin.html">skinningTools.initializeWeights.skin module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.initializeWeights.ui.html">skinningTools.initializeWeights.ui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skinningTools.initializeWeights.weight.html">skinningTools.initializeWeights.weight module</a></li>
 </ul>
 </div>
 </div>
@@ -66,7 +96,9 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">skinningTools.utils.ui.widgets package</a><ul>
+<li><a class="reference internal" href="#">skinningTools.initializeWeights package</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#note">Note</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 </ul>
 </li>
@@ -75,7 +107,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/skinningTools.utils.ui.widgets.rst.txt"
+      <li><a href="_sources/skinningTools.initializeWeights.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>

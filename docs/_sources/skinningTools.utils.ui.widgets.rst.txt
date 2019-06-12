@@ -11,6 +11,8 @@ Submodules
 
 .. toctree::
 
+   skinningTools.utils.ui.widgets.core
    skinningTools.utils.ui.widgets.divider
    skinningTools.utils.ui.widgets.search
+   skinningTools.utils.ui.widgets.tweening
 

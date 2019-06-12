@@ -22,9 +22,12 @@ Based on the settings on the skinCluster the following attribute will be
 respected while removing the influence weights:
     * Normalize Weights
     * Locked Influences
+
+If you are working with a mesh that contains many influences it is possible to
+filter then using the search box.
 """
 from .commands import paint
 
 __author__ = "Robert Joosten"
-__version__ = "0.8.1"
+__version__ = "0.8.2"
 __email__ = "rwm.joosten@gmail.com"

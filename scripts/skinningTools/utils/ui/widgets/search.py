@@ -18,7 +18,7 @@ class Search(Qt.QWidget):
         # create layout
         layout = Qt.QHBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(5)
+        layout.setSpacing(3)
 
         # search field
         self.le = Qt.QLineEdit(self)

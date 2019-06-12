@@ -46,6 +46,44 @@
   <div class="section" id="module-skinningTools.utils.api.mesh">
 <span id="skinningtools-utils-api-mesh-module"></span><h1>skinningTools.utils.api.mesh module<a class="headerlink" href="#module-skinningTools.utils.api.mesh" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
+<dt id="skinningTools.utils.api.mesh.getPoints">
+<code class="descclassname">skinningTools.utils.api.mesh.</code><code class="descname">getPoints</code><span class="sig-paren">(</span><em>dag</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.api.mesh.getPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the position in world space of each vertex on the provided mesh.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dag</strong> (<em>OpenMaya.MDagPath</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Points</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skinningTools.utils.api.mesh.getNormals">
+<code class="descclassname">skinningTools.utils.api.mesh.</code><code class="descname">getNormals</code><span class="sig-paren">(</span><em>dag</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.api.mesh.getNormals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the average normal in world space of each vertex on the provided mesh.
+The reason why OpenMaya.MItMeshVertex function has to be used is that the
+MFnMesh class returns incorrect normal results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dag</strong> (<em>OpenMaya.MDagPath</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Normals</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="skinningTools.utils.api.mesh.getConnectedVertices">
 <code class="descclassname">skinningTools.utils.api.mesh.</code><code class="descname">getConnectedVertices</code><span class="sig-paren">(</span><em>dag</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.api.mesh.getConnectedVertices" title="Permalink to this definition">¶</a></dt>
 <dd><p>index -&gt; OpenMaya.MFn.kMeshVertComponent</p>
@@ -64,6 +102,25 @@
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple(OpenMaya.MFn.kMeshVertComponent, int)</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skinningTools.utils.api.mesh.getConnectedVerticesMapper">
+<code class="descclassname">skinningTools.utils.api.mesh.</code><code class="descname">getConnectedVerticesMapper</code><span class="sig-paren">(</span><em>dag</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.utils.api.mesh.getConnectedVerticesMapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a dictionary where the keys are the indices of the vertices and the
+values a list of indices of the connected vertices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dag</strong> (<em>OpenMaya.MDagPath</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Connected vertices mapper</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
 </tr>
 </tbody>
 </table>

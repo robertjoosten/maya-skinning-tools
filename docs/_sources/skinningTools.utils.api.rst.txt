@@ -13,8 +13,11 @@ Submodules
 
    skinningTools.utils.api.conversion
    skinningTools.utils.api.influence
+   skinningTools.utils.api.math
    skinningTools.utils.api.mesh
    skinningTools.utils.api.path
    skinningTools.utils.api.selection
    skinningTools.utils.api.skin
+   skinningTools.utils.api.smooth
+   skinningTools.utils.api.vector
 

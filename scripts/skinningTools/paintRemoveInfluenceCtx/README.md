@@ -15,3 +15,5 @@ The paint tool calls a script that will select all the vertices that are influen
 Based on the settings on the skinCluster the following attribute will be respected while removing the influence weights:
 * Normalize Weights
 * Locked Influences
+
+If you are working with a mesh that contains many influences it is possible to filter then using the search box.

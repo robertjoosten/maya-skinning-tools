@@ -1,7 +1,6 @@
-import re
 from maya import cmds, OpenMaya
 from . import skin, joint
-from ..utils import api
+from ..utils import api, tweening
 
 
 def setInitialWeights(
@@ -10,6 +9,8 @@ def setInitialWeights(
         components=None,
         iterations=3,
         projection=0,
+        blend=False,
+        blendMethod=None
 ):
     """
     The set initial weights function will set the skin weights on a mesh and
@@ -52,6 +53,11 @@ def setInitialWeights(
     # get components
     components = components if components else range(len(points))
 
+    # get blend method
+    blendMethod = tweening.getTweeningMethod(blendMethod) \
+        if blendMethod \
+        else None
+
     # loop components
     for i in components:
         # get component data
@@ -76,7 +82,27 @@ def setInitialWeights(
             names, closestPoints = joint.closestLineToPoint(lines, point)
 
         # get influence
-        influence = names[0].split("@")[0]
+        influenceName = names[0]
+        influenceParent, influenceChild = influenceName.split("@")
+
+        # get default transform value
+        transformValue = [[influenceParent, 1]]
+
+        # calculate blend method
+        if blend:
+            # get parameter
+            a, b = lines.get(influenceName)
+            parameter = api.parameterOfPointOnLine(a, b, closestPoints[0])
+
+            # run parameter through blend method
+            if blendMethod:
+                parameter = blendMethod(parameter)
+
+            # set new transform value
+            transformValue = [
+                [influenceParent, 1 - parameter],
+                [influenceChild, parameter]
+            ]
 
         # set skinning
-        cmds.skinPercent(sk, vertex, transformValue=[[influence, 1]])
+        cmds.skinPercent(sk, vertex, transformValue=transformValue)

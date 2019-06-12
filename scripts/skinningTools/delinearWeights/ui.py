@@ -28,7 +28,7 @@ class DelinearWeightsWidget(Qt.QWidget):
         self.setWindowFlags(Qt.Qt.Window)
 
         self.setWindowTitle(WINDOW_TITLE)           
-        self.resize(300, 25)
+        self.resize(400, 25)
 
         # set icon
         path = ui.getIconPath(WINDOW_ICON)

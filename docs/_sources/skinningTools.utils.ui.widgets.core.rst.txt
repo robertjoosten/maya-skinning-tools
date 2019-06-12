@@ -1,0 +1,7 @@
+skinningTools\.utils\.ui\.widgets\.core module
+==============================================
+
+.. automodule:: skinningTools.utils.ui.widgets.core
+    :members:
+    :undoc-members:
+    :show-inheritance:

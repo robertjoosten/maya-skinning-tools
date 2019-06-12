@@ -27,7 +27,6 @@ def getSkinCluster(mesh, joints):
             joints,
             mesh,
             dropoffRate=0.1,
-            name="{}_sk".format(mesh)
         )[0]
 
     else:

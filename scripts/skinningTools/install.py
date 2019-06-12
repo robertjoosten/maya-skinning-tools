@@ -21,6 +21,11 @@ import {0}.tweakVertexWeights.ui
 {0}.tweakVertexWeights.ui.show()
 """.format(ROOT_PACKAGE)
 
+INITIALIZE_WEIGHTS_COMMAND = """
+import {0}.initializeWeights.ui
+{0}.initializeWeights.ui.show()
+""".format(ROOT_PACKAGE)
+
 CONVERT_SOFT_SELECTION_COMMAND = """
 import {0}.softSelectionToWeights.ui
 {0}.softSelectionToWeights.ui.show()
@@ -54,7 +59,7 @@ SHELF_TOOLS = [
     {
         "label": "paintRemoveInfluence",
         "command": PAINT_REMOVE_INFLUENCE_COMMAND,
-        "annotation": "Paint Remove Influence Tool: Remove influence on smooth bound skins",
+        "annotation": "Remove influence on smooth bound skins",
         "image1": "ST_paintRemoveInfluenceCtx.png",
         "sourceType": "python"
     },
@@ -63,6 +68,13 @@ SHELF_TOOLS = [
         "command": TWEAK_VERTEX_WEIGHT_COMMAND,
         "annotation": "Tweak Influences on a vertex level",
         "image1": "ST_tweakVertexWeights.png",
+        "sourceType": "python"
+    },
+    {
+        "label": "initializeWeights",
+        "command": INITIALIZE_WEIGHTS_COMMAND,
+        "annotation": "Initialize skin weights",
+        "image1": "ST_initializeWeights.png",
         "sourceType": "python"
     },
     {

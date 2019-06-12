@@ -17,6 +17,9 @@ Tools
 **tweakVertexWeights** 
     * Tweak influence weights on a vertex level.
 
+**initializeWeights**
+    * Initialize skin weights.
+
 **softSelectionToWeights** 
     * Convert soft selection to skin weights.
 
@@ -25,5 +28,5 @@ Tools
 """
 
 __author__ = "Robert Joosten"
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 __email__ = "rwm.joosten@gmail.com"

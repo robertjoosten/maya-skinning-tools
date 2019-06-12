@@ -12,6 +12,7 @@ Subpackages
 .. toctree::
 
     skinningTools.delinearWeights
+    skinningTools.initializeWeights
     skinningTools.paintRemoveInfluenceCtx
     skinningTools.paintSmoothWeightsCtx
     skinningTools.softSelectionToWeights

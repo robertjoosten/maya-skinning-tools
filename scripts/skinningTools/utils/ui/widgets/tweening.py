@@ -13,12 +13,13 @@ class TweeningOptions(Qt.QWidget):
 
         # create layout
         layout = Qt.QHBoxLayout(self)
-        layout.setContentsMargins(3, 3, 3, 3)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(3)
 
         # create label
         label = Qt.QLabel(self)
         label.setFont(font.FONT)
-        label.setText("Easing Method:")
+        label.setText("De-Linearize Method:")
         layout.addWidget(label)
 
         # create option box

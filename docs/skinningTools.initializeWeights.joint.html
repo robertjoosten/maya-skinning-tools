@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>skinningTools.delinearWeights.ui module &#8212; skinningTools  &#39;&#39; documentation</title>
+    <title>skinningTools.initializeWeights.joint module &#8212; skinningTools  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -43,38 +43,55 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-skinningTools.delinearWeights.ui">
-<span id="skinningtools-delinearweights-ui-module"></span><h1>skinningTools.delinearWeights.ui module<a class="headerlink" href="#module-skinningTools.delinearWeights.ui" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="skinningTools.delinearWeights.ui.DelinearWeightsWidget">
-<em class="property">class </em><code class="descclassname">skinningTools.delinearWeights.ui.</code><code class="descname">DelinearWeightsWidget</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.delinearWeights.ui.DelinearWeightsWidget" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
-<p>Widget used to de-linearize all of the vertices that are currently 
-selected.</p>
+  <div class="section" id="module-skinningTools.initializeWeights.joint">
+<span id="skinningtools-initializeweights-joint-module"></span><h1>skinningTools.initializeWeights.joint module<a class="headerlink" href="#module-skinningTools.initializeWeights.joint" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="skinningTools.initializeWeights.joint.closestLineToPoint">
+<code class="descclassname">skinningTools.initializeWeights.joint.</code><code class="descname">closestLineToPoint</code><span class="sig-paren">(</span><em>lines</em>, <em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.joint.closestLineToPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over all lines and find the closest point on the line from the
+provided point. After this is done the list of lines is sorted based on
+closest distance to the line.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<em>QWidget</em>) – </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lines</strong> (<em>dict</em>) – </li>
+<li><strong>point</strong> (<em>OpenMaya.MVector</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Closest lines and points ordered on distance</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
+</td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="skinningTools.delinearWeights.ui.DelinearWeightsWidget.apply">
-<code class="descname">apply</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.delinearWeights.ui.DelinearWeightsWidget.apply" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="skinningTools.delinearWeights.ui.DelinearWeightsWidget.staticMetaObject">
-<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#skinningTools.delinearWeights.ui.DelinearWeightsWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="function">
-<dt id="skinningTools.delinearWeights.ui.show">
-<code class="descclassname">skinningTools.delinearWeights.ui.</code><code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.delinearWeights.ui.show" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="skinningTools.initializeWeights.joint.jointsToLines">
+<code class="descclassname">skinningTools.initializeWeights.joint.</code><code class="descname">jointsToLines</code><span class="sig-paren">(</span><em>joints</em><span class="sig-paren">)</span><a class="headerlink" href="#skinningTools.initializeWeights.joint.jointsToLines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter the provided joints list and loop its children to generate lines
+between the parent and its children. It is possible that multiple children
+lie on the same line thinking twister joints for example. This function
+filters those out and creates lines between the twisters rather than lines
+overlapping each other.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>joints</strong> (<em>list</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Line data</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 
@@ -87,7 +104,7 @@ selected.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/skinningTools.delinearWeights.ui.rst.txt"
+      <li><a href="_sources/skinningTools.initializeWeights.joint.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
