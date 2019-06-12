@@ -12,6 +12,8 @@ Skinning tools for Maya.
 
 * <img align="left" src="icons/ST_tweakVertexWeights.png?raw=true">[tweakVertexWeights](scripts/skinningTools/tweakVertexWeights/README.md) - Tweak influence weights on a vertex level.
 
+* <img align="left" src="icons/ST_initializeWeights.png?raw=true">[initializeWeights](scripts/skinningTools/initializeWeights/README.md) - Initialize skin weights.
+
 * <img align="left" src="icons/ST_softSelectionToWeights.png?raw=true">[softSelectionToWeights](scripts/skinningTools/softSelectionToWeights/README.md) - Convert soft selection to skin weights.
 
 * <img align="left" src="icons/ST_delinearWeights.png?raw=true">[delinearWeights](scripts/skinningTools/delinearWeights/README.md) - De-linearize skin weights.
