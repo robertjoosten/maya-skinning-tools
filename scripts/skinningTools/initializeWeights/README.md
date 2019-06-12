@@ -1,5 +1,6 @@
-# initialize Weights
+# initializeWeights
 <img align="right" src="../../../icons/ST_initializeWeights.png?raw=true">
+
 Assign initial skin weights to a mesh using the provided joints.
 
 ##Installation
