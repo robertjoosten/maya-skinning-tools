@@ -1,9 +1,8 @@
 # initializeWeights
 <img align="right" src="../../../icons/ST_initializeWeights.png?raw=true">
-
 Assign initial skin weights to a mesh using the provided joints.
 
-##Installation
+## Installation
 * Extract the content of the .rar file anywhere on disk.
 * Drag the skinningTools.mel file in Maya to permanently install the script.
 
