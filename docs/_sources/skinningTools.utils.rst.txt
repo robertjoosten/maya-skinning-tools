@@ -24,7 +24,9 @@ Submodules
    skinningTools.utils.decorator
    skinningTools.utils.influence
    skinningTools.utils.path
+   skinningTools.utils.progress
    skinningTools.utils.selection
+   skinningTools.utils.singleton
    skinningTools.utils.skin
    skinningTools.utils.undo
    skinningTools.utils.weight

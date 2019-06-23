@@ -1,6 +1,9 @@
 """
 Assign initial skin weights to a mesh using the provided joints.
 
+.. figure:: _images/initialWeightsExample.png
+   :align: center
+
 Installation
 ============
 * Extract the content of the .rar file anywhere on disk.

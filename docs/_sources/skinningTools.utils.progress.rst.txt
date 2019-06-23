@@ -1,0 +1,7 @@
+skinningTools\.utils\.progress module
+=====================================
+
+.. automodule:: skinningTools.utils.progress
+    :members:
+    :undoc-members:
+    :show-inheritance:
