@@ -2,7 +2,7 @@ from maya import OpenMaya, cmds
 from functools import partial
 
 from . import weight
-from ..utils import ui, api, skin
+from ..utils import ui, api, undo, skin
 from ..utils.ui import Qt
 
 
@@ -366,12 +366,7 @@ class SoftSelectionToWeightsWidget(Qt.QWidget):
         button.setText("Skin")
         button.setFont(ui.FONT)
         button.released.connect(self.skin)
-        layout.addWidget(button) 
-        
-        # create button
-        self.progressBar = Qt.QProgressBar(self)
-        self.progressBar.setVisible(False)
-        layout.addWidget(self.progressBar)
+        layout.addWidget(button)
         
     # ------------------------------------------------------------------------
        
@@ -454,30 +449,25 @@ class SoftSelectionToWeightsWidget(Qt.QWidget):
                         data[mesh][index][inf] = 0
                         
                     data[mesh][index][inf] += w
-                    
-        # set progress bar
-        self.progressBar.setVisible(True)
-        self.progressBar.setValue(0)  
-        self.progressBar.setMinimum(0)
-        self.progressBar.setMaximum(len(data.keys()))
-        
-        # set weights
-        for mesh, meshData in data.iteritems():
-            filler = self.filler.influence
-            if not skin.isSkinned(mesh) and not filler:
-                print "No Filler Influence found for mesh: {0}".format(mesh)
-                continue
 
-            weight.setSkinWeights(
-                mesh,
-                meshData,
-                infs,
-                filler
-            )
-            
-            # update progress bar
-            num = self.progressBar.value()
-            self.progressBar.setValue(num+1)  
+        # wrap in undo block
+        with undo.UndoChunkContext():
+
+            # set weights
+            for mesh, meshData in data.iteritems():
+                filler = self.filler.influence
+                if not skin.isSkinned(mesh) and not filler:
+                    print "No Filler Influence found for mesh: {0}".format(
+                        mesh
+                    )
+                    continue
+
+                weight.setSkinWeights(
+                    mesh,
+                    meshData,
+                    infs,
+                    filler
+                )
 
 
 # ----------------------------------------------------------------------------

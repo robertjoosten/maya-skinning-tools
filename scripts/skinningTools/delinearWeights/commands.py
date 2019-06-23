@@ -3,12 +3,12 @@ from ..utils import (
     api,
     path,
     skin,
-    undo,
     weight,
     tweening,
     selection,
     conversion
 )
+from ..utils.progress import Progress
 
 
 def deLinearSkinWeightsOnSelection(method):
@@ -48,37 +48,37 @@ def deLinearSkinWeights(vertices, method):
         raise ValueError("Tweening method is not supported.")
 
     objects = list(set([vtx.split(".")[0] for vtx in vertices]))
-    
-    with undo.UndoChunkContext():
+
+    with Progress(len(objects)):
         for obj in objects:
             # get skin cluster
             sk = skin.getSkinCluster(obj)
             if not sk:
                 continue
-            
+
             # get indices
             indices = [
                 conversion.componentIndexFromString(vtx)
-                for vtx in vertices 
+                for vtx in vertices
                 if vtx.startswith(obj)
             ]
-            
+
             # get api objects
             meshObj = api.asMObject(obj)
             meshDag = api.asMDagPath(meshObj)
             meshDag.extendToShape()
-            
+
             skObj = api.asMObject(sk)
             skMfn = OpenMayaAnim.MFnSkinCluster(skObj)
-            
+
             # get weights
             components = api.asComponent(indices)
             weightsAll, num = api.getSkinWeights(
-                meshDag, 
-                skMfn, 
+                meshDag,
+                skMfn,
                 components
             )
-            
+
             # split weights
             weightChunks = path.asChunks(weightsAll, num)
 
@@ -87,14 +87,17 @@ def deLinearSkinWeights(vertices, method):
                 weights = weight.normalizeWeights(weights)
                 weights = [func(w) for w in weights]
                 weights = weight.normalizeWeights(weights)
-                
+
                 # set weights
                 for j, w in enumerate(weights):
                     cmds.setAttr(
                         "{0}.weightList[{1}].weights[{2}]".format(
-                            sk, 
+                            sk,
                             indices[i],
                             j
-                        ), 
+                        ),
                         w
                     )
+
+            # increment progress
+            Progress.next()

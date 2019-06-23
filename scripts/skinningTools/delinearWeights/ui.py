@@ -1,5 +1,5 @@
 from . import commands
-from ..utils import ui
+from ..utils import ui, undo
 from ..utils.ui import Qt, widgets
 
 
@@ -58,7 +58,10 @@ class DelinearWeightsWidget(Qt.QWidget):
     
     def apply(self):
         method = self.tweening.currentMethod()
-        commands.deLinearSkinWeightsOnSelection(method)
+
+        # wrap in undo block
+        with undo.UndoChunkContext():
+            commands.deLinearSkinWeightsOnSelection(method)
 
 
 # ----------------------------------------------------------------------------

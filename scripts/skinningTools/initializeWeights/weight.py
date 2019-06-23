@@ -1,6 +1,7 @@
 from maya import cmds, OpenMaya
 from . import skin, joint
 from ..utils import api, tweening
+from ..utils.progress import Progress
 
 
 def setInitialWeights(
@@ -43,66 +44,74 @@ def setInitialWeights(
     # get points
     points = api.getPoints(dag)
 
-    # get normals
-    normals = api.getNormals(dag)
-
-    # apply smoothing
-    points = api.laplacianSmoothing(points, connections, iterations)
-    normals = api.laplacianSmoothing(normals, connections, iterations)
-
     # get components
     components = components if components else range(len(points))
 
-    # get blend method
-    blendMethod = tweening.getTweeningMethod(blendMethod) \
-        if blendMethod \
-        else None
+    # wrap in progress block
+    with Progress(len(components) + 2):
+        # get normals
+        normals = api.getNormals(dag)
 
-    # loop components
-    for i in components:
-        # get component data
-        point = points[i]
-        normal = normals[i].normal()
-        vertex = "{}.vtx[{}]".format(mesh, i)
+        # apply smoothing
+        points = api.laplacianSmoothing(points, connections, iterations)
+        Progress.next()
 
-        # get closest line
-        names, closestPoints = joint.closestLineToPoint(lines, point)
+        normals = api.laplacianSmoothing(normals, connections, iterations)
+        Progress.next()
 
-        # displace the point
-        if projection:
-            # get data for first
-            closestPoint = closestPoints[0]
-            closestDistance = (point - closestPoint).length()
+        # get blend method
+        blendMethod = tweening.getTweeningMethod(blendMethod) \
+            if blendMethod \
+            else None
 
-            # get new point moving the point along the normal using the
-            # project value as a multiplier to the closest distance.
-            point = point + (normal * closestDistance * projection * -1)
+        # loop components
+        for i in components:
+            # get component data
+            point = points[i]
+            normal = normals[i].normal()
+            vertex = "{}.vtx[{}]".format(mesh, i)
 
             # get closest line
             names, closestPoints = joint.closestLineToPoint(lines, point)
 
-        # get influence
-        influenceName = names[0]
-        influenceParent, influenceChild = influenceName.split("@")
+            # displace the point
+            if projection:
+                # get data for first
+                closestPoint = closestPoints[0]
+                closestDistance = (point - closestPoint).length()
 
-        # get default transform value
-        transformValue = [[influenceParent, 1]]
+                # get new point moving the point along the normal using the
+                # project value as a multiplier to the closest distance.
+                point = point + (normal * closestDistance * projection * -1)
 
-        # calculate blend method
-        if blend:
-            # get parameter
-            a, b = lines.get(influenceName)
-            parameter = api.parameterOfPointOnLine(a, b, closestPoints[0])
+                # get closest line
+                names, closestPoints = joint.closestLineToPoint(lines, point)
 
-            # run parameter through blend method
-            if blendMethod:
-                parameter = blendMethod(parameter)
+            # get influence
+            influenceName = names[0]
+            influenceParent, influenceChild = influenceName.split("@")
 
-            # set new transform value
-            transformValue = [
-                [influenceParent, 1 - parameter],
-                [influenceChild, parameter]
-            ]
+            # get default transform value
+            transformValue = [[influenceParent, 1]]
 
-        # set skinning
-        cmds.skinPercent(sk, vertex, transformValue=transformValue)
+            # calculate blend method
+            if blend:
+                # get parameter
+                a, b = lines.get(influenceName)
+                parameter = api.parameterOfPointOnLine(a, b, closestPoints[0])
+
+                # run parameter through blend method
+                if blendMethod:
+                    parameter = blendMethod(parameter)
+
+                # set new transform value
+                transformValue = [
+                    [influenceParent, 1 - parameter],
+                    [influenceChild, parameter]
+                ]
+
+            # set skinning
+            cmds.skinPercent(sk, vertex, transformValue=transformValue)
+
+            # increment progress
+            Progress.next()

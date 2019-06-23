@@ -1,6 +1,6 @@
 from maya import cmds
 from . import weight
-from ..utils import ui, selection, conversion
+from ..utils import ui, undo, selection, conversion
 from ..utils.ui import Qt, widgets
 
 
@@ -349,13 +349,16 @@ class InitializeWeightsWidget(Qt.QWidget):
         if not arguments.get("joints"):
             raise ValueError("No joint(s) specified!")
 
-        # loop meshes
-        for mesh in meshes:
-            # update arguments
-            arguments.update(mesh)
+        # wrap in undo block
+        with undo.UndoChunkContext():
 
-            # call function
-            weight.setInitialWeights(**arguments)
+            # loop meshes
+            for mesh in meshes:
+                # update arguments
+                arguments.update(mesh)
+
+                # call function
+                weight.setInitialWeights(**arguments)
 
 
 def show():
