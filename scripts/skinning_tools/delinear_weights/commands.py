@@ -5,9 +5,9 @@ from collections import defaultdict
 
 from skinning_tools.utils import api
 from skinning_tools.utils import math
-from skinning_tools.utils import cluster
-from skinning_tools.utils import conversion
+from skinning_tools.utils import skin
 from skinning_tools.utils import decorator
+from skinning_tools.utils import conversion
 from skinning_tools.utils.progress import Progress
 
 
@@ -40,7 +40,7 @@ def delinear_skin_weights(components, method):
 
     with Progress(len(data)) as progress:
         for node, components in data.items():
-            skin_cluster = cluster.get_skin_cluster(node)
+            skin_cluster = skin.get_cluster(node)
 
             # get api objects
             skin_cluster_obj = api.conversion.get_object(skin_cluster)
@@ -51,19 +51,27 @@ def delinear_skin_weights(components, method):
             node_dag, node_components = selection.getComponent(0)
 
             # get weights
-            weights, num = skin_cluster_fn.getWeights(node_dag, node_components)
-            weights_split = conversion.as_chunks(weights, num)
-            weights_elements = OpenMaya.MFnSingleIndexedComponent(node_components).getElements()
+            weights_old, num = skin_cluster_fn.getWeights(node_dag, node_components)
+            weights_new = OpenMaya.MDoubleArray()
+            influences = OpenMaya.MIntArray(range(num))
 
-            for element, weights in zip(weights_elements, weights_split):
-                # calculate per vertex weights
+            for weights in conversion.as_chunks(weights_old, num):
                 weights = conversion.normalize(weights)
                 weights = [tween(w) for w in weights]
                 weights = conversion.normalize(weights)
 
-                # set weights
-                for index, weight in enumerate(weights):
-                    cmds.setAttr("{}.weightList[{}].weights[{}]".format(skin_cluster, element, index), weight)
+                for weight in weights:
+                    weights_new.append(weight)
+
+            # set weights - undoable
+            skin.set_weights(
+                skin_cluster_fn,
+                dag=node_dag,
+                components=node_components,
+                influences=influences,
+                weights_old=weights_old,
+                weights_new=weights_new
+            )
 
             progress.next()
 

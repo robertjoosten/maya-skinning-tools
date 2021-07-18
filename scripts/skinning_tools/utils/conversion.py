@@ -11,15 +11,6 @@ def as_chunks(l, num):
     return chunks
 
 
-def as_component_index(component):
-    """
-    :param str component:
-    :return: Component index
-    :rtype: int
-    """
-    return int(component.split("[")[-1][:-1])
-
-
 def normalize(l):
     """
     :param list[float] l:
