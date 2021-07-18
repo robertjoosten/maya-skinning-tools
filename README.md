@@ -3,7 +3,7 @@ Skinning tools for Maya.
 
 ## Installation
 * Extract the content of the .rar file anywhere on disk.
-* Drag the skinningTools.mel file in Maya to permanently install the script.
+* Drag the skinning-tools.mel file in Maya to permanently install the script.
 
 ## Tools
 * <img align="left" src="icons/ST_paintSmoothWeightsCtx.png?raw=true">[paintSmoothWeightsCtx](scripts/skinningTools/paintSmoothWeightsCtx/README.md) - Paint smooth weights tool in Maya using the weights of neighbouring vertices.

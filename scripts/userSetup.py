@@ -1,4 +1,9 @@
-from maya import utils
+from maya import cmds
 
-import skinningTools.install
-utils.executeDeferred(skinningTools.install.shelf)
+
+def main():
+    from skinning_tools import install
+    install.execute()
+
+
+cmds.evalDeferred(main)
