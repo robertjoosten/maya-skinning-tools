@@ -120,6 +120,7 @@ class SmoothSkinWeights(object):
         weights_new = OpenMaya.MDoubleArray()
         weights_old, _ = self.skin_cluster_fn.getWeights(self.dag, component)
         weights_connected, _ = self.skin_cluster_fn.getWeights(self.dag, component_connected)
+        weights_connected = conversion.as_chunks(weights_connected, self.num_influences)
 
         for i, weight in enumerate(weights_old):
             if self.locked_influences[i]:
@@ -128,7 +129,7 @@ class SmoothSkinWeights(object):
                 weights_new.append(
                     sum(
                         ((weight / num) * (1 - value)) + ((weight_connected[i] / num) * value)
-                        for weight_connected in conversion.as_chunks(weights_connected, self.num_influences)
+                        for weight_connected in weights_connected
                     )
                 )
 
