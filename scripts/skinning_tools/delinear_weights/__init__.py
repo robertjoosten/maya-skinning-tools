@@ -20,5 +20,5 @@ those weights.
 from skinning_tools.delinear_weights.commands import *
 
 __author__ = "Robert Joosten"
-__version__ = "0.7.0"
+__version__ = "1.0.2"
 __email__ = "rwm.joosten@gmail.com"

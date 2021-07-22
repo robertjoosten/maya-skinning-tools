@@ -1,11 +1,11 @@
-# paintSmoothWeightsCtx
+# smooth-weights-context
 <img align="right" src="../../../icons/ST_paintSmoothWeightsCtx.png?raw=true">
 Paint smooth weights tool in Maya using the weights of neighbouring vertices.
 <a href="https://vimeo.com/126825847" target="_blank"><p align="center">Click for video</p></a>
 
 ## Installation
 * Extract the content of the .rar file anywhere on disk.
-* Drag the skinningTools.mel file in Maya to permanently install the script.
+* Drag the skinning-tools.mel file in Maya to permanently install the script.
 
 ## Note
 The paint tool calls a script that find the surrounding vertices and its skin weights. These skin weights are then blended with the skin weights of the original vertex based value of the paint tool.

@@ -7,8 +7,8 @@ log = logging.getLogger(__name__)
 ROOT_PACKAGE = __name__.rsplit(".", 1)[0]
 
 PAINT_SMOOTH_WEIGHTS_COMMAND = """
-import {0}.paintSmoothWeightsCtx
-{0}.paintSmoothWeightsCtx.paint()
+import {0}.smooth_weights_context
+{0}.smooth_weights_context.paint()
 """.format(ROOT_PACKAGE)
 
 PAINT_REMOVE_INFLUENCE_COMMAND = """
