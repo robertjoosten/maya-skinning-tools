@@ -62,8 +62,11 @@ class RemoveWeightsWidget(QtWidgets.QWidget):
         if self.geometry is None:
             raise RuntimeError("No selection made.")
 
-        skin_cluster = skin.get_cluster(self.geometry)
-        model = gui.models.InfluencesModel(self, skin_cluster)
+        skin_cluster_fn = skin.get_cluster_fn(self.geometry)
+        influences = skin_cluster_fn.influenceObjects()
+        influences = [influence.fullPathName() for influence in influences]
+
+        model = gui.models.SkeletonModel(self, influences)
         self.filter.setSourceModel(model)
         self.view.expandAll()
 

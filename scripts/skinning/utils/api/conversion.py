@@ -48,10 +48,12 @@ def get_component(node):
     :rtype: tuple[OpenMaya.MDagPath, OpenMaya.MObject]
     """
     if not node.count("."):
-        obj = get_object(node)
-        if obj.hasFn(OpenMaya.MFn.kMesh):
+        dag = get_dag(node)
+        dag.extendToShape()
+
+        if dag.hasFn(OpenMaya.MFn.kMesh):
             node += ".vtx[*]"
-        elif obj.hasFn(OpenMaya.MFn.kNurbsSurface) or obj.hasFn(OpenMaya.MFn.kNurbsSurface):
+        elif dag.hasFn(OpenMaya.MFn.kNurbsSurface) or dag.hasFn(OpenMaya.MFn.kNurbsSurface):
             node += ".cv[*]"
         else:
             log.warning("No component conversion found for node '{}'.".format(node))

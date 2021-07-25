@@ -1,1 +1,1 @@
-from skinning.gui.models.influences import *
+from skinning.gui.models.influence import *
