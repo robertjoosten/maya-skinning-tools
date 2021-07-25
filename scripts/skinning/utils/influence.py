@@ -1,8 +1,6 @@
 from maya import cmds
 from maya.api import OpenMaya
 
-from skinning.utils import decorator
-
 
 class Influence(object):
     def __init__(self, path):
@@ -13,7 +11,6 @@ class Influence(object):
 
     # ------------------------------------------------------------------------
 
-    @decorator.memoize
     def get_position(self):
         """
         :return: Position
@@ -22,7 +19,6 @@ class Influence(object):
         position = cmds.xform(self.path, query=True, worldSpace=True, translation=True)
         return OpenMaya.MVector(*position)
 
-    @decorator.memoize
     def get_matrix(self, world_space=True):
         """
         :return: Matrix

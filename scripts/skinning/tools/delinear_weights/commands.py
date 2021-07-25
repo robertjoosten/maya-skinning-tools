@@ -27,12 +27,12 @@ def delinear_skin_weights(components, method):
 
     :param list[str] components:
     :param str method:
-    :raise ValueError: When tweening method is not supported.
+    :raise ValueError: When blend method is not supported.
     """
-    if not hasattr(math.tweening, method):
-        raise ValueError("Tweening method '{}' is not supported.".format(method))
+    if not hasattr(math.ease, method):
+        raise ValueError("Blend method '{}' is not supported.".format(method))
 
-    tween = getattr(math.tweening, method)  # type: callable
+    tween = getattr(math.ease, method)  # type: callable
     data = defaultdict(list)
 
     for component in components:

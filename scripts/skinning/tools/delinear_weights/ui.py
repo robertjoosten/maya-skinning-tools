@@ -1,8 +1,8 @@
 from PySide2 import QtWidgets, QtGui, QtCore
 
-from skinning.tools.delinear_weights import commands
 from skinning import gui
 from skinning.utils import undo
+from skinning.tools.delinear_weights import commands
 
 
 WINDOW_TITLE = "De-Linearize Weights"
@@ -20,28 +20,31 @@ class DelinearWeightsWidget(QtWidgets.QWidget):
         self.resize(400 * scale_factor, 25 * scale_factor)
 
         # create layout
-        layout = QtWidgets.QVBoxLayout(self)
+        layout = QtWidgets.QGridLayout(self)
         layout.setContentsMargins(5, 5, 5, 5)
         layout.setSpacing(5)
 
         # create tweening
-        self.tween = gui.widgets.TweeningWidget(self)
-        layout.addWidget(self.tween)
+        delinear_method_label = QtWidgets.QLabel(self)
+        delinear_method_label.setText("De-linearize method:")
+        self.delinear_method = gui.widgets.EasingWidget(self)
+        layout.addWidget(delinear_method_label, 0, 0)
+        layout.addWidget(self.delinear_method, 0, 1)
 
         # create divider
         divider = gui.widgets.DividerWidget(self)
-        layout.addWidget(divider)
+        layout.addWidget(divider, 1, 0, 1, 2)
         
         # create button
-        apply = QtWidgets.QPushButton(self)
-        apply.setText("Apply")
-        apply.released.connect(self.apply)
-        layout.addWidget(apply)
+        apply_button = QtWidgets.QPushButton(self)
+        apply_button.setText("Apply")
+        apply_button.released.connect(self.apply)
+        layout.addWidget(apply_button, 2, 0, 1, 2)
 
     @gui.display_error
     def apply(self):
         with undo.UndoChunk():
-            method = self.tween.combo.currentText()
+            method = self.delinear_method.currentText()
             commands.delinear_skin_weights_on_selection(method)
 
 

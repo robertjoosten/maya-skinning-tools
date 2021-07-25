@@ -1,5 +1,4 @@
 from maya import cmds
-from maya.api import OpenMaya
 from PySide2 import QtWidgets, QtGui, QtCore
 
 from skinning import gui

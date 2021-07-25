@@ -11,6 +11,11 @@ from skinning.utils import decorator
 from skinning.utils.progress import Progress
 
 
+__all__ = [
+    "set_initial_weights"
+]
+
+
 class InfluenceConnectivity(object):
     """
     An influence connections is a connection between two influences. It has
@@ -20,7 +25,6 @@ class InfluenceConnectivity(object):
     def __init__(self, source, target):
         self.source = source
         self.target = target
-        self.distance = (self.target.get_position() - self.source.get_position()).length()
 
     # ------------------------------------------------------------------------
 
@@ -97,11 +101,17 @@ class SkeletonConnectivity(influence.Skeleton):
         :param OpenMaya.MVector point:
         :return: Influence connection
         :rtype: OpenMaya.MVector, InfluenceConnectivity
+        :raise RuntimeError: When no connections are mapped.
         """
-        closest_point = OpenMaya.MVector()
-        closest_distance = 999999
-        closest_connection = None
-        for connection in self.connections:
+        if not self.connections:
+            raise RuntimeError("Unable to query closest connections "
+                               "as no connections are mapped.")
+
+        closest_connection = self.connections[0]
+        closest_point = closest_connection.closest_point_on_line(point)
+        closest_distance = (point - closest_point).length()
+
+        for connection in self.connections[1:]:
             point_on_line = connection.closest_point_on_line(point)
             distance = (point - point_on_line).length()
 
@@ -114,7 +124,7 @@ class SkeletonConnectivity(influence.Skeleton):
 
 
 @decorator.preserve_selection
-def set_initialize_weights(
+def set_initial_weights(
         geometry,
         joints,
         components=None,
@@ -142,13 +152,13 @@ def set_initialize_weights(
     :raise ValueError: When geometry is not a mesh.
     :raise ValueError: When blend method is not supported
     """
-    if blend_method and not hasattr(math.tweening, blend_method):
-        raise ValueError("Tweening method '{}' is not supported.".format(blend_method))
+    if blend_method and not hasattr(math.ease, blend_method):
+        raise ValueError("Blend method '{}' is not supported.".format(blend_method))
 
     points = []
     normals = []
     connections = {}
-    blend_method = getattr(math.tweening, blend_method) if blend_method else None
+    blend_method = getattr(math.ease, blend_method) if blend_method else None
 
     if not components:
         geometry_dag, geometry_component = api.conversion.get_component(geometry)
@@ -216,8 +226,7 @@ def set_initialize_weights(
 
         # initialize weights
         weights_old, num_influences = skin_cluster_fn.getWeights(geometry_dag, geometry_component)
-        weights_new = OpenMaya.MDoubleArray()
-        weights_new.setLength(num_elements * num_influences)
+        weights_new = OpenMaya.MDoubleArray([0.0] * num_elements * num_influences)
         progress.next()
 
         # loop components
