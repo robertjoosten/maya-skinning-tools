@@ -1,14 +1,14 @@
 import os
 import logging
 
-from skinning_tools.utils import decorator
+from skinning.utils import decorator
 
 
 log = logging.getLogger(__name__)
 
 
 @decorator.memoize
-def get_file_path(file_name):
+def get_icon_file_path(file_name):
     """
     :return: Icon file path
     :rtype: str

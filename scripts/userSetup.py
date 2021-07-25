@@ -2,7 +2,7 @@ from maya import cmds
 
 
 def main():
-    from skinning_tools import install
+    from skinning import install
     install.execute()
 
 

@@ -3,12 +3,12 @@ from maya.api import OpenMaya
 from maya.api import OpenMayaAnim
 from collections import defaultdict
 
-from skinning_tools.utils import api
-from skinning_tools.utils import math
-from skinning_tools.utils import skin
-from skinning_tools.utils import decorator
-from skinning_tools.utils import conversion
-from skinning_tools.utils.progress import Progress
+from skinning.utils import api
+from skinning.utils import math
+from skinning.utils import skin
+from skinning.utils import decorator
+from skinning.utils import conversion
+from skinning.utils.progress import Progress
 
 
 __all__ = [

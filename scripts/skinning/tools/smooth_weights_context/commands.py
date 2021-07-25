@@ -3,10 +3,10 @@ from maya import cmds
 from maya.api import OpenMaya
 from collections import OrderedDict
 
-from skinning_tools.utils import api
-from skinning_tools.utils import skin
-from skinning_tools.utils import decorator
-from skinning_tools.utils import conversion
+from skinning.utils import api
+from skinning.utils import skin
+from skinning.utils import decorator
+from skinning.utils import conversion
 
 
 __all__ = [
@@ -24,14 +24,14 @@ class SmoothSkinWeights(object):
     """
     def __init__(self):
         self.initialized = False
-        self.dag = None
+        self.geometry_dag = None
         self.skin_cluster_fn = None
         self.num_influences = 0
         self.influences = OpenMaya.MIntArray()
         self.locked_influences = OrderedDict()
         self.connected_components = {}
-        self.normalize = 0
-        self.max_influences = 4
+        self.normalize = -1
+        self.max_influences = -1
         self.maintain_max_influences = True
 
     # ------------------------------------------------------------------------
@@ -56,7 +56,7 @@ class SmoothSkinWeights(object):
         :return: Component connected, length connected
         :rtype: OpenMaya.MFnSingleIndexedComponent,
         """
-        mesh_iterator = OpenMaya.MItMeshVertex(self.dag, self.get_component(name, [index]))
+        mesh_iterator = OpenMaya.MItMeshVertex(self.geometry_dag, self.get_component(name, [index]))
         indices = mesh_iterator.getConnectedVertices()
         return self.get_component(name, indices), len(indices)
 
@@ -72,12 +72,12 @@ class SmoothSkinWeights(object):
         :raise RuntimeError: When the path is not a mesh.
         """
         self.initialized = False
-        self.dag = api.conversion.get_dag(path)
+        self.geometry_dag = api.conversion.get_dag(path)
         self.skin_cluster_fn = skin.get_cluster_fn(path)
 
-        if not self.dag.hasFn(OpenMaya.MFn.kMesh):
+        if not self.geometry_dag.hasFn(OpenMaya.MFn.kMesh):
             raise RuntimeError("Unable to paint smooth weights, "
-                               "node '{}' is not a mesh.".format(self.dag.partialPathName()))
+                               "node '{}' is not a mesh.".format(self.geometry_dag.partialPathName()))
 
         self.normalize = self.skin_cluster_fn.findPlug("normalizeWeights", False).asInt()
         self.max_influences = self.skin_cluster_fn.findPlug("maxInfluences", False).asInt()
@@ -99,7 +99,7 @@ class SmoothSkinWeights(object):
 
         self.initialized = True
 
-    def set_value(self, id_, index, value):
+    def set_weights(self, id_, index, value):
         """
         Calculate new weights for the provided index and blend value using the
         connected vertices of the index. The number of maximum influences is
@@ -112,14 +112,14 @@ class SmoothSkinWeights(object):
         if not self.initialized:
             return
 
-        name = self.dag.fullPathName()
+        name = self.geometry_dag.fullPathName()
         index, value = int(index), float(value)
         component = self.get_component(name, [index])
         component_connected, num = self.get_connected_component(name, index)
 
         weights_new = OpenMaya.MDoubleArray()
-        weights_old, _ = self.skin_cluster_fn.getWeights(self.dag, component)
-        weights_connected, _ = self.skin_cluster_fn.getWeights(self.dag, component_connected)
+        weights_old, _ = self.skin_cluster_fn.getWeights(self.geometry_dag, component)
+        weights_connected, _ = self.skin_cluster_fn.getWeights(self.geometry_dag, component_connected)
         weights_connected = conversion.as_chunks(weights_connected, self.num_influences)
 
         for i, weight in enumerate(weights_old):
@@ -152,10 +152,9 @@ class SmoothSkinWeights(object):
                 if not self.locked_influences[i]:
                     weights_new[i] = weight * factor
 
-        # set weights - undoable
         skin.set_weights(
             self.skin_cluster_fn,
-            dag=self.dag,
+            dag=self.geometry_dag,
             components=component,
             influences=self.influences,
             weights_old=weights_old,
@@ -164,14 +163,14 @@ class SmoothSkinWeights(object):
 
     def clean_up(self, name=None):
         self.initialized = False
-        self.dag = None
+        self.geometry_dag = None
         self.skin_cluster_fn = None
         self.num_influences = 0
         self.influences.clear()
         self.locked_influences.clear()
         self.connected_components.clear()
-        self.normalize = 0
-        self.max_influences = 4
+        self.normalize = -1
+        self.max_influences = -1
         self.maintain_max_influences = True
 
         self.get_component.clear()
@@ -185,8 +184,8 @@ proc_initialize = conversion.as_mel_procedure(
     manager.initialize,
     arguments=[("string", "path")]
 )
-proc_set_value = conversion.as_mel_procedure(
-    manager.set_value,
+proc_set_weights = conversion.as_mel_procedure(
+    manager.set_weights,
     arguments=[("int", "id_"), ("int", "index"), ("float", "value")]
 )
 proc_clean_up = conversion.as_mel_procedure(
@@ -207,7 +206,7 @@ def paint():
         context,
         edit=True,
         initializeCmd=proc_initialize,
-        setValueCommand=proc_set_value,
+        setValueCommand=proc_set_weights,
         toolCleanupCmd=proc_clean_up,
         whichTool="userPaint",
         fullpaths=True,

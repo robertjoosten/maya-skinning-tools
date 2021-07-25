@@ -4,7 +4,7 @@ from maya.api import OpenMaya
 from maya.api import OpenMayaAnim
 from functools import partial
 
-from skinning_tools.utils import api
+from skinning.utils import api
 
 
 def get_cluster_fn(node):

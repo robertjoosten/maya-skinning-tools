@@ -17,7 +17,7 @@ this is done sometimes it is very obvious that the weights are linearly
 divided between the vertices of the low polygon source. This tool will tween
 those weights.
 """
-from skinning_tools.delinear_weights.commands import *
+from skinning.tools.delinear_weights.commands import *
 
 __author__ = "Robert Joosten"
 __version__ = "1.0.2"

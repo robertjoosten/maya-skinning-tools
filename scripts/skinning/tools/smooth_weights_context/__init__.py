@@ -24,7 +24,7 @@ I would like to note that the idea for this script came from
 the end results is very simular. I did use the original script as an
 inspiration, but what happens under the hood is completely different.
 """
-from skinning_tools.smooth_weights_context.commands import *
+from skinning.tools.smooth_weights_context.commands import *
 
 __author__ = "Robert Joosten"
 __version__ = "1.1.0"

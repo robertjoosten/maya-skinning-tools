@@ -1,6 +1,6 @@
 from PySide2 import QtWidgets
 
-from skinning_tools.utils import math
+from skinning.utils import math
 
 
 __all__ = [

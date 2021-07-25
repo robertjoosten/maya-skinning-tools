@@ -1,12 +1,12 @@
 from PySide2 import QtWidgets, QtGui, QtCore
 
-from skinning_tools.delinear_weights import commands
-from skinning_tools.utils import gui
-from skinning_tools.utils import undo
+from skinning.tools.delinear_weights import commands
+from skinning import gui
+from skinning.utils import undo
 
 
-WINDOW_TITLE = "De-Linearize Skin Weights"
-WINDOW_ICON = gui.icon.get_file_path("ST_delinearWeights.png")
+WINDOW_TITLE = "De-Linearize Weights"
+WINDOW_ICON = gui.get_icon_file_path("ST_delinearWeights.png")
 
 
 class DelinearWeightsWidget(QtWidgets.QWidget):
@@ -21,8 +21,8 @@ class DelinearWeightsWidget(QtWidgets.QWidget):
 
         # create layout
         layout = QtWidgets.QVBoxLayout(self)
-        layout.setContentsMargins(3, 3, 3, 3)
-        layout.setSpacing(3)
+        layout.setContentsMargins(5, 5, 5, 5)
+        layout.setSpacing(5)
 
         # create tweening
         self.tween = gui.widgets.TweeningWidget(self)

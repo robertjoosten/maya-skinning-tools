@@ -5,35 +5,36 @@ from maya import cmds
 
 log = logging.getLogger(__name__)
 ROOT_PACKAGE = __name__.rsplit(".", 1)[0]
+ROOT_PACKAGE_OLD = "skinningTools"
 
 PAINT_SMOOTH_WEIGHTS_COMMAND = """
-import {0}.smooth_weights_context
-{0}.smooth_weights_context.paint()
+import {0}.tools.smooth_weights_context
+{0}.tools.smooth_weights_context.paint()
 """.format(ROOT_PACKAGE)
 
 PAINT_REMOVE_INFLUENCE_COMMAND = """
-import {0}.paintRemoveInfluenceCtx.ui
-{0}.paintRemoveInfluenceCtx.ui.show()
+import {0}.tools.remove_weights_context.ui
+{0}.tools.remove_weights_context.ui.show()
 """.format(ROOT_PACKAGE)
 
 TWEAK_VERTEX_WEIGHT_COMMAND = """
 import {0}.tweakVertexWeights.ui
 {0}.tweakVertexWeights.ui.show()
-""".format(ROOT_PACKAGE)
+""".format(ROOT_PACKAGE_OLD)
 
 INITIALIZE_WEIGHTS_COMMAND = """
 import {0}.initializeWeights.ui
 {0}.initializeWeights.ui.show()
-""".format(ROOT_PACKAGE)
+""".format(ROOT_PACKAGE_OLD)
 
 CONVERT_SOFT_SELECTION_COMMAND = """
 import {0}.softSelectionToWeights.ui
 {0}.softSelectionToWeights.ui.show()
-""".format(ROOT_PACKAGE)
+""".format(ROOT_PACKAGE_OLD)
 
 DELINEAR_WEIGHTS_COMMAND = """
-import {0}.delinear_weights.ui
-{0}.delinear_weights.ui.show()
+import {0}.tools.delinear_weights.ui
+{0}.tools.delinear_weights.ui.show()
 """.format(ROOT_PACKAGE)
 
 SHELF_NAME = "SkinningTools"
@@ -56,7 +57,7 @@ SHELF_TOOLS = [
         "label": "paintRemoveInfluence",
         "command": PAINT_REMOVE_INFLUENCE_COMMAND,
         "annotation": "Remove influence on smooth bound skins",
-        "image1": "ST_paintRemoveInfluenceCtx.png",
+        "image1": "ST_paintRemoveWeightsCtx.png",
         "sourceType": "python"
     },
     {

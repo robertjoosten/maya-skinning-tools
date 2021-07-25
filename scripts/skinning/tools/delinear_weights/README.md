@@ -1,7 +1,7 @@
 # delinear-weights
-<img align="right" src="../../../icons/ST_delinearWeights.png?raw=true">
+<img align="right" src="../../../../icons/ST_delinearWeights.png?raw=true">
 De-linearize skin weights.
-<p align="center"><img src="../../../docs/_images/delinear-weights-example.gif?raw=true"></p>
+<p align="center"><img src="../../../../docs/_images/delinear-weights-example.gif?raw=true"></p>
 
 ## Installation
 * Extract the content of the .rar file anywhere on disk.
