@@ -1,5 +1,5 @@
-# initialize-weights
-<img align="right" src="../../../../icons/ST_initializeWeights.png?raw=true">
+# projection-plane
+<img align="right" src="../../../../icons/ST_projectionPlane.png?raw=true">
 Create a projection plane along the axis of an array of joints.
 <p align="center"><img src="../../../../docs/_images/projection-plane-example.png?raw=true"></p>
 
