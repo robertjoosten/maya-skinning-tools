@@ -8,7 +8,7 @@ Skinning tools for Maya.
 ## Tools
 * <img align="left" src="icons/ST_paintSmoothWeightsCtx.png?raw=true">[smooth-weights-context](scripts/skinning/tools/smooth_weights_context/README.md) - Paint smooth weights tool in Maya using the weights of neighbouring vertices.
 
-* <img align="left" src="icons/ST_paintRemoveInfluenceCtx.png?raw=true">[remove-weights-context](scripts/skinning/tools/remove_weights_context/README.md) - Remove a specific influence on vertices with the paint tool.
+* <img align="left" src="icons/ST_paintRemoveWeightsCtx.png?raw=true">[remove-weights-context](scripts/skinning/tools/remove_weights_context/README.md) - Remove a specific influence on vertices with the paint tool.
 
 * <img align="left" src="icons/ST_tweakVertexWeights.png?raw=true">[tweak-vertex-weights](scripts/skinningTools/tweakVertexWeights/README.md) - Tweak influence weights on a vertex level.
 

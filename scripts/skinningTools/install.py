@@ -60,7 +60,7 @@ SHELF_TOOLS = [
         "label": "paintRemoveInfluence",
         "command": PAINT_REMOVE_INFLUENCE_COMMAND,
         "annotation": "Remove influence on smooth bound skins",
-        "image1": "ST_paintRemoveInfluenceCtx.png",
+        "image1": "ST_paintRemoveWeightsCtx.png",
         "sourceType": "python"
     },
     {
