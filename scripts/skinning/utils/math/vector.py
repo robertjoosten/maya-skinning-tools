@@ -12,7 +12,7 @@ def average_vector(vectors):
     Get the average vector of the all of the provided vectors. All vectors
     will be added up and divided by the number of the provided vectors.
 
-    :param list vectors:
+    :param list[OpenMaya.MVector] vectors:
     :return: Average vector
     :rtype: OpenMaya.MVector
     """

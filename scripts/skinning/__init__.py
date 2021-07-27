@@ -8,23 +8,26 @@ Installation
 
 Tools
 =====
-**paintSmoothWeightsCtx**
+**smooth-weights-context**
     * Paint smooth weights tool in Maya using the weights of neighbouring vertices.
 
-**paintRemoveInfluenceCtx**
+**remove-weights-context**
     * Remove a specific influence on vertices with the paint tool.
 
-**tweakVertexWeights**
+**tweak-vertex-weights**
     * Tweak influence weights on a vertex level.
 
-**initializeWeights**
+**initialize-weights**
     * Initialize skin weights.
 
-**softSelectionToWeights**
+**soft-selection-to-weights**
     * Convert soft selection to skin weights.
 
-**delinearWeights**
+**delinear-weights**
     * De-linearize skin weights.
+
+**projection-plane**
+    * Create projection planes from selection joints.
 """
 __author__ = "Robert Joosten"
 __version__ = "1.0.1"

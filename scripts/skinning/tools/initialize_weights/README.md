@@ -1,7 +1,7 @@
 # initialize-weights
 <img align="right" src="../../../../icons/ST_initializeWeights.png?raw=true">
 Assign initial skin weights to a mesh using the provided joints.
-<p align="center"><img src="../../../../docs/_images/initialWeightsExample.png?raw=true"></p>
+<p align="center"><img src="../../../../docs/_images/initial-weights-example.png?raw=true"></p>
 
 ## Installation
 * Extract the content of the .rar file anywhere on disk.

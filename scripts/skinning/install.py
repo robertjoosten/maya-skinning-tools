@@ -23,9 +23,9 @@ import {0}.tweakVertexWeights.ui
 """.format(ROOT_PACKAGE_OLD)
 
 INITIALIZE_WEIGHTS_COMMAND = """
-import {0}.initializeWeights.ui
-{0}.initializeWeights.ui.show()
-""".format(ROOT_PACKAGE_OLD)
+import {0}.initialize_weights.ui
+{0}.initialize_weights.ui.show()
+""".format(ROOT_PACKAGE)
 
 CONVERT_SOFT_SELECTION_COMMAND = """
 import {0}.softSelectionToWeights.ui
@@ -35,6 +35,11 @@ import {0}.softSelectionToWeights.ui
 DELINEAR_WEIGHTS_COMMAND = """
 import {0}.tools.delinear_weights.ui
 {0}.tools.delinear_weights.ui.show()
+""".format(ROOT_PACKAGE)
+
+PROJECTION_PLANE_COMMAND = """
+import {0}.tools.projection_plane.ui
+{0}.tools.projection_plane.ui.show()
 """.format(ROOT_PACKAGE)
 
 SHELF_NAME = "SkinningTools"
@@ -86,6 +91,13 @@ SHELF_TOOLS = [
         "command": DELINEAR_WEIGHTS_COMMAND,
         "annotation": "De-linearize skin weights",
         "image1": "ST_delinearWeights.png",
+        "sourceType": "python"
+    },
+    {
+        "label": "projectionPlane",
+        "command": PROJECTION_PLANE_COMMAND,
+        "annotation": "Create projection planes from selection joints",
+        "image1": "ST_projectionPlane.png",
         "sourceType": "python"
     }
 ]

@@ -1,7 +1,7 @@
 # remove-weights-context
 <img align="right" src="../../../../icons/ST_paintRemoveInfluenceCtx.png?raw=true">
 Remove a specific influence on vertices with the paint tool.
-<p align="center"><img src="../../../../docs/_images/paintRemoveInfluenceExample.png?raw=true"></p>
+<p align="center"><img src="../../../../docs/_images/remove-weights-context-example.png?raw=true"></p>
 <a href="https://vimeo.com/122189210" target="_blank"><p align="center">Click for video</p></a>
 
 ##Installation

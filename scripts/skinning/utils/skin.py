@@ -48,18 +48,22 @@ def get_cluster(node):
     return skin_cluster_fn.name()
 
 
-def set_weights(skin_cluster, dag, components, influences, weights_old, weights_new):
+def set_weights(skin_cluster, dag, components, influences, weights_new, weights_old=None):
     """
     Set the skin weights via the API but add them to the undo queue using the
-    apiundo module.
+    apiundo module. If weights old are not provided they are retrieved from
+    the skin cluster first.
 
     :param OpenMayaAnim.MFnSkinCluster skin_cluster:
     :param OpenMaya.MDagPath dag:
     :param OpenMaya.MObject components:
     :param OpenMaya.MIntArray influences:
-    :param OpenMaya.MDoubleArray weights_old:
     :param OpenMaya.MDoubleArray weights_new:
+    :param OpenMaya.MDoubleArray weights_old:
     """
+    if weights_old is None:
+        weights_old, _ = skin_cluster.getWeights(dag, components)
+
     undo = partial(skin_cluster.setWeights, dag, components, influences, weights_old)
     redo = partial(skin_cluster.setWeights, dag, components, influences, weights_new)
 
