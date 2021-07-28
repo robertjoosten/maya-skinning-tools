@@ -1,5 +1,4 @@
 import sys
-import inspect
 from maya import mel
 
 
@@ -14,14 +13,8 @@ def as_mel_procedure(func, arguments=(), return_type=None):
     :return: Procedure name
     :rtype: str
     """
-    names = []
-    if inspect.ismethod(func):
-        names.append(func.im_class.__name__)
-    names.append(func.__name__)
-    names.append(str(id(func)))
-
     # create python look up
-    procedure = "__{}".format("_".join(names))
+    procedure = "__{}".format("_".join([func.__name__, str(id(func))]))
     sys.modules["__main__"].__dict__[procedure] = func
 
     # create mel procedure
