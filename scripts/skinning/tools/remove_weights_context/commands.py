@@ -175,7 +175,7 @@ class RemoveSkinWeights(object):
                 factor = 0 if locked_total >= 1.0 else (1.0 - locked_total) / blend_total
 
                 for j, weight in enumerate(weights):
-                    if not self.locked_influences[i]:
+                    if not self.locked_influences[j]:
                         weights_new.append(weight * factor)
                     else:
                         weights_new.append(weight)
