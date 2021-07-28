@@ -1,4 +1,5 @@
 import sys
+from six.moves import range
 from maya import mel
 
 
@@ -42,7 +43,7 @@ def as_chunks(l, num):
     :rtype: list
     """
     chunks = []
-    for i in xrange(0, len(l), num):
+    for i in range(0, len(l), num):
         chunks.append(l[i:i + num])
     return chunks
 
