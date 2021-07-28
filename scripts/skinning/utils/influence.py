@@ -48,7 +48,7 @@ class Skeleton(object):
 
         mapper = {}
         influences = zip(cmds.ls(influences, l=True), cmds.ls(influences))
-        influences.sort(key=lambda x: x[0])
+        influences = sorted(influences, key=lambda x: x[0])
 
         for path, path_partial in influences:
             node = Influence(path_partial)

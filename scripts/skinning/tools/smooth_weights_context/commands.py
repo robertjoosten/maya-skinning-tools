@@ -134,7 +134,7 @@ class SmoothSkinWeights(object):
                 )
 
         if self.maintain_max_influences:
-            weights_sorted = list(zip(range(self.num_influences), self.locked_influences.values(), weights_new))
+            weights_sorted = zip(range(self.num_influences), self.locked_influences.values(), weights_new)
             weights_excess = sorted(weights_sorted, key=lambda x: (-x[1], -x[2]))[self.max_influences:]
             for i, locked, weight in weights_excess:
                 if locked and weight:
