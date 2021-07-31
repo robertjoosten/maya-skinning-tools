@@ -1,8 +1,8 @@
 # tweak-weights
-<img align="right" src="../../../icons/ST_tweakWeights.png?raw=true">
+<img align="right" src="../../../../icons/ST_tweakWeights.png?raw=true">
 Tweak influence weights on a component level.
 
-<p align="center"><img src="../../../docs/_images/tweak-weights-example.png?raw=true"></p>
+<p align="center"><img src="../../../../docs/_images/tweak-weights-example.png?raw=true"></p>
 <a href="https://vimeo.com/120942200" target="_blank"><p align="center">Click for video</p></a>
 
 ## Installation
