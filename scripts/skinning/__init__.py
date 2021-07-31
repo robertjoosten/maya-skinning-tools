@@ -14,8 +14,8 @@ Tools
 **remove-weights-context**
     * Remove a specific influence on vertices with the paint tool.
 
-**tweak-vertex-weights**
-    * Tweak influence weights on a vertex level.
+**tweak-weights**
+    * Tweak influence weights on a component level.
 
 **initialize-weights**
     * Initialize skin weights.

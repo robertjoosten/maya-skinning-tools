@@ -8,6 +8,7 @@ __all__ = [
     "WaitCursor",
     "BlockSignals",
     "display_error",
+    "clear_layout",
 ]
 
 
@@ -78,3 +79,16 @@ def display_error(func):
                 raise six.reraise(RuntimeError, v, tb)
 
     return wrapper
+
+
+def clear_layout(layout):
+    """
+    :param QtWidgets.QLayout layout:
+    """
+    for i in range(layout.count()-1, -1, -1):
+        item = layout.itemAt(i)
+
+        if item.widget():
+            item.widget().deleteLater()
+        else:
+            layout.removeItem(item)

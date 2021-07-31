@@ -10,7 +10,7 @@ Skinning tools for Maya.
 
 * <img align="left" src="icons/ST_paintRemoveWeightsCtx.png?raw=true">[remove-weights-context](scripts/skinning/tools/remove_weights_context/README.md) - Remove a specific influence on vertices with the paint tool.
 
-* <img align="left" src="icons/ST_tweakVertexWeights.png?raw=true">[tweak-vertex-weights](scripts/skinningTools/tweakVertexWeights/README.md) - Tweak influence weights on a vertex level.
+* <img align="left" src="icons/ST_tweakWeights.png?raw=true">[tweak-weights](scripts/skinning/tools/tweak_weights/README.md) - Tweak influence weights on a component level.
 
 * <img align="left" src="icons/ST_initializeWeights.png?raw=true">[initialize-weights](scripts/skinning/tools/initialize_weights/README.md) - Initialize skin weights.
 

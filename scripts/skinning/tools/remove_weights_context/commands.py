@@ -148,10 +148,13 @@ class RemoveSkinWeights(object):
 
         before_elements = set(self.indexed_component(self.before_component).getElements())
         current_elements = set(self.indexed_component(current_component).getElements())
+        elements = before_elements - current_elements
+        if not elements:
+            return
 
         component_fn = self.indexed_component()
         component = component_fn.create(self.geometry_component)
-        component_fn.addElements(before_elements - current_elements)
+        component_fn.addElements(elements)
 
         weights_new = OpenMaya.MDoubleArray()
         weights_old, _ = self.skin_cluster_fn.getWeights(self.geometry_dag, component)

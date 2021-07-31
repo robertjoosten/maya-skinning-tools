@@ -17,14 +17,14 @@ import {0}.tools.remove_weights_context.ui
 {0}.tools.remove_weights_context.ui.show()
 """.format(ROOT_PACKAGE)
 
-TWEAK_VERTEX_WEIGHT_COMMAND = """
-import {0}.tweakVertexWeights.ui
-{0}.tweakVertexWeights.ui.show()
-""".format(ROOT_PACKAGE_OLD)
+TWEAK_WEIGHT_COMMAND = """
+import {0}.tools.tweak_weights.ui
+{0}.tools.tweak_weights.ui.show()
+""".format(ROOT_PACKAGE)
 
 INITIALIZE_WEIGHTS_COMMAND = """
-import {0}.initialize_weights.ui
-{0}.initialize_weights.ui.show()
+import {0}.tools.initialize_weights.ui
+{0}.tools.initialize_weights.ui.show()
 """.format(ROOT_PACKAGE)
 
 CONVERT_SOFT_SELECTION_COMMAND = """
@@ -66,10 +66,10 @@ SHELF_TOOLS = [
         "sourceType": "python"
     },
     {
-        "label": "tweakVertexWeights",
-        "command": TWEAK_VERTEX_WEIGHT_COMMAND,
-        "annotation": "Tweak Influences on a vertex level",
-        "image1": "ST_tweakVertexWeights.png",
+        "label": "tweakWeights",
+        "command": TWEAK_WEIGHT_COMMAND,
+        "annotation": "Tweak Influences on a component level",
+        "image1": "ST_tweakWeights.png",
         "sourceType": "python"
     },
     {
