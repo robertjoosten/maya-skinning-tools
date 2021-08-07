@@ -1,3 +1,4 @@
+import logging
 from maya import cmds
 from maya.api import OpenMaya
 from maya.api import OpenMayaAnim
@@ -14,6 +15,7 @@ from skinning.utils.progress import Progress
 __all__ = [
     "initialize_weights"
 ]
+log = logging.getLogger(__name__)
 
 
 class InfluenceConnectivity(object):
@@ -263,3 +265,5 @@ def initialize_weights(
         )
 
         progress.next()
+
+    log.info("Successfully initialize weights for '{}'.".format(geometry))

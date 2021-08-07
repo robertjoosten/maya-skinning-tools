@@ -149,24 +149,25 @@ class InitializeWeightsWidget(QtWidgets.QWidget):
         Loop over all shapes and components and call the set initial weights
         command using the settings read from the ui.
         """
-        with undo.UndoChunk():
-            iterations = self.iterations.value()
-            projection = self.projection.value()
-            blend = self.blend_weights.isChecked()
-            blend_method = self.delinear_method.currentText() \
-                if self.delinear_weights.isChecked() \
-                else None
+        with gui.WaitCursor():
+            with undo.UndoChunk():
+                iterations = self.iterations.value()
+                projection = self.projection.value()
+                blend = self.blend_weights.isChecked()
+                blend_method = self.delinear_method.currentText() \
+                    if self.delinear_weights.isChecked() \
+                    else None
 
-            for shape, components in self.geometry:
-                commands.initialize_weights(
-                    shape,
-                    self.joints,
-                    components=components,
-                    iterations=iterations,
-                    projection=projection,
-                    blend=blend,
-                    blend_method=blend_method
-                )
+                for shape, components in self.geometry:
+                    commands.initialize_weights(
+                        shape,
+                        self.joints,
+                        components=components,
+                        iterations=iterations,
+                        projection=projection,
+                        blend=blend,
+                        blend_method=blend_method
+                    )
 
     def reset(self):
         """
