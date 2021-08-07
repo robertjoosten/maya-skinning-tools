@@ -2,6 +2,7 @@ from maya.api import OpenMaya
 from collections import OrderedDict
 
 from skinning.utils import api
+from skinning.utils import math
 
 
 CENTER = 0
@@ -21,6 +22,7 @@ class Symmetry(object):
     _faces = {}
     _edges = {}
     _vertices = {}
+    _matrices = {}
 
     def __init__(self, node):
         self.dag = api.conversion.get_dag(node)
@@ -66,6 +68,17 @@ class Symmetry(object):
 
         return self._vertices[self.path]
 
+    @property
+    def matrices(self):
+        """
+        :return: Matrix
+        :rtype: OpenMaya.MMatrix
+        """
+        if self.path not in self._matrices:
+            raise RuntimeError("Symmetry not calculated for mesh '{}'.".format(self.path))
+
+        return self._matrices[self.path]
+
     # ------------------------------------------------------------------------
 
     @staticmethod
@@ -96,20 +109,6 @@ class Symmetry(object):
             return indices
         else:
             raise ValueError("Mode '{}' is not valid.".format(mode))
-
-    # ------------------------------------------------------------------------
-
-    @staticmethod
-    def get_center(data):
-        """
-        :return: Center indices
-        :rtype: list[int]
-        """
-        return [k for k, v in data.items() if k == v]
-
-    @staticmethod
-    def get_side(self, ):
-        pass
 
     # ------------------------------------------------------------------------
 
@@ -228,8 +227,59 @@ class Symmetry(object):
 
                     processing.append((face_index, edge_index))
 
+        # calculate matrix using the all of the center vertices and an up
+        # vector of +y.
+        points = self.mesh_fn.getPoints(OpenMaya.MSpace.kWorld)
+        points_center = [OpenMaya.MVector(points[k]) for k, v in vertices.items() if k == v]
+
+        centroid = math.average_vector(points_center)
+        up = OpenMaya.MVector(0, 1, 0)
+        side = OpenMaya.MVector(1, 0, 0)
+
+        for i, (vector1, vector2) in enumerate(zip(points_center[:-1], points_center[1:])):
+            cross = vector1 ^ vector2
+            cross.normalize()
+
+            if i == 0:
+                multiplier = 1 if side * cross > 0 else -1
+                side = cross * multiplier
+            else:
+                angle = side.angle(cross)
+                if angle > math.pi * 0.5:
+                    cross *= -1
+
+            side += cross
+
+        side.normalize()
+        forward = side ^ up
+        up = forward ^ side
+
+        matrix = OpenMaya.MMatrix(
+            list(side) + [0] +
+            list(up.normal()) + [0] +
+            list(forward.normal()) + [0] +
+            list(centroid) + [1]
+        )
+
+        # determine side order by checking of the vertex is positive or
+        # negative when multiplying with the inverse matrix.
+        for k, v in vertices.items():
+            if k == v:
+                continue
+
+            point = OpenMaya.MPoint(points[k]) * matrix.inverse()
+            point_reverse = OpenMaya.MPoint(points[v]) * matrix.inverse()
+
+            if point.x > 0 and point_reverse.x < 0:
+                break
+            elif point.x < 0 and point_reverse.x > 0:
+                faces = OrderedDict((v, k) for k, v in faces.items())
+                edges = OrderedDict((v, k) for k, v in edges.items())
+                vertices = OrderedDict((v, k) for k, v in vertices.items())
+                break
+
         # add the reverse of the mappings to the same dictionary. This will
-        # allow us to map from left to right to left.
+        # allow us to map from left to right and right to left.
         for k, v in list(faces.items()):
             faces[v] = k
         for k, v in list(edges.items()):
@@ -240,6 +290,7 @@ class Symmetry(object):
         self._faces[self.path] = faces
         self._edges[self.path] = edges
         self._vertices[self.path] = vertices
+        self._matrices[self.path] = matrix
 
     # ------------------------------------------------------------------------
 

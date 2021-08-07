@@ -20,6 +20,9 @@ Tools
 **initialize-weights**
     * Initialize skin weights.
 
+**mirror-weights**
+    * Mirror skin weights using topology.
+
 **soft-selection-to-weights**
     * Convert soft selection to skin weights.
 

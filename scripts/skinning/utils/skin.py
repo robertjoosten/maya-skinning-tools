@@ -48,6 +48,9 @@ def get_cluster(node):
     return skin_cluster_fn.name()
 
 
+# ----------------------------------------------------------------------------
+
+
 def set_weights(skin_cluster, dag, components, influences, weights_new, weights_old=None):
     """
     Set the skin weights via the API but add them to the undo queue using the
