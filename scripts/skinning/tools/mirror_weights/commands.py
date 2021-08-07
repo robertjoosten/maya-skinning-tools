@@ -1,3 +1,4 @@
+import logging
 from maya.api import OpenMaya
 
 from skinning.utils import api
@@ -11,6 +12,7 @@ __all__ = [
     "mirror_weights",
     "mirror_weights_on_selection",
 ]
+log = logging.getLogger(__name__)
 
 
 def mirror_weights(geometry, edge, inverse=False, replace=("L", "R")):
@@ -62,7 +64,7 @@ def mirror_weights(geometry, edge, inverse=False, replace=("L", "R")):
 
     # create symmetry
     sym = symmetry.Symmetry(geometry)
-    sym.calculate_symmetry(edge, use_cache=True)
+    sym.calculate_symmetry(edge, use_cache=False)
 
     # get symmetry elements
     mode = symmetry.LEFT if inverse else symmetry.RIGHT
@@ -96,6 +98,8 @@ def mirror_weights(geometry, edge, inverse=False, replace=("L", "R")):
         influences,
         weights,
     )
+
+    log.info("Successfully mirrored weights for '{}'.".format(geometry))
 
 
 def mirror_weights_on_selection(inverse=False, replace=("L", "R")):
