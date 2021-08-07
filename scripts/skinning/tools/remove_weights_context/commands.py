@@ -132,6 +132,9 @@ class RemoveSkinWeights(object):
             return
 
         selection = OpenMaya.MGlobal.getActiveSelectionList()
+        if selection.isEmpty():
+            return
+
         _, self.before_component = selection.getComponent(0)
 
     def set_weights(self):
@@ -144,6 +147,9 @@ class RemoveSkinWeights(object):
             return
 
         selection = OpenMaya.MGlobal.getActiveSelectionList()
+        if selection.isEmpty():
+            return
+
         _, current_component = selection.getComponent(0)
 
         before_elements = set(self.indexed_component(self.before_component).getElements())

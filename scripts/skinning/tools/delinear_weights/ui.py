@@ -45,7 +45,7 @@ class DelinearWeightsWidget(QtWidgets.QWidget):
     def apply(self):
         with undo.UndoChunk():
             method = self.delinear_method.currentText()
-            commands.delinear_skin_weights_on_selection(method)
+            commands.delinear_weights_on_selection(method)
 
 
 def show():

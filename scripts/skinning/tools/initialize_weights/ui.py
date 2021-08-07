@@ -158,7 +158,7 @@ class InitializeWeightsWidget(QtWidgets.QWidget):
                 else None
 
             for shape, components in self.geometry:
-                commands.set_initial_weights(
+                commands.initialize_weights(
                     shape,
                     self.joints,
                     components=components,

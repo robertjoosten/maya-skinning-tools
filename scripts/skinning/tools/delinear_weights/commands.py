@@ -12,13 +12,13 @@ from skinning.utils.progress import Progress
 
 
 __all__ = [
-    "delinear_skin_weights",
-    "delinear_skin_weights_on_selection",
+    "delinear_weights",
+    "delinear_weights_on_selection",
 ]
 
 
 @decorator.preserve_selection
-def delinear_skin_weights(components, method):
+def delinear_weights(components, method):
     """
     Loop over all of the provided components and see if these components
     are deformed by a skin cluster. If this is the case, the weights will be
@@ -76,7 +76,7 @@ def delinear_skin_weights(components, method):
             progress.next()
 
 
-def delinear_skin_weights_on_selection(method):
+def delinear_weights_on_selection(method):
     """
     All of the selected components will be queried, these components will then
     be parsed to the :func:`delinear_skin_weights` function that will process
@@ -85,7 +85,7 @@ def delinear_skin_weights_on_selection(method):
     :param str method:
     """
     active_selection = OpenMaya.MGlobal.getActiveSelectionList()
-    if not active_selection.length():
+    if active_selection.isEmpty():
         raise RuntimeError("No selection made, unable to de-linear weights.")
 
     for i in range(active_selection.length()):
@@ -99,4 +99,4 @@ def delinear_skin_weights_on_selection(method):
         selection.add((dag, component))
 
         components = cmds.ls(selection.getSelectionStrings(), flatten=True)
-        delinear_skin_weights(components, method)
+        delinear_weights(components, method)

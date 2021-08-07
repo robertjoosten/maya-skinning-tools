@@ -14,6 +14,8 @@ Skinning tools for Maya.
 
 * <img align="left" src="icons/ST_initializeWeights.png?raw=true">[initialize-weights](scripts/skinning/tools/initialize_weights/README.md) - Initialize skin weights.
 
+* <img align="left" src="icons/ST_mirrorWeights.png?raw=true">[mirror-weights](scripts/skinning/tools/mirror_weights/README.md) - Mirror skin weights using topology.
+
 * <img align="left" src="icons/ST_softSelectionToWeights.png?raw=true">[soft-selection-to-weights](scripts/skinningTools/softSelectionToWeights/README.md) - Convert soft selection to skin weights.
 
 * <img align="left" src="icons/ST_delinearWeights.png?raw=true">[delinear-weights](scripts/skinning/tools/delinear_weights/README.md) - De-linearize skin weights.

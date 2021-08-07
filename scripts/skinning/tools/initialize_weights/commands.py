@@ -12,7 +12,7 @@ from skinning.utils.progress import Progress
 
 
 __all__ = [
-    "set_initial_weights"
+    "initialize_weights"
 ]
 
 
@@ -124,7 +124,7 @@ class SkeletonConnectivity(influence.Skeleton):
 
 
 @decorator.preserve_selection
-def set_initial_weights(
+def initialize_weights(
         geometry,
         joints,
         components=None,

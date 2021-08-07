@@ -144,9 +144,12 @@ class SmoothSkinWeights(object):
                 weights_new[i] = 0.0
 
         if self.normalize == 1:
+            factor = 0
             locked_total = sum([weight for i, weight in enumerate(weights_new) if self.locked_influences[i]])
             blend_total = sum(weights_new) - locked_total
-            factor = 0 if locked_total >= 1.0 else (1.0 - locked_total) / blend_total
+
+            if blend_total > 0 and locked_total < 1.0:
+                factor = (1.0 - locked_total) / blend_total
 
             for i, weight in enumerate(weights_new):
                 if not self.locked_influences[i]:
