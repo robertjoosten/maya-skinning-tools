@@ -57,14 +57,12 @@ class MirrorWeightsWidget(QtWidgets.QWidget):
     @gui.display_error
     def apply(self):
         with gui.WaitCursor():
+            left = self.left.text() or self.left.placeholderText()
+            right = self.right.text() or self.right.placeholderText()
+            inverse = not self.inverse.isChecked()
+
             with undo.UndoChunk():
-                commands.mirror_weights_on_selection(
-                    inverse=not self.inverse.isChecked(),
-                    replace=(
-                        str(self.left.text() or self.left.placeholderText()),
-                        str(self.right.text() or self.right.placeholderText()),
-                    )
-                )
+                commands.mirror_weights_on_selection(inverse=inverse, replace=(left, right))
 
 
 def show():

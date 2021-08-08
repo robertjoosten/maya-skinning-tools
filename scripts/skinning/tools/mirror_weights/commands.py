@@ -60,7 +60,7 @@ def mirror_weights(geometry, edge, inverse=False, replace=("L", "R")):
 
     if not replacement_valid:
         raise RuntimeError("No mirrored influences found using "
-                           "{} as replacement arguments.".format(replace))
+                           "('{}', '{}') as replacement arguments.".format(*replace))
 
     # create symmetry
     sym = symmetry.Symmetry(geometry)

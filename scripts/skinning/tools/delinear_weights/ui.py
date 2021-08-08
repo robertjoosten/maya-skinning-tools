@@ -43,9 +43,10 @@ class DelinearWeightsWidget(QtWidgets.QWidget):
 
     @gui.display_error
     def apply(self):
-        with undo.UndoChunk():
-            method = self.delinear_method.currentText()
-            commands.delinear_weights_on_selection(method)
+        with gui.WaitCursor():
+            with undo.UndoChunk():
+                method = self.delinear_method.currentText()
+                commands.delinear_weights_on_selection(method)
 
 
 def show():
