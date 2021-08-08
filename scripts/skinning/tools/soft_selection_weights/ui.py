@@ -187,7 +187,7 @@ class InfluenceWidget(JointWidget):
 
         self.selection = selection
         self.soft_selection = rich_selection
-        self.soft_selection_map = api.selection.get_rich_selection_weights(rich_selection)
+        self.soft_selection_map = api.selection.get_rich_selection_mapping(rich_selection)
         self.soft_selection_changed.emit()
 
         length = sum([len(data) for data in self.soft_selection_map.values()])
@@ -288,36 +288,36 @@ class SoftSelectionWeightsWidget(QtWidgets.QWidget):
 
     # ------------------------------------------------------------------------
 
-    def set_weights(self, mesh, joints, weights):
+    def set_weights(self, geometry, joints, weights):
         """
-        :param str mesh:
+        :param str geometry:
         :param list[str] joints:
         :param dict weights:
         :raise RuntimeError: When mesh doesn't exist.
         :raise RuntimeError: When joint doesn't exist.
         """
         # validate creation
-        if not cmds.objExists(mesh):
+        if not cmds.objExists(geometry):
             raise RuntimeError("Unable to set soft weights, "
-                               "mesh '{}' doesn't exist.".format(mesh))
+                               "geometry '{}' doesn't exist.".format(geometry))
         for joint in joints:
             if not cmds.objExists(joint):
-                raise RuntimeError("Unable to set soft weights on mesh '{}', "
-                                   "joint '{}' doesn't exist.".format(mesh, joint))
+                raise RuntimeError("Unable to set soft weights on geometry '{}', "
+                                   "joint '{}' doesn't exist.".format(geometry, joint))
 
         # get skin cluster
         try:
-            skin_cluster = skin.get_cluster(mesh)
+            skin_cluster = skin.get_cluster(geometry)
         except RuntimeError:
             if not cmds.objExists(self.filler.joint):
-                raise RuntimeError("Unable to set soft weights on mesh '{}', "
-                                   "filler joint '{}' doesn't exist.".format(mesh, self.filler.joint))
+                raise RuntimeError("Unable to set soft weights on geometry '{}', "
+                                   "filler joint '{}' doesn't exist.".format(geometry, self.filler.joint))
 
-            parent = cmds.listRelatives(mesh, parent=True)[0]
+            parent = cmds.listRelatives(geometry, parent=True)[0]
             skin_cluster_name = "{}_SK".format(naming.get_leaf_name(parent))
             skin_cluster = cmds.skinCluster(
                 self.filler.joint,
-                mesh,
+                geometry,
                 name=skin_cluster_name,
                 toSelectedBones=True,
                 removeUnusedInfluence=False,
@@ -367,7 +367,7 @@ class SoftSelectionWeightsWidget(QtWidgets.QWidget):
         component_fn.addElements(elements)
 
         # get weights
-        dag = api.conversion.get_dag(mesh)
+        dag = api.conversion.get_dag(geometry)
         weights_old, _ = skin_cluster_fn.getWeights(dag, component)
 
         weights_split = list(weights_old)
@@ -387,19 +387,16 @@ class SoftSelectionWeightsWidget(QtWidgets.QWidget):
             if blend_total > current_total - locked_total:
                 factor = max([0, (current_total - locked_total) / blend_total])
                 for joint, weight in weights[element].items():
-                    index = indexed_influences[joint]
-                    weights[element][index] = weight * factor
-
-                log.warning("Scale weights of '{}.vtx[{}]' by a factor of {} in order to "
-                            "not disturb locked influences.".format(mesh, element, factor))
+                    weights[element][joint] = weight * factor
 
             # scale down the non-locked weights so there is room for the new
             # weights to be applied.
             factor = 0
             blend_total = sum(list(weights[element].values()))
+            free_total = current_total - blend_total - locked_total
 
             if blend_total > 0 and locked_total < current_total:
-                factor = (current_total - blend_total - locked_total) / (current_total - locked_total)
+                factor = free_total / (current_total - locked_total)
 
             for index, weight in enumerate(weights_array):
                 if not locked_influences[index]:
@@ -444,6 +441,8 @@ class SoftSelectionWeightsWidget(QtWidgets.QWidget):
             weights_new=weights_new
         )
 
+        log.info("Successfully set soft weights for '{}'.".format(geometry))
+
     # ------------------------------------------------------------------------
 
     @gui.display_error
@@ -463,18 +462,18 @@ class SoftSelectionWeightsWidget(QtWidgets.QWidget):
             for inf in self.influences:
                 joints.add(inf.joint)
 
-                for mesh, weights in inf.soft_selection_map.items():
-                    if mesh not in data:
-                        data[mesh] = {}
+                for geometry, weights in inf.soft_selection_map.items():
+                    if geometry not in data:
+                        data[geometry] = {}
 
                     for index, weight in weights.items():
-                        if index not in data[mesh]:
-                            data[mesh][index] = {}
+                        if index not in data[geometry]:
+                            data[geometry][index] = {}
 
-                        if inf.joint not in data[mesh][index]:
-                            data[mesh][index][inf.joint] = 0
+                        if inf.joint not in data[geometry][index]:
+                            data[geometry][index][inf.joint] = 0
 
-                        data[mesh][index][inf.joint] += weight
+                        data[geometry][index][inf.joint] += weight
 
             with undo.UndoChunk():
                 for mesh, weights in data.items():

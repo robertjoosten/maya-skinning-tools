@@ -1,10 +1,11 @@
 from maya.api import OpenMaya
 
 
-def get_rich_selection_weights(rich_selection):
+def get_rich_selection_mapping(rich_selection):
     """
-    Query the weighting of the provided rich selection. The weighting is only
-    stored from single indexed components.
+    Query the weighting of the provided rich selection. That saved data
+    structure looks like below where all the objects are grouped under its
+    node with a dictionary of element and weight values.
 
     data = {
         dag: {
@@ -24,7 +25,7 @@ def get_rich_selection_weights(rich_selection):
         dag, component = iterator.getComponent()
         path = dag.partialPathName()
 
-        if path not in data.keys():
+        if path not in data:
             data[path] = {}
 
         if component.hasFn(OpenMaya.MFn.kSingleIndexedComponent):

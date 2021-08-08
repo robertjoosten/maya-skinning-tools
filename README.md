@@ -10,13 +10,13 @@ Skinning tools for Maya.
 
 * <img align="left" src="icons/ST_paintRemoveWeightsCtx.png?raw=true">[remove-weights-context](scripts/skinning/tools/remove_weights_context/README.md) - Remove a specific influence on vertices with the paint tool.
 
-* <img align="left" src="icons/ST_tweakWeights.png?raw=true">[tweak-weights](scripts/skinning/tools/tweak_weights/README.md) - Tweak influence weights on a component level.
-
 * <img align="left" src="icons/ST_initializeWeights.png?raw=true">[initialize-weights](scripts/skinning/tools/initialize_weights/README.md) - Initialize skin weights.
 
 * <img align="left" src="icons/ST_mirrorWeights.png?raw=true">[mirror-weights](scripts/skinning/tools/mirror_weights/README.md) - Mirror skin weights using topology.
 
-* <img align="left" src="icons/ST_softSelectionToWeights.png?raw=true">[soft-selection-to-weights](scripts/skinningTools/softSelectionToWeights/README.md) - Convert soft selection to skin weights.
+* <img align="left" src="icons/ST_softSelectionToWeights.png?raw=true">[soft-selection-to-weights](scripts/skinning/tools/soft_selection_weights/README.md) - Convert soft selection to skin weights.
+
+* <img align="left" src="icons/ST_tweakWeights.png?raw=true">[tweak-weights](scripts/skinning/tools/tweak_weights/README.md) - Tweak influence weights on a component level.
 
 * <img align="left" src="icons/ST_delinearWeights.png?raw=true">[delinear-weights](scripts/skinning/tools/delinear_weights/README.md) - De-linearize skin weights.
 

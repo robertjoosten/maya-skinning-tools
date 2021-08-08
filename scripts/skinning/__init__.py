@@ -33,5 +33,5 @@ Tools
     * Create projection planes from selection joints.
 """
 __author__ = "Robert Joosten"
-__version__ = "1.0.1"
+__version__ = "2.0.0"
 __email__ = "rwm.joosten@gmail.com"

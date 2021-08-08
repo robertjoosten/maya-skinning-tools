@@ -5,7 +5,6 @@ from maya import cmds
 
 log = logging.getLogger(__name__)
 ROOT_PACKAGE = __name__.rsplit(".", 1)[0]
-ROOT_PACKAGE_OLD = "skinningTools"
 
 PAINT_SMOOTH_WEIGHTS_COMMAND = """
 import {0}.tools.smooth_weights_context
@@ -17,20 +16,25 @@ import {0}.tools.remove_weights_context.ui
 {0}.tools.remove_weights_context.ui.show()
 """.format(ROOT_PACKAGE)
 
-TWEAK_WEIGHT_COMMAND = """
-import {0}.tools.tweak_weights.ui
-{0}.tools.tweak_weights.ui.show()
-""".format(ROOT_PACKAGE)
-
 INITIALIZE_WEIGHTS_COMMAND = """
 import {0}.tools.initialize_weights.ui
 {0}.tools.initialize_weights.ui.show()
 """.format(ROOT_PACKAGE)
 
+MIRROR_WEIGHTS_COMMAND = """
+import {0}.tools.mirror_weights.ui
+{0}.tools.mirror_weights.ui.show()
+""".format(ROOT_PACKAGE)
+
 CONVERT_SOFT_SELECTION_COMMAND = """
-import {0}.softSelectionToWeights.ui
-{0}.softSelectionToWeights.ui.show()
-""".format(ROOT_PACKAGE_OLD)
+import {0}.tools.soft_selection_weights.ui
+{0}.tools.soft_selection_weights.ui.show()
+""".format(ROOT_PACKAGE)
+
+TWEAK_WEIGHT_COMMAND = """
+import {0}.tools.tweak_weights.ui
+{0}.tools.tweak_weights.ui.show()
+""".format(ROOT_PACKAGE)
 
 DELINEAR_WEIGHTS_COMMAND = """
 import {0}.tools.delinear_weights.ui
@@ -66,13 +70,6 @@ SHELF_TOOLS = [
         "sourceType": "python"
     },
     {
-        "label": "tweakWeights",
-        "command": TWEAK_WEIGHT_COMMAND,
-        "annotation": "Tweak Influences on a component level",
-        "image1": "ST_tweakWeights.png",
-        "sourceType": "python"
-    },
-    {
         "label": "initializeWeights",
         "command": INITIALIZE_WEIGHTS_COMMAND,
         "annotation": "Initialize skin weights",
@@ -80,10 +77,24 @@ SHELF_TOOLS = [
         "sourceType": "python"
     },
     {
+        "label": "mirrorWeights",
+        "command": MIRROR_WEIGHTS_COMMAND,
+        "annotation": "Mirror skin weights using topology",
+        "image1": "ST_mirrorWeights.png",
+        "sourceType": "python"
+    },
+    {
         "label": "softSelectionToWeights",
         "command": CONVERT_SOFT_SELECTION_COMMAND,
         "annotation": "Convert soft selection to skin weights",
         "image1": "ST_softSelectionToWeights.png",
+        "sourceType": "python"
+    },
+    {
+        "label": "tweakWeights",
+        "command": TWEAK_WEIGHT_COMMAND,
+        "annotation": "Tweak Influences on a component level",
+        "image1": "ST_tweakWeights.png",
         "sourceType": "python"
     },
     {
