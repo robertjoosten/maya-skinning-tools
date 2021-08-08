@@ -1,0 +1,16 @@
+skinning\.tools\.initialize\_weights package
+============================================
+
+.. automodule:: skinning.tools.initialize_weights
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.tools.initialize_weights.commands
+   skinning.tools.initialize_weights.ui
+

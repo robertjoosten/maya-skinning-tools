@@ -1,0 +1,16 @@
+skinning\.tools\.projection\_plane package
+==========================================
+
+.. automodule:: skinning.tools.projection_plane
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.tools.projection_plane.commands
+   skinning.tools.projection_plane.ui
+

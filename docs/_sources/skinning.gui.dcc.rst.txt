@@ -1,0 +1,7 @@
+skinning\.gui\.dcc module
+=========================
+
+.. automodule:: skinning.gui.dcc
+    :members:
+    :undoc-members:
+    :show-inheritance:

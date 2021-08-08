@@ -1,7 +1,0 @@
-skinningTools\.utils\.tweening\.methods module
-==============================================
-
-.. automodule:: skinningTools.utils.tweening.methods
-    :members:
-    :undoc-members:
-    :show-inheritance:

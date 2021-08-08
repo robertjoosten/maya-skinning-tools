@@ -1,7 +1,0 @@
-skinningTools\.paintSmoothWeightsCtx\.commands module
-=====================================================
-
-.. automodule:: skinningTools.paintSmoothWeightsCtx.commands
-    :members:
-    :undoc-members:
-    :show-inheritance:

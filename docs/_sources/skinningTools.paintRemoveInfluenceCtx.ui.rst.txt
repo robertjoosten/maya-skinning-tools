@@ -1,7 +1,0 @@
-skinningTools\.paintRemoveInfluenceCtx\.ui module
-=================================================
-
-.. automodule:: skinningTools.paintRemoveInfluenceCtx.ui
-    :members:
-    :undoc-members:
-    :show-inheritance:

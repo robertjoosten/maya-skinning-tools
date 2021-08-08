@@ -1,0 +1,7 @@
+skinning\.tools\.initialize\_weights\.ui module
+===============================================
+
+.. automodule:: skinning.tools.initialize_weights.ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

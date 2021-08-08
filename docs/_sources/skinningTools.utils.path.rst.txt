@@ -1,7 +1,0 @@
-skinningTools\.utils\.path module
-=================================
-
-.. automodule:: skinningTools.utils.path
-    :members:
-    :undoc-members:
-    :show-inheritance:

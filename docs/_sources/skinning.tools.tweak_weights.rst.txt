@@ -1,0 +1,15 @@
+skinning\.tools\.tweak\_weights package
+=======================================
+
+.. automodule:: skinning.tools.tweak_weights
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.tools.tweak_weights.ui
+

@@ -1,7 +1,0 @@
-skinningTools\.utils\.ui\.Qt module
-===================================
-
-.. automodule:: skinningTools.utils.ui.Qt
-    :members:
-    :undoc-members:
-    :show-inheritance:

@@ -1,0 +1,7 @@
+skinning\.gui\.icon module
+==========================
+
+.. automodule:: skinning.gui.icon
+    :members:
+    :undoc-members:
+    :show-inheritance:

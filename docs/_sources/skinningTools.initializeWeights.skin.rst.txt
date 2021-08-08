@@ -1,7 +1,0 @@
-skinningTools\.initializeWeights\.skin module
-=============================================
-
-.. automodule:: skinningTools.initializeWeights.skin
-    :members:
-    :undoc-members:
-    :show-inheritance:

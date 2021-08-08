@@ -1,7 +1,0 @@
-skinningTools\.utils\.api\.smooth module
-========================================
-
-.. automodule:: skinningTools.utils.api.smooth
-    :members:
-    :undoc-members:
-    :show-inheritance:

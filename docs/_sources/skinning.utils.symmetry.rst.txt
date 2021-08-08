@@ -1,0 +1,7 @@
+skinning\.utils\.symmetry module
+================================
+
+.. automodule:: skinning.utils.symmetry
+    :members:
+    :undoc-members:
+    :show-inheritance:

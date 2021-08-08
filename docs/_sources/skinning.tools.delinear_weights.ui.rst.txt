@@ -1,0 +1,7 @@
+skinning\.tools\.delinear\_weights\.ui module
+=============================================
+
+.. automodule:: skinning.tools.delinear_weights.ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

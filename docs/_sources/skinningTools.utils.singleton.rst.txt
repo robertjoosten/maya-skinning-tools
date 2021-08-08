@@ -1,7 +1,0 @@
-skinningTools\.utils\.singleton module
-======================================
-
-.. automodule:: skinningTools.utils.singleton
-    :members:
-    :undoc-members:
-    :show-inheritance:

@@ -1,0 +1,7 @@
+skinning\.gui\.widgets\.ease module
+===================================
+
+.. automodule:: skinning.gui.widgets.ease
+    :members:
+    :undoc-members:
+    :show-inheritance:

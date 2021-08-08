@@ -1,7 +1,0 @@
-skinningTools\.initializeWeights\.joint module
-==============================================
-
-.. automodule:: skinningTools.initializeWeights.joint
-    :members:
-    :undoc-members:
-    :show-inheritance:

@@ -1,7 +1,0 @@
-skinningTools\.utils\.weight module
-===================================
-
-.. automodule:: skinningTools.utils.weight
-    :members:
-    :undoc-members:
-    :show-inheritance:

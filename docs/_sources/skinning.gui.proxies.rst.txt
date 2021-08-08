@@ -1,0 +1,15 @@
+skinning\.gui\.proxies package
+==============================
+
+.. automodule:: skinning.gui.proxies
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.gui.proxies.tree
+

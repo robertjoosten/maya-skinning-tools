@@ -1,0 +1,15 @@
+skinning\.gui\.models package
+=============================
+
+.. automodule:: skinning.gui.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.gui.models.influence
+

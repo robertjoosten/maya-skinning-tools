@@ -1,0 +1,7 @@
+skinning\.tools\.initialize\_weights\.commands module
+=====================================================
+
+.. automodule:: skinning.tools.initialize_weights.commands
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,7 +1,0 @@
-skinningTools\.utils\.decorator module
-======================================
-
-.. automodule:: skinningTools.utils.decorator
-    :members:
-    :undoc-members:
-    :show-inheritance:

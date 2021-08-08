@@ -1,0 +1,7 @@
+skinning\.utils\.math\.ease module
+==================================
+
+.. automodule:: skinning.utils.math.ease
+    :members:
+    :undoc-members:
+    :show-inheritance:

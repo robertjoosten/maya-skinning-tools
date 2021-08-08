@@ -1,0 +1,7 @@
+skinning\.tools\.remove\_weights\_context\.ui module
+====================================================
+
+.. automodule:: skinning.tools.remove_weights_context.ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

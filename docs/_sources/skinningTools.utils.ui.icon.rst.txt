@@ -1,7 +1,0 @@
-skinningTools\.utils\.ui\.icon module
-=====================================
-
-.. automodule:: skinningTools.utils.ui.icon
-    :members:
-    :undoc-members:
-    :show-inheritance:

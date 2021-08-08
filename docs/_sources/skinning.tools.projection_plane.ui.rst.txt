@@ -1,0 +1,7 @@
+skinning\.tools\.projection\_plane\.ui module
+=============================================
+
+.. automodule:: skinning.tools.projection_plane.ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

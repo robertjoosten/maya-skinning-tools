@@ -1,0 +1,16 @@
+skinning\.tools\.remove\_weights\_context package
+=================================================
+
+.. automodule:: skinning.tools.remove_weights_context
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.tools.remove_weights_context.commands
+   skinning.tools.remove_weights_context.ui
+

@@ -1,0 +1,7 @@
+skinning\.gui\.widgets\.search module
+=====================================
+
+.. automodule:: skinning.gui.widgets.search
+    :members:
+    :undoc-members:
+    :show-inheritance:

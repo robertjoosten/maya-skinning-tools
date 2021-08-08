@@ -1,0 +1,7 @@
+skinning\.tools\.mirror\_weights\.commands module
+=================================================
+
+.. automodule:: skinning.tools.mirror_weights.commands
+    :members:
+    :undoc-members:
+    :show-inheritance:

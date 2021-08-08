@@ -1,7 +1,7 @@
-skinningTools
-=============
+skinning
+========
 
 .. toctree::
    :maxdepth: 4
 
-   skinningTools
+   skinning

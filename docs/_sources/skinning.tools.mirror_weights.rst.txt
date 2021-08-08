@@ -1,0 +1,16 @@
+skinning\.tools\.mirror\_weights package
+========================================
+
+.. automodule:: skinning.tools.mirror_weights
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.tools.mirror_weights.commands
+   skinning.tools.mirror_weights.ui
+

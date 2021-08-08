@@ -1,7 +1,0 @@
-skinningTools\.utils\.api\.skin module
-======================================
-
-.. automodule:: skinningTools.utils.api.skin
-    :members:
-    :undoc-members:
-    :show-inheritance:

@@ -1,0 +1,7 @@
+skinning\.tools\.remove\_weights\_context\.commands module
+==========================================================
+
+.. automodule:: skinning.tools.remove_weights_context.commands
+    :members:
+    :undoc-members:
+    :show-inheritance:

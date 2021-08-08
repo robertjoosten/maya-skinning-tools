@@ -1,0 +1,7 @@
+skinning\.tools\.smooth\_weights\_context\.commands module
+==========================================================
+
+.. automodule:: skinning.tools.smooth_weights_context.commands
+    :members:
+    :undoc-members:
+    :show-inheritance:

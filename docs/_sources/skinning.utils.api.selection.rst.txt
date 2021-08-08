@@ -1,0 +1,7 @@
+skinning\.utils\.api\.selection module
+======================================
+
+.. automodule:: skinning.utils.api.selection
+    :members:
+    :undoc-members:
+    :show-inheritance:

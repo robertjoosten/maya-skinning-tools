@@ -1,0 +1,17 @@
+skinning\.gui\.widgets package
+==============================
+
+.. automodule:: skinning.gui.widgets
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.gui.widgets.divider
+   skinning.gui.widgets.ease
+   skinning.gui.widgets.search
+

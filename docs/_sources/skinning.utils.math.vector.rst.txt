@@ -1,0 +1,7 @@
+skinning\.utils\.math\.vector module
+====================================
+
+.. automodule:: skinning.utils.math.vector
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,15 @@
+skinning\.tools\.smooth\_weights\_context package
+=================================================
+
+.. automodule:: skinning.tools.smooth_weights_context
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.tools.smooth_weights_context.commands
+

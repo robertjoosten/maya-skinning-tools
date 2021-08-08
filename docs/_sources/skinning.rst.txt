@@ -1,0 +1,24 @@
+skinning package
+================
+
+.. automodule:: skinning
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    skinning.gui
+    skinning.tools
+    skinning.utils
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.install
+

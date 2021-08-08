@@ -1,0 +1,7 @@
+skinning\.gui\.proxies\.tree module
+===================================
+
+.. automodule:: skinning.gui.proxies.tree
+    :members:
+    :undoc-members:
+    :show-inheritance:

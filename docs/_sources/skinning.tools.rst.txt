@@ -1,0 +1,22 @@
+skinning\.tools package
+=======================
+
+.. automodule:: skinning.tools
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    skinning.tools.delinear_weights
+    skinning.tools.initialize_weights
+    skinning.tools.mirror_weights
+    skinning.tools.projection_plane
+    skinning.tools.remove_weights_context
+    skinning.tools.smooth_weights_context
+    skinning.tools.soft_selection_weights
+    skinning.tools.tweak_weights
+

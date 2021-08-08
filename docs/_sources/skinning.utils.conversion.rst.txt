@@ -1,0 +1,7 @@
+skinning\.utils\.conversion module
+==================================
+
+.. automodule:: skinning.utils.conversion
+    :members:
+    :undoc-members:
+    :show-inheritance:

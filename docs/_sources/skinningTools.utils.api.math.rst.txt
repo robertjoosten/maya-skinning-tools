@@ -1,7 +1,0 @@
-skinningTools\.utils\.api\.math module
-======================================
-
-.. automodule:: skinningTools.utils.api.math
-    :members:
-    :undoc-members:
-    :show-inheritance:

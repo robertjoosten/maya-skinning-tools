@@ -1,0 +1,30 @@
+skinning\.utils package
+=======================
+
+.. automodule:: skinning.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    skinning.utils.api
+    skinning.utils.math
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.utils.conversion
+   skinning.utils.decorator
+   skinning.utils.influence
+   skinning.utils.naming
+   skinning.utils.progress
+   skinning.utils.skin
+   skinning.utils.symmetry
+   skinning.utils.undo
+

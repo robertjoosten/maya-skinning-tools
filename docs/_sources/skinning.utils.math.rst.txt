@@ -1,0 +1,18 @@
+skinning\.utils\.math package
+=============================
+
+.. automodule:: skinning.utils.math
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.utils.math.ease
+   skinning.utils.math.line
+   skinning.utils.math.matrix
+   skinning.utils.math.vector
+

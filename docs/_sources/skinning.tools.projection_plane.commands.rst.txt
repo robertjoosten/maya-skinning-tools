@@ -1,0 +1,7 @@
+skinning\.tools\.projection\_plane\.commands module
+===================================================
+
+.. automodule:: skinning.tools.projection_plane.commands
+    :members:
+    :undoc-members:
+    :show-inheritance:

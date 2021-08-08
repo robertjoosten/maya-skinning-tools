@@ -1,7 +1,0 @@
-skinningTools\.utils\.ui\.context module
-========================================
-
-.. automodule:: skinningTools.utils.ui.context
-    :members:
-    :undoc-members:
-    :show-inheritance:

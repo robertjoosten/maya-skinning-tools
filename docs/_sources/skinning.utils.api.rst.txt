@@ -1,0 +1,16 @@
+skinning\.utils\.api package
+============================
+
+.. automodule:: skinning.utils.api
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.utils.api.conversion
+   skinning.utils.api.selection
+

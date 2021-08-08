@@ -1,7 +1,0 @@
-skinningTools\.utils\.selection module
-======================================
-
-.. automodule:: skinningTools.utils.selection
-    :members:
-    :undoc-members:
-    :show-inheritance:

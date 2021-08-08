@@ -1,7 +1,0 @@
-skinningTools\.utils\.api\.vector module
-========================================
-
-.. automodule:: skinningTools.utils.api.vector
-    :members:
-    :undoc-members:
-    :show-inheritance:

@@ -1,0 +1,26 @@
+skinning\.gui package
+=====================
+
+.. automodule:: skinning.gui
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    skinning.gui.models
+    skinning.gui.proxies
+    skinning.gui.widgets
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.gui.common
+   skinning.gui.dcc
+   skinning.gui.icon
+

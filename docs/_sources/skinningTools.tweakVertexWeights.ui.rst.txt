@@ -1,7 +1,0 @@
-skinningTools\.tweakVertexWeights\.ui module
-============================================
-
-.. automodule:: skinningTools.tweakVertexWeights.ui
-    :members:
-    :undoc-members:
-    :show-inheritance:
