@@ -43,8 +43,41 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="skinning-tools-initialize-weights-package">
-<h1>skinning.tools.initialize_weights package<a class="headerlink" href="#skinning-tools-initialize-weights-package" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-skinning.tools.initialize_weights">
+<span id="skinning-tools-initialize-weights-package"></span><h1>skinning.tools.initialize_weights package<a class="headerlink" href="#module-skinning.tools.initialize_weights" title="Permalink to this headline">¶</a></h1>
+<p>Assign initial skin weights to a mesh using the provided joints.</p>
+<div class="figure align-center">
+<img alt="_images/initial-weights-example.png" src="_images/initial-weights-example.png" />
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Extract the content of the .rar file anywhere on disk.</li>
+<li>Drag the skinning-tools.mel file in Maya to permanently install the script.</li>
+</ul>
+</div>
+<div class="section" id="note">
+<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<p>It can always be quite hard to find good bind settings to start of your
+skinning work. This tool will aid you to set the bind weights for you. There
+are a few options available to you to get the preferred result. It is possible
+to run this tool on specific components of a mesh. This will make it possible
+to use different settings on different parts of the mesh.</p>
+<p>The mesh can be smooth in memory to get rid of areas that would be hard
+otherwise to find the best associated joint. If smoothing itself is not enough
+the point can be displaced along its normal based on a the shortest distance
+to the joint multiplied by the projection variable. This will ensure that the
+point gets moved closer to the best associated joint. At the same time this
+needs to be used carefully as it can cause unexpected result on areas like
+mouth cavities etc.</p>
+<p>On top of this it is possible to already blend the skin weights between the
+line of the parent influence and its child. If the blend option is not used
+vertices will have a maximum influence of 1. If blending is used the max
+influences per vertex increases to 2. The way this number is calculated is to
+get the parameter of the closest point on the line from the specified vertex.
+By default the blending is linear, but tweening methods can be used to create
+a nice fall-off on the weighting.</p>
+</div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -65,6 +98,8 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">skinning.tools.initialize_weights package</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#note">Note</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 </ul>
 </li>

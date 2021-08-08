@@ -43,8 +43,69 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="skinning-tools-mirror-weights-commands-module">
-<h1>skinning.tools.mirror_weights.commands module<a class="headerlink" href="#skinning-tools-mirror-weights-commands-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-skinning.tools.mirror_weights.commands">
+<span id="skinning-tools-mirror-weights-commands-module"></span><h1>skinning.tools.mirror_weights.commands module<a class="headerlink" href="#module-skinning.tools.mirror_weights.commands" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="skinning.tools.mirror_weights.commands.mirror_weights">
+<code class="descclassname">skinning.tools.mirror_weights.commands.</code><code class="descname">mirror_weights</code><span class="sig-paren">(</span><em>geometry</em>, <em>edge</em>, <em>inverse=False</em>, <em>replace=('L'</em>, <em>'R')</em><span class="sig-paren">)</span><a class="headerlink" href="#skinning.tools.mirror_weights.commands.mirror_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mirror the weights using the provided geometry and symmetry edge. An error
+will be raised when no skin cluster is attached to the geometry and the
+inverse variable determines which side gets new weights. The mapper is used
+to establish a mirror mapping between the influences.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>geometry</strong> (<em>str</em>) – </li>
+<li><strong>edge</strong> (<em>int</em>) – </li>
+<li><strong>inverse</strong> (<em>bool</em>) – </li>
+<li><strong>replace</strong> (<em>tuple</em><em>[</em><em>str</em><em>]</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>RuntimeError</strong> – When symmetry cannot be established.</li>
+<li><strong>RuntimeError</strong> – When no skin cluster is attached.</li>
+<li><strong>RuntimeError</strong> – When no influences cannot be mirrored.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skinning.tools.mirror_weights.commands.mirror_weights_on_selection">
+<code class="descclassname">skinning.tools.mirror_weights.commands.</code><code class="descname">mirror_weights_on_selection</code><span class="sig-paren">(</span><em>inverse=False</em>, <em>replace=('L'</em>, <em>'R')</em><span class="sig-paren">)</span><a class="headerlink" href="#skinning.tools.mirror_weights.commands.mirror_weights_on_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mirror the weights using the current selection. The selection is supposed
+to be a mesh edge which dictates the symmetry. An error will be raised
+when no skin cluster is attached to the geometry and the inverse variable
+determines which side gets new weights. The mapper is used to establish a
+mirror mapping between the influences.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>inverse</strong> (<em>bool</em>) – </li>
+<li><strong>replace</strong> (<em>tuple</em><em>[</em><em>str</em><em>]</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>RuntimeError</strong> – When nothing is selected.</li>
+<li><strong>RuntimeError</strong> – When no edge is selected</li>
+<li><strong>RuntimeError</strong> – When symmetry cannot be established.</li>
+<li><strong>RuntimeError</strong> – When no skin cluster is attached.</li>
+<li><strong>RuntimeError</strong> – When no influences cannot be mirrored.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 

@@ -43,8 +43,48 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="skinning-tools-delinear-weights-commands-module">
-<h1>skinning.tools.delinear_weights.commands module<a class="headerlink" href="#skinning-tools-delinear-weights-commands-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-skinning.tools.delinear_weights.commands">
+<span id="skinning-tools-delinear-weights-commands-module"></span><h1>skinning.tools.delinear_weights.commands module<a class="headerlink" href="#module-skinning.tools.delinear_weights.commands" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="skinning.tools.delinear_weights.commands.delinear_weights">
+<code class="descclassname">skinning.tools.delinear_weights.commands.</code><code class="descname">delinear_weights</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#skinning.tools.delinear_weights.commands.delinear_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over all of the provided components and see if these components
+are deformed by a skin cluster. If this is the case, the weights will be
+de-linearized by the function provided. This function is found in the
+tweening module.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>components</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – </li>
+<li><strong>method</strong> (<em>str</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>ValueError</strong> – When blend method is not supported.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skinning.tools.delinear_weights.commands.delinear_weights_on_selection">
+<code class="descclassname">skinning.tools.delinear_weights.commands.</code><code class="descname">delinear_weights_on_selection</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#skinning.tools.delinear_weights.commands.delinear_weights_on_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>All of the selected components will be queried, these components will then
+be parsed to the <code class="xref py py-func docutils literal"><span class="pre">delinear_skin_weights()</span></code> function that will process
+the weights.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>method</strong> (<em>str</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 

@@ -1,7 +1,7 @@
 """
 Convert soft selection to skin weights.
 
-.. figure:: _images/soft-selection-to-weights=example.png
+.. figure:: _images/soft-selection-to-weights-example.png
    :align: center
 
 `Link to Video <https://vimeo.com/121190357>`_

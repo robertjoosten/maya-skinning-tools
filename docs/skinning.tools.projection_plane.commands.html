@@ -43,8 +43,44 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="skinning-tools-projection-plane-commands-module">
-<h1>skinning.tools.projection_plane.commands module<a class="headerlink" href="#skinning-tools-projection-plane-commands-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-skinning.tools.projection_plane.commands">
+<span id="skinning-tools-projection-plane-commands-module"></span><h1>skinning.tools.projection_plane.commands module<a class="headerlink" href="#module-skinning.tools.projection_plane.commands" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="skinning.tools.projection_plane.commands.create_projection_plane">
+<code class="descclassname">skinning.tools.projection_plane.commands.</code><code class="descname">create_projection_plane</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#skinning.tools.projection_plane.commands.create_projection_plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a projector plane for the given influences. The points of the
+plane are calculated using the provided width and axis. After that a
+skin cluster is created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>joints</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – </li>
+<li><strong>name</strong> (<em>str/None</em>) – </li>
+<li><strong>axis</strong> (<em>str</em>) – </li>
+<li><strong>width</strong> (<em>int/float</em>) – </li>
+<li><strong>padding</strong> (<em>int</em>) – </li>
+<li><strong>offset</strong> (<em>int</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Projection plane</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ValueError</strong> – When not more than 2 influences is provided</li>
+<li><strong>ValueError</strong> – When axis is not valid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 

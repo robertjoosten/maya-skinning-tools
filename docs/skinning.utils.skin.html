@@ -43,8 +43,73 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="skinning-utils-skin-module">
-<h1>skinning.utils.skin module<a class="headerlink" href="#skinning-utils-skin-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-skinning.utils.skin">
+<span id="skinning-utils-skin-module"></span><h1>skinning.utils.skin module<a class="headerlink" href="#module-skinning.utils.skin" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="skinning.utils.skin.get_cluster">
+<code class="descclassname">skinning.utils.skin.</code><code class="descname">get_cluster</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#skinning.utils.skin.get_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over an objects history and return the skin cluster node that is part
+of the history. The geometry provided will be extended to its shapes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> (<em>str</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Skin cluster</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skinning.utils.skin.get_cluster_fn">
+<code class="descclassname">skinning.utils.skin.</code><code class="descname">get_cluster_fn</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#skinning.utils.skin.get_cluster_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over an objects history and return the skin cluster api node that
+is part dependency graph. The geometry provided will be extended to its
+shapes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> (<em>str</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Skin cluster</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">OpenMayaAnim.MFnSkinCluster</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> – When no skin cluster can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skinning.utils.skin.set_weights">
+<code class="descclassname">skinning.utils.skin.</code><code class="descname">set_weights</code><span class="sig-paren">(</span><em>skin_cluster</em>, <em>dag</em>, <em>components</em>, <em>influences</em>, <em>weights_new</em>, <em>weights_old=None</em><span class="sig-paren">)</span><a class="headerlink" href="#skinning.utils.skin.set_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the skin weights via the API but add them to the undo queue using the
+apiundo module. If weights old are not provided they are retrieved from
+the skin cluster first.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>skin_cluster</strong> (<em>OpenMayaAnim.MFnSkinCluster</em>) – </li>
+<li><strong>dag</strong> (<em>OpenMaya.MDagPath</em>) – </li>
+<li><strong>components</strong> (<em>OpenMaya.MObject</em>) – </li>
+<li><strong>influences</strong> (<em>OpenMaya.MIntArray</em>) – </li>
+<li><strong>weights_new</strong> (<em>OpenMaya.MDoubleArray</em>) – </li>
+<li><strong>weights_old</strong> (<em>OpenMaya.MDoubleArray</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 

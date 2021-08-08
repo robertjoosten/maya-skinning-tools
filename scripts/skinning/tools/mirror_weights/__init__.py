@@ -1,7 +1,7 @@
 """
 Mirror skin weights using topology.
 
-.. figure:: _images/mirror-weights-example.gif
+.. figure:: _images/mirror-weights-example.png
    :align: center
 
 Installation
