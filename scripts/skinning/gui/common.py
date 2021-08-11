@@ -1,12 +1,16 @@
 import six
 import sys
+import shiboken2
 from PySide2 import QtGui, QtCore, QtWidgets
 from functools import wraps
+
+from skinning.utils import decorator
 
 
 __all__ = [
     "WaitCursor",
     "BlockSignals",
+    "get_application",
     "display_error",
     "clear_layout",
 ]
@@ -18,11 +22,11 @@ class WaitCursor(object):
     to the user a task is being calculated.
     """
     def __enter__(self):
-        app = QtWidgets.QApplication.instance()
+        app = get_application()
         app.setOverrideCursor(QtCore.Qt.WaitCursor)
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        app = QtWidgets.QApplication.instance()
+        app = get_application()
         app.restoreOverrideCursor()
 
 
@@ -43,6 +47,30 @@ class BlockSignals(object):
     def __exit__(self, exc_type, exc_val, exc_tb):
         for widget, state in zip(self._widgets, self._states):
             widget.blockSignals(state)
+
+
+@decorator.memoize
+def get_application():
+    """
+    Get the application making sure it is returned as a QtWidgets.QApplication
+    where the instance sometimes is returned as a QtWidgets.QCoreApplication,
+    which misses vital methods. At first it is attempted to create a new
+    application which is a bit backwards, but unfortunately nessecary due to
+    to fact that it crashes if checked when the instance is None.
+
+    :return: Application
+    :rtype: QtWidgets.QApplication
+    """
+    try:
+        app = QtWidgets.QApplication()
+    except (TypeError, RuntimeError):
+        app = QtWidgets.QApplication.instance()
+
+    if not isinstance(app, QtWidgets.QApplication):
+        app_pointer = shiboken2.getCppPointer(app)[0]
+        return shiboken2.wrapInstance(app_pointer, QtWidgets.QApplication)
+    else:
+        return app
 
 
 def display_error(func):
