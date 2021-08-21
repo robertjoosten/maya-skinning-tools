@@ -138,7 +138,8 @@ class SmoothSkinWeights(object):
             weights_excess = sorted(weights_sorted, key=lambda x: (-x[1], -x[2]))[self.max_influences:]
             for i, locked, weight in weights_excess:
                 if locked and weight:
-                    log.warning("Unable to maintain max influences due to locked weights.")
+                    log.warning("Unable to maintain influences at element {}, "
+                                "due to locked weights.".format(index))
                     continue
 
                 weights_new[i] = 0.0
@@ -150,6 +151,9 @@ class SmoothSkinWeights(object):
 
             if blend_total > 0 and locked_total < 1.0:
                 factor = (1.0 - locked_total) / blend_total
+            else:
+                log.warning("Unable to maintain smooth values at element {}, "
+                            "due to locked weights and normalization.".format(index))
 
             for i, weight in enumerate(weights_new):
                 if not self.locked_influences[i]:

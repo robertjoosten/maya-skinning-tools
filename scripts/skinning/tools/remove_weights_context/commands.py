@@ -185,6 +185,9 @@ class RemoveSkinWeights(object):
 
                 if blend_total > 0 and locked_total < 1.0:
                     factor = (1.0 - locked_total) / blend_total
+                else:
+                    log.warning("Unable to maintain smooth values at element {}, "
+                                "due to locked weights and normalization.".format(element))
 
                 for j, weight in enumerate(weights):
                     if not self.locked_influences[j]:
