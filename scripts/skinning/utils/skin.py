@@ -1,10 +1,10 @@
-import apiundo
 from maya import cmds
 from maya.api import OpenMaya
 from maya.api import OpenMayaAnim
 from functools import partial
 
 from skinning.utils import api
+from skinning.vendor import apiundo
 
 
 def get_cluster_fn(node):
