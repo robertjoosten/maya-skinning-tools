@@ -1,0 +1,15 @@
+skinning\.vendor package
+========================
+
+.. automodule:: skinning.vendor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   skinning.vendor.apiundo
+

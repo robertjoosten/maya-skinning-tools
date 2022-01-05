@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>skinning.tools.initialize_weights.commands module &#8212; skinning  &#39;&#39; documentation</title>
+    <title>skinning.vendor package &#8212; skinning  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -43,43 +43,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-skinning.tools.initialize_weights.commands">
-<span id="skinning-tools-initialize-weights-commands-module"></span><h1>skinning.tools.initialize_weights.commands module<a class="headerlink" href="#module-skinning.tools.initialize_weights.commands" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="skinning.tools.initialize_weights.commands.initialize_weights">
-<code class="descclassname">skinning.tools.initialize_weights.commands.</code><code class="descname">initialize_weights</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#skinning.tools.initialize_weights.commands.initialize_weights" title="Permalink to this definition">¶</a></dt>
-<dd><p>The set initial weights function will set the skin weights on a mesh and
-the isolate only the provided components of any. Each vertex will only
-have one influence, the best influence is determined by generating lines
-for each of the joints and determining the line closest to the vertex. The
-vertex points can be altered as well using smoothing operations to details
-or overlapping and the project can be used to project the point along its
-normal to get it closer to the preferred joints.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>geometry</strong> (<em>str</em>) – </li>
-<li><strong>joints</strong> (<em>list</em>) – </li>
-<li><strong>components</strong> (<em>list/None</em>) – </li>
-<li><strong>iterations</strong> (<em>int</em>) – Number of smoothing iterations</li>
-<li><strong>projection</strong> (<em>float/int</em>) – Value between 0-1</li>
-<li><strong>blend</strong> (<em>bool</em>) – </li>
-<li><strong>blend_method</strong> (<em>str</em>) – </li>
+  <div class="section" id="module-skinning.vendor">
+<span id="skinning-vendor-package"></span><h1>skinning.vendor package<a class="headerlink" href="#module-skinning.vendor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="skinning.vendor.apiundo.html">skinning.vendor.apiundo module</a></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ValueError</strong> – When geometry is not a mesh.</li>
-<li><strong>ValueError</strong> – When blend method is not supported</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+</div>
+</div>
 </div>
 
 
@@ -88,10 +61,18 @@ normal to get it closer to the preferred joints.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">skinning.vendor package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/skinning.tools.initialize_weights.commands.rst.txt"
+      <li><a href="_sources/skinning.vendor.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
